@@ -124,7 +124,7 @@ export const blogQuery = graphql`
 			}
 		}
 		allSanityPost(
-			filter: { status: { eq: "published" } }
+			// filter: { status: { eq: "published" } }
 			sort: { order: ASC, fields: publishedAt }
 		) {
 			edges {
