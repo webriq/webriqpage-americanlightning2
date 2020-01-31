@@ -123,10 +123,7 @@ export const blogQuery = graphql`
 				description
 			}
 		}
-		allSanityPost(
-			// filter: { status: { eq: "published" } }
-			sort: { order: ASC, fields: publishedAt }
-		) {
+		allSanityPost(sort: { order: ASC, fields: publishedAt }) {
 			edges {
 				node {
 					id

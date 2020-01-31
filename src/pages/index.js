@@ -3,12 +3,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Tab, Nav } from "react-bootstrap"
+import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 import Sticky from "react-sticky-el"
 
 import Hero from "../components/home/Hero"
 import AboutUs from "../components/home/AboutUs"
 import FeaturedProducts from "../components/home/FeaturedProducts"
+import NewsEvents from "../components/home/NewsEvents"
 
 class IndexPage extends React.Component {
   constructor(props, context) {
@@ -61,13 +63,19 @@ class IndexPage extends React.Component {
           </Sticky>
           <Tab.Content>
             <Tab.Pane eventKey={1}>
-              <AboutUs />
+              <LazyLoadComponent>
+                <AboutUs />
+              </LazyLoadComponent>
             </Tab.Pane>
             <Tab.Pane eventKey={2}>
-              <FeaturedProducts />
+              <LazyLoadComponent>
+                <FeaturedProducts />
+              </LazyLoadComponent>
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
-              <div>News Content</div>
+              <LazyLoadComponent>
+                <NewsEvents />
+              </LazyLoadComponent>
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>

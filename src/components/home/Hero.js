@@ -84,7 +84,7 @@ class Hero extends React.Component {
 											<Col xs="9">
 												<div className="text-center">
 													<Zoom cascade delay={500}>
-														<h1 className="display-1 font-weight-normal text-white m-0">
+														<h1 className="display-1 text-uppercase font-weight-normal text-white m-0">
 															American Lighting
 														</h1>
 													</Zoom>

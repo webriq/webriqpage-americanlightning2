@@ -7,13 +7,7 @@ import MySwiper from "../components/swiper/swiper"
 import SampleForm from "../components/form/form"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "react-lazy-load-image-component/src/effects/blur.css"
-import bsns from "../images/business.svg"
-import finance from "../images/financial.svg"
-import jigsaw from "../images/jigsaws.svg"
-import report from "../images/report.svg"
-import trophy from "../images/trophy.svg"
-
-class IndexPage extends React.Component {
+class IndexOriginal extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = this.props.data.site.siteMetadata.description
@@ -73,78 +67,6 @@ class IndexPage extends React.Component {
                     src="https://source.unsplash.com/user/neotronimz/600x400"
                     alt="About us"
                   />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="services-section bg-light">
-          <div class="container">
-            <div class="section-heading text-center">
-              <h6 class="font-weight-bold text-uppercase flair">Services</h6>
-              <h2>
-                <strong>How Can We Help You?</strong>
-              </h2>
-            </div>
-            <div class="row justify-content-center pt-5">
-              <div class="col-md-4 mb-5">
-                <div class="p-3">
-                  <LazyLoadImage src={bsns} width="100px" />
-                  <h5 class="pt-4 text-uppercase font-weight-bold text-primary">
-                    Lorem Ipsum
-                  </h5>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-4 mb-5">
-                <div class="p-3">
-                  <LazyLoadImage src={finance} width="100px" alt="Finance" />
-                  <h5 class="pt-4 text-uppercase font-weight-bold text-primary">
-                    Lorem Ipsum
-                  </h5>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-4 mb-5">
-                <div class="p-3">
-                  <LazyLoadImage src={jigsaw} width="100px" />
-                  <h5 class="pt-4 text-uppercase font-weight-bold text-primary">
-                    Lorem Ipsum
-                  </h5>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-4 mb-5">
-                <div class="p-3">
-                  <LazyLoadImage src={report} width="100px" />
-                  <h5 class="pt-4 text-uppercase font-weight-bold text-primary">
-                    Lorem Ipsum
-                  </h5>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-4 mb-5">
-                <div class="p-3">
-                  <LazyLoadImage src={trophy} width="100px" />
-                  <h5 class="pt-4 text-uppercase font-weight-bold text-primary">
-                    Lorem Ipsum
-                  </h5>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium
-                  </p>
                 </div>
               </div>
             </div>
@@ -384,10 +306,10 @@ class IndexPage extends React.Component {
   }
 }
 
-export default IndexPage
+export default IndexOriginal
 
-export const indexPageQuery = graphql`
-  query indexPageQuery {
+export const IndexOriginalQuery = graphql`
+  query IndexOriginalQuery {
     site {
       siteMetadata {
         title

@@ -10,22 +10,22 @@ const footer = props => {
 						<h5 className="text-uppercase section-heading">Quick Links</h5>
 						<ul className="list-unstyled footer-links">
 							<li>
-								<a href="#">Home</a>
+								<Link to="/">Home</Link>
 							</li>
 							<li>
-								<a href="#">About Us</a>
+								<Link to="/">About Us</Link>
 							</li>
 							<li>
-								<a href="#">Mobile Light Lab</a>
+								<Link to="/">Mobile Light Lab</Link>
 							</li>
 							<li>
-								<a href="#">Catalogs &amp; Materials</a>
+								<Link to="/">Catalogs &amp; Materials</Link>
 							</li>
 							<li>
-								<a href="#">Where to Buy</a>
+								<Link to="/">Where to Buy</Link>
 							</li>
 							<li>
-								<a href="#">Customer Support</a>
+								<Link to="/">Customer Support</Link>
 							</li>
 						</ul>
 					</div>
@@ -33,22 +33,22 @@ const footer = props => {
 						<h5 className="text-uppercase section-heading">Products</h5>
 						<ul className="list-unstyled footer-links">
 							<li>
-								<a href="#">Trulux</a>
+								<Link to="/">Trulux</Link>
 							</li>
 							<li>
-								<a href="#">Task</a>
+								<Link to="/">Task</Link>
 							</li>
 							<li>
-								<a href="#">Downlighting</a>
+								<Link to="/">Downlighting</Link>
 							</li>
 							<li>
-								<a href="#">Linear</a>
+								<Link to="/">Linear</Link>
 							</li>
 							<li>
-								<a href="#">Architectural</a>
+								<Link to="/">Architectural</Link>
 							</li>
 							<li>
-								<a href="#">Seasonal</a>
+								<Link to="/">Seasonal</Link>
 							</li>
 						</ul>
 					</div>
@@ -56,13 +56,13 @@ const footer = props => {
 						<h5 className="text-uppercase section-heading">Resources</h5>
 						<ul className="list-unstyled footer-links">
 							<li>
-								<a href="#">Product Guide</a>
+								<Link to="/">Product Guide</Link>
 							</li>
 							<li>
-								<a href="#">Quick Ship List</a>
+								<Link to="/">Quick Ship List</Link>
 							</li>
 							<li>
-								<a href="#">Technical Library</a>
+								<Link to="/">Technical Library</Link>
 							</li>
 						</ul>
 					</div>
@@ -104,7 +104,11 @@ const footer = props => {
 							</span>
 							<span className="d-block copyright">
 								Designed and powered by{" "}
-								<a href="https://webriq.com/" target="_blank">
+								<a
+									href="https://webriq.com/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									WebriQ
 								</a>
 								.
@@ -117,18 +121,21 @@ const footer = props => {
 								<a
 									href="https://www.facebook.com/americanlightinginc"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<i className="fa fa-facebook" />
 								</a>
 								<a
 									href="https://www.linkedin.com/company/american-lighting"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<i className="fa fa-linkedin" />
 								</a>
 								<a
 									href="https://www.youtube.com/channel/UCjhQVRx5GgDR4bouEOGmfjw"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<i className="fa fa-youtube" />
 								</a>

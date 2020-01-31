@@ -49,7 +49,6 @@ module.exports = {
             query: `
               {
                 allSanityPost(
-                  filter: { status: { eq: "published" } }
                   sort: { order: ASC, fields: publishedAt }
                 ) {
                   edges {
