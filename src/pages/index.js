@@ -38,7 +38,7 @@ class IndexPage extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={siteTitle} description={siteDescription} />
+        <SEO title="Home" description={siteDescription} />
         <Hero />
 
         <Tab.Container id="left-tabs-example" defaultActiveKey={1}>
