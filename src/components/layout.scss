@@ -19,23 +19,104 @@ body {
   font-weight: 300 !important;
   color: $textBody !important;
 
-  .header .navlist a {
-    color: #ffffff !important;
-    position: relative;
-    &:after {
-      content: "";
-      width: 0;
-      height: 2px;
+  header {
+    .header {
       position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      background: $primaryColor;
-      transition: width 0.35s ease-in-out;
-    }
-    &:hover:after,
-    &.active:after {
+      padding: 15px 0;
+      z-index: 999;
+      transition: all 0.35s ease;
       width: 100%;
+      .header-logo img {
+        width: 70px;
+        transform: scale(1.15);
+        transition: all 0.35s ease-in-out;
+      }
+    }
+    .header-cta {
+      margin-top: -3px;
+    }
+    .header-search {
+      display: inline-block;
+      .search-icon {
+        position: relative;
+        cursor: pointer;
+        &:before {
+          content: "Search";
+          text-transform: none;
+          letter-spacing: 0;
+          padding-right: 15px;
+          opacity: 0;
+          transition: all 0.15s ease-out;
+        }
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+      .search-field {
+        position: relative;
+        .form-group {
+          margin: 0;
+          position: relative;
+        }
+        .form-control {
+          padding: 15px 50px 15px 15px;
+          font-size: 14px;
+          margin-bottom: 0;
+          height: 50px; /*to match header-cta button*/
+          background: transparent;
+        }
+        .search-icon-btn {
+          border: 0 !important;
+          background: transparent;
+          outline: none;
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: perspective(1px) translateY(-50%);
+          border: 1px solid $borderColor;
+          padding: 0;
+        }
+      }
+    }
+    .bm-burger-button,
+    .header-search {
+      filter: brightness(0) invert(1);
+    }
+    .is-sticky {
+      .header {
+        padding: 0;
+        background: #ffffff;
+        transition: all 0.35s ease;
+        border-bottom: 1px solid $borderColor;
+        .header-logo img {
+          transform: scale(0.85);
+          transform-origin: center left;
+        }
+      }
+      .bm-burger-button,
+      .header-search {
+        filter: none;
+      }
+    }
+    .sticky-wrapper {
+      transform: unset !important;
+      z-index: 99;
+    }
+
+    .navigation {
+      padding: 3rem;
+      text-align: left;
+      .nav-item {
+        margin-bottom: 10px;
+        a {
+          color: $textBody !important;
+          &:hover {
+            color: $primaryColor !important;
+          }
+        }
+      }
     }
   }
 
@@ -76,20 +157,21 @@ body {
   @media (max-width: 575.98px) {
     /* manage display headers for mobile devices */
     .display-1 {
-      font-size: 3rem;
-      font-weight: inherit;
+      font-size: 3rem !important;
+      font-weight: inherit !important;
+      hyphens: auto;
     }
     .display-2 {
-      font-size: 2.75rem;
-      font-weight: inherit;
+      font-size: 2.75rem !important;
+      font-weight: inherit !important;
     }
     .display-3 {
-      font-size: 2.25rem;
-      font-weight: inherit;
+      font-size: 2.25rem !important;
+      font-weight: inherit !important;
     }
     .display-4 {
-      font-size: 1.75rem;
-      font-weight: inherit;
+      font-size: 1.75rem !important;
+      font-weight: inherit !important;
     }
   }
   /***** end of TYPEFACE ******/
@@ -254,11 +336,7 @@ body {
         margin: 0;
       }
       .form-control {
-        padding-left: 25px !important;
-        padding-right: 140px !important;
-      }
-      label {
-        left: 19px;
+        padding-right: 150px !important;
       }
       .subscribe-btn {
         position: absolute;

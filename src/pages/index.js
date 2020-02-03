@@ -5,8 +5,6 @@ import SEO from "../components/seo"
 import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import Sticky from "react-sticky-el"
-
 import Hero from "../components/home/Hero"
 import AboutUs from "../components/home/AboutUs"
 import FeaturedProducts from "../components/home/FeaturedProducts"
@@ -44,23 +42,21 @@ class IndexPage extends React.Component {
         <Hero />
 
         <Tab.Container id="left-tabs-example" defaultActiveKey={1}>
-          <Sticky mode={"bottom"}>
-            <Nav className="home-tabs nav-justified">
-              <Nav.Item>
-                <Nav.Link eventKey={1}>About Us</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey={2}>
-                  <div>Featured Products</div>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey={3}>
-                  <div>News & Events</div>
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Sticky>
+          <Nav className="home-tabs nav-justified">
+            <Nav.Item>
+              <Nav.Link eventKey={1}>About Us</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey={2}>
+                <div>Featured Products</div>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey={3}>
+                <div>News & Events</div>
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
           <Tab.Content>
             <Tab.Pane eventKey={1}>
               <LazyLoadComponent>
