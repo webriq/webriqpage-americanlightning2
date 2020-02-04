@@ -46,7 +46,7 @@ const Header = ({ type }) => {
                     <div className="search-field">
                       {!showSearch && (
                         <button
-                          className="btn p-0"
+                          className="btn p-0 search-icon"
                           onClick={e => setShowSearch(true)}
                         >
                           <img src={Search} alt="Search" height="24px" />

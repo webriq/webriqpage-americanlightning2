@@ -257,7 +257,7 @@ body {
   }
 
   a {
-    color: $primaryColor !important;
+    color: $primaryColor;
     text-decoration: none !important;
     transition: all 0.35s ease;
     &:hover {
@@ -806,6 +806,16 @@ body {
   }
 
   /****** CATEGORIES ******/
+  .sticky-top {
+    top: 100px;
+  }
+  .scroll-spacer {
+    padding-top: 100px;
+    &:first-child {
+      padding-top: 100px;
+      margin-top: -95px;
+    }
+  }
   .subcategory-heading {
     border-bottom: 1px solid $borderColor;
     padding-bottom: 20px;
@@ -813,8 +823,12 @@ body {
   }
   .category-sidebar {
     padding-right: 20px;
-    border-right: 1px solid $borderColor;
     height: 100%;
+    padding-bottom: 50px;
+    @media (min-width: $break-md) {
+      border-right: 1px solid $borderColor;
+      padding-bottom: 0;
+    }
   }
   .sticky-sidebar-categories {
     li {
@@ -822,7 +836,8 @@ body {
       padding-right: 30px;
       a {
         cursor: pointer;
-        color: $textBody !important;
+        color: $textBody;
+        &.active,
         &:hover,
         &:active {
           color: $primaryColor !important;

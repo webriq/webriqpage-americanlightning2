@@ -91,10 +91,12 @@ class CategoryPage extends React.Component {
 							<div className="col-md-3">
 								<div className="category-sidebar">
 									<div className="sticky-top">
-										<span className="small text-uppercase font-weight-bold text-muted d-block">
-											Category
-										</span>
-										<h3>Prizm Tape Light</h3>
+										<div>
+											<span className="small text-uppercase font-weight-bold text-muted d-block">
+												Category
+											</span>
+											<h3>Prizm Tape Light</h3>
+										</div>
 										<div id="menu-top" className="pt-4" />
 										<ul className="list-unstyled sticky-sidebar-categories">
 											<li>
@@ -115,7 +117,7 @@ class CategoryPage extends React.Component {
 													spy={true}
 													smooth={true}
 												>
-													RGB Tape Light
+													Tunable CCT Tape Light
 												</Link>
 												<span className="item-count">3</span>
 											</li>
@@ -126,7 +128,7 @@ class CategoryPage extends React.Component {
 													spy={true}
 													smooth={true}
 												>
-													Tunable CCT Tape Light
+													RGB Tape Light
 												</Link>
 												<span className="item-count">3</span>
 											</li>
@@ -135,14 +137,14 @@ class CategoryPage extends React.Component {
 								</div>
 							</div>
 							<div className="col-md-9">
-								<div id="single-color-tape-light" className="pt-4">
+								<div id="single-color-tape-light" className="scroll-spacer">
 									<h5 className="subcategory-heading">
-										Single Color Tapelight
+										Single Color Tape Light
 									</h5>
-									<div className="row pb-4">
+									<div className="row">
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -152,14 +154,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLS - Standard Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															12V/24V - 155Lm/ft - 2.7W/ft
 														</p>
@@ -169,7 +171,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -179,14 +181,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLM - Max Run Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 121Lm/ft - 1.46W/ft
 														</p>
@@ -196,7 +198,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -206,14 +208,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLH - High Output Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 210Lm/ft - 4.6W/ft
 														</p>
@@ -223,7 +225,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -233,14 +235,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLX - Premium Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 570Lm/ft - 7.8W/ft
 														</p>
@@ -250,14 +252,14 @@ class CategoryPage extends React.Component {
 										</div>
 									</div>
 								</div>
-								<div id="tunable-cct-tape-light" className="pt-4">
+								<div id="tunable-cct-tape-light" className="scroll-spacer">
 									<h5 className="subcategory-heading">
 										Tunable CCT 2700K-6000K Tape Light
 									</h5>
-									<div className="row pb-4">
+									<div className="row">
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -267,14 +269,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLS - Tuning Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 155Lm/ft - 2.9W/ft
 														</p>
@@ -284,7 +286,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -294,14 +296,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLX - Tuning Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 365Lm/ft - 7W/ft
 														</p>
@@ -311,7 +313,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -321,14 +323,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																TLD - Tuning Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 325Lm/ft - 5.8W/ft
 														</p>
@@ -338,14 +340,14 @@ class CategoryPage extends React.Component {
 										</div>
 									</div>
 								</div>
-								<div id="rgb-tape-light" className="pt-4">
+								<div id="rgb-tape-light" className="scroll-spacer">
 									<h5 className="subcategory-heading">
 										RGB Color Mixing Tape Light
 									</h5>
-									<div className="row pb-4">
+									<div className="row">
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -355,14 +357,14 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">
 																Pixel RGB Series
 															</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 4.6W/ft
 														</p>
@@ -372,7 +374,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -382,12 +384,12 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">RGB Series</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 4.6W/ft
 														</p>
@@ -397,7 +399,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -407,12 +409,12 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">RGBW Series</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 370Lm/ft - 4.6W/ft
 														</p>
@@ -422,7 +424,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4 col-lg-3 mb-4">
 											<div className="product-item">
-												<a href="#">
+												<Link to="/">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -432,12 +434,12 @@ class CategoryPage extends React.Component {
 															/>
 														</div>
 													</div>
-												</a>
+												</Link>
 												<div className="product-desc">
 													<div>
-														<a className="text-body" href="#">
+														<Link className="text-body" to="/">
 															<h6 className="font-weight-bold">RGBTW Series</h6>
-														</a>
+														</Link>
 														<p className="small text-muted mb-0">
 															24V - 360Lm/ft - 7W/ft
 														</p>
