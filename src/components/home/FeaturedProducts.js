@@ -64,7 +64,7 @@ class FeaturedProducts extends React.Component {
 					<LazyLoadComponent>
 						<Swiper {...products} className="pb-4">
 							<div className="product-item featured">
-								<Link to="">
+								<Link to="/sample-product">
 									<div className="product-image">
 										<div className="v-center">
 											<img alt="" className="img-fluid p-3" src={Featured1} />
@@ -73,7 +73,7 @@ class FeaturedProducts extends React.Component {
 								</Link>
 								<div className="product-desc">
 									<div className="pb-3">
-										<Link className="text-body" to="/">
+										<Link className="text-body" to="/sample-product">
 											<h5 className="font-weight-bold">FrameWrx Exterior</h5>
 										</Link>
 										<p className="small text-muted">
@@ -86,7 +86,7 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											to="/"
+											to="/sample-product"
 										>
 											More Info
 										</Link>
@@ -94,7 +94,7 @@ class FeaturedProducts extends React.Component {
 								</div>
 							</div>
 							<div className="product-item featured">
-								<Link to="">
+								<Link to="/sample-product-with-splash">
 									<div className="product-image">
 										<div className="v-center">
 											<img alt="" className="img-fluid p-3" src={Featured2} />
@@ -103,7 +103,10 @@ class FeaturedProducts extends React.Component {
 								</Link>
 								<div className="product-desc">
 									<div className="pb-3">
-										<Link className="text-body" to="/">
+										<Link
+											className="text-body"
+											to="/sample-product-with-splash"
+										>
 											<h5 className="font-weight-bold">Adaptive Drivers</h5>
 										</Link>
 										<p className="small text-muted">
@@ -117,7 +120,7 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											to="/"
+											to="/sample-product-with-splash"
 										>
 											More Info
 										</Link>
@@ -125,7 +128,7 @@ class FeaturedProducts extends React.Component {
 								</div>
 							</div>
 							<div className="product-item featured">
-								<Link to="">
+								<Link to="/sample-product">
 									<div className="product-image">
 										<div className="v-center">
 											<img alt="" className="img-fluid p-3" src={Featured3} />
@@ -134,7 +137,7 @@ class FeaturedProducts extends React.Component {
 								</Link>
 								<div className="product-desc">
 									<div className="pb-3">
-										<Link className="text-body" to="/">
+										<Link className="text-body" to="/sample-product">
 											<h5 className="font-weight-bold">FrameWrx Exterior</h5>
 										</Link>
 										<p className="small text-muted">
@@ -146,7 +149,7 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											to="/"
+											to="/sample-product"
 										>
 											More Info
 										</Link>
@@ -154,7 +157,7 @@ class FeaturedProducts extends React.Component {
 								</div>
 							</div>
 							<div className="product-item featured">
-								<Link to="">
+								<Link to="/sample-product-with-splash">
 									<div className="product-image">
 										<div className="v-center">
 											<img alt="" className="img-fluid p-3" src={Featured2} />
@@ -163,7 +166,10 @@ class FeaturedProducts extends React.Component {
 								</Link>
 								<div className="product-desc">
 									<div className="pb-3">
-										<Link className="text-body" to="/">
+										<Link
+											className="text-body"
+											to="/sample-product-with-splash"
+										>
 											<h5 className="font-weight-bold">Adaptive Drivers</h5>
 										</Link>
 										<p className="small text-muted">
@@ -177,7 +183,7 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											to="/"
+											to="/sample-product-with-splash"
 										>
 											More Info
 										</Link>
@@ -189,9 +195,9 @@ class FeaturedProducts extends React.Component {
 					<div className="row">
 						<div className="col text-right">
 							<div className="right-lined-btn">
-								<button className="btn btn-primary" type="button">
+								<Link className="btn btn-primary" to="/sample-category">
 									Show More Products
-								</button>
+								</Link>
 							</div>
 						</div>
 					</div>

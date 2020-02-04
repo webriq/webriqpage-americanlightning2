@@ -25,7 +25,7 @@ class PrizmTapeLight extends React.Component {
 												<p className="py-4 lead">{name}</p>
 											</Fade>
 											<Flip bottom delay={2000} opposite>
-												<Link to="/" className="btn btn-primary">
+												<Link to={link} className="btn btn-primary">
 													{button}
 												</Link>
 											</Flip>
@@ -50,7 +50,7 @@ class PrizmTapeLight extends React.Component {
 				tagline: "Economical and versatile lighting system",
 				name: "TLS Series Tape Light",
 				pic: "/img/category-carousels/prizm/tls-series-tape-light.jpg",
-				link: "/",
+				link: "/sample-product",
 				button: "View Product",
 			},
 			{
@@ -58,7 +58,7 @@ class PrizmTapeLight extends React.Component {
 					"Need custom color temperature lighting at the turn of a dial?",
 				name: "TLS Tunable CCT Series",
 				pic: "/img/category-carousels/prizm/tls-tunable-cct.jpg",
-				link: "/",
+				link: "/sample-product-with-splash",
 				button: "View Product",
 			},
 		]

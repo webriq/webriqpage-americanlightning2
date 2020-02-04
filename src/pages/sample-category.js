@@ -144,7 +144,7 @@ class CategoryPage extends React.Component {
 									<div className="row no-gutters">
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -157,7 +157,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">
 																TLS - Standard Series
 															</h6>
@@ -171,7 +171,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -184,7 +184,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">
 																TLM - Max Run Series
 															</h6>
@@ -198,7 +198,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -211,7 +211,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">
 																TLH - High Output Series
 															</h6>
@@ -225,7 +225,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -238,7 +238,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">
 																TLX - Premium Series
 															</h6>
@@ -259,7 +259,7 @@ class CategoryPage extends React.Component {
 									<div className="row no-gutters">
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product-with-splash">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -272,7 +272,10 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link
+															className="text-body"
+															to="/sample-product-with-splash"
+														>
 															<h6 className="font-weight-bold">
 																TLS - Tuning Series
 															</h6>
@@ -286,7 +289,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product-with-splash">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -299,7 +302,10 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link
+															className="text-body"
+															to="/sample-product-with-splash"
+														>
 															<h6 className="font-weight-bold">
 																TLX - Tuning Series
 															</h6>
@@ -313,7 +319,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product-with-splash">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -326,7 +332,10 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link
+															className="text-body"
+															to="/sample-product-with-splash"
+														>
 															<h6 className="font-weight-bold">
 																TLD - Tuning Series
 															</h6>
@@ -347,7 +356,7 @@ class CategoryPage extends React.Component {
 									<div className="row no-gutters">
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -360,7 +369,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">
 																Pixel RGB Series
 															</h6>
@@ -374,7 +383,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -387,7 +396,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">RGB Series</h6>
 														</Link>
 														<p className="small text-muted mb-0">
@@ -399,7 +408,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -412,7 +421,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">RGBW Series</h6>
 														</Link>
 														<p className="small text-muted mb-0">
@@ -424,7 +433,7 @@ class CategoryPage extends React.Component {
 										</div>
 										<div className="col-md-4">
 											<div className="product-item">
-												<Link to="/">
+												<Link to="/sample-product">
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -437,7 +446,7 @@ class CategoryPage extends React.Component {
 												</Link>
 												<div className="product-desc">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to="/sample-product">
 															<h6 className="font-weight-bold">RGBTW Series</h6>
 														</Link>
 														<p className="small text-muted mb-0">
