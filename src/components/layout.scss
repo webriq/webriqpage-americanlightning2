@@ -785,17 +785,15 @@ body {
     }
   }
 
-  .sticky-tabs {
-    transform: translateZ(0px);
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    z-index: 100;
-    top: auto !important;
+  .atf-section {
+    position: relative;
   }
 
   .home-tabs {
     border-bottom: 1px solid $borderColor;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
     .nav-item {
       position: relative;
       .nav-link {

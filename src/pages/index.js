@@ -43,30 +43,22 @@ class IndexPage extends React.Component {
         <Hero />
 
         <Tab.Container defaultActiveKey={1}>
-          <Sticky
-            className="sticky-tabs"
-            stickyClassName="is-sticky-tabs"
-            stickyStyle={{
-              transform: "unset",
-              zIndex: "99",
-            }}
-          >
-            <Nav className="home-tabs nav-justified">
-              <Nav.Item>
-                <Nav.Link eventKey={1}>About Us</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey={2}>
-                  <div>Featured Products</div>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey={3}>
-                  <div>News & Events</div>
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Sticky>
+          <Nav className="home-tabs nav-justified">
+            <Nav.Item>
+              <Nav.Link eventKey={1}>About Us</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey={2}>
+                <div>Featured Products</div>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey={3}>
+                <div>News & Events</div>
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+
           <Tab.Content>
             <Tab.Pane eventKey={1}>
               <LazyLoadComponent>
