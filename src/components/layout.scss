@@ -458,16 +458,15 @@ body {
     }
   }
   .product-item {
+    border: 1px solid $borderColor;
+    margin-right: -1px;
+    margin-bottom: -1px;
     height: 100%;
     position: relative;
     background: #ffffff;
     transition: all 0.35s ease;
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0.5rem 1rem rgba(8, 28, 39, 0.15);
-    }
     .product-image {
-      height: 175px;
+      height: 225px;
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -484,7 +483,7 @@ body {
       }
     }
     .product-desc {
-      padding: 15px;
+      padding: 30px;
     }
 
     .product-link {
@@ -500,6 +499,10 @@ body {
       }
       .product-desc {
         padding: 30px 30px 50px;
+      }
+
+      &:hover {
+        box-shadow: 0 0.5rem 1rem rgba(8, 28, 39, 0.15);
       }
     }
   }
