@@ -947,7 +947,17 @@ body {
   /****** end of PRODUCT CAROUSEL ******/
 
   /****** ACCORDION ******/
+
   .accordion {
+    .accordion-heading {
+      position: relative;
+      &:after {
+        font-family: FontAwesome;
+        content: "\f107";
+        position: absolute;
+        right: 0;
+      }
+    }
     .card {
       border-radius: 0;
       margin-bottom: 5px;
