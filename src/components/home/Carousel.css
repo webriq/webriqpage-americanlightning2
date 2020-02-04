@@ -13,7 +13,7 @@
 .carousel-children {
   width: 100%;
   position: relative;
-  height: 700px;
+  height: 767px;
 }
 
 .carousel-dots {
@@ -21,7 +21,7 @@
   width: 100%;
   z-index: 100;
   position: absolute;
-  bottom: 0;
+  bottom: 15%;
 }
 
 .carousel-dot {
