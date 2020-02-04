@@ -18,7 +18,7 @@ const footer = props => {
 							<form
 								form_name="Subscribe Form"
 								form_id=""
-								form_classname="subscribe-form"
+								classname="subscribe-form"
 							>
 								<div className="form-group">
 									<input type="email" className="form-control" required />
