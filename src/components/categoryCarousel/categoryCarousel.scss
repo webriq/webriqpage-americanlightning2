@@ -1,5 +1,9 @@
+.category-atf,
+.carousel-children {
+  height: 575px !important;
+}
+
 .category-atf {
-  height: 500px !important;
   &:after {
     content: "";
     position: absolute;
@@ -33,14 +37,11 @@
 
   .carousel img {
     width: 100%;
-    /* you can use % */
-    height: 250px;
   }
 
   .carousel-children {
     width: 100%;
     position: relative;
-    height: 450px;
   }
 
   .carousel-dots {

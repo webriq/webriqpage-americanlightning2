@@ -130,7 +130,7 @@ class CategoryPage extends React.Component {
 												>
 													RGB Tape Light
 												</Link>
-												<span className="item-count">3</span>
+												<span className="item-count">4</span>
 											</li>
 										</ul>
 									</div>
