@@ -1,6 +1,6 @@
 import React from "react"
 import makeCarousel from "react-reveal/makeCarousel"
-import "./Carousel.css"
+import "./categoryCarousel.scss"
 
 function Carousel({ position, total, handleClick, children }) {
   return (

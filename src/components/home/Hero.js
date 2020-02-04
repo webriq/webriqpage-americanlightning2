@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import Carousel from "./Carousel"
+import Carousel from "./heroCarousel"
 import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
 import Flip from "react-reveal/Flip"

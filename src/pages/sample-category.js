@@ -17,6 +17,9 @@ import RGBSeries from "../images/sample-products/rgb-series.png"
 import RGBWSeries from "../images/sample-products/rgbw-series.png"
 import RGBTWSeries from "../images/sample-products/rgbtw-series.png"
 
+//carousel
+import PrizmCarousel from "../components/categoryCarousel/prizmTapeLight"
+
 class CategoryPage extends React.Component {
 	constructor(props) {
 		super(props)
@@ -77,7 +80,8 @@ class CategoryPage extends React.Component {
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO title="Category" description={siteDescription} />
-				<div className="page-content bg-light">
+				<PrizmCarousel />
+				<div className="py-10 bg-light">
 					<div className="container">
 						<div className="row justify-content-between">
 							{/* sticky sidebar */}
