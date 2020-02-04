@@ -91,7 +91,7 @@ const Category = ({ data }) => (
 								Get our latest news and updates straight to your inbox. Enter
 								your email address to subscribe:
 							</p>
-							<form>
+							<form className="subsc">
 								<div class="form-group">
 									<input class="form-control" type="email" required="" />
 									<label>Email address</label>

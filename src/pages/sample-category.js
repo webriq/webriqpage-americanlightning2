@@ -4,6 +4,19 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, Events, animateScroll as scroll, scroller } from "react-scroll"
 
+//images
+import TLSStandard from "../images/sample-products/tls-standard-grade.png"
+import TLMMaxRun from "../images/sample-products/tlm-max-run.png"
+import TLHHighOutput from "../images/sample-products/tlh-high-output.png"
+import TLXPremiumGrade from "../images/sample-products/tlx-premium-grade.png"
+import TLSTuning from "../images/sample-products/tls-tunable.png"
+import TLXTuning from "../images/sample-products/tlx-tunable.png"
+import TLDTuning from "../images/sample-products/tld-tunable.png"
+import PixelRGBSeries from "../images/sample-products/pixel-rgb-series.png"
+import RGBSeries from "../images/sample-products/rgb-series.png"
+import RGBWSeries from "../images/sample-products/rgbw-series.png"
+import RGBTWSeries from "../images/sample-products/rgbtw-series.png"
+
 class CategoryPage extends React.Component {
 	constructor(props) {
 		super(props)
@@ -69,243 +82,358 @@ class CategoryPage extends React.Component {
 						<div className="row justify-content-between">
 							{/* sticky sidebar */}
 							<div className="col-md-3">
-								<div className="sticky-top">
-									<div id="menu-top" className="pt-4" />
-									<ul className="list-unstyled sticky-sidebar-menu">
-										<li>
-											<Link
-												to="investment-consulting"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Consult about Your Investment
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="guest-communication"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Communicate with Guests Smoothly
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="concierge-service"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												5-Star Concierge Service
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="cleaning-maintenance"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Cleaning & Maintenance
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="noise-monitoring"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Effective Noise Monitoring
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="interior-design"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Interior Design Improvement
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="professional-photography"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Captivating and Professional Photography
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="listing-price-optimization"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												Listing & Price Optimization
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="on-site-staffing"
-												duration={500}
-												spy={true}
-												smooth={true}
-											>
-												On-Site Staffing
-											</Link>
-										</li>
-									</ul>
+								<div className="category-sidebar">
+									<div className="sticky-top">
+										<span className="small text-uppercase font-weight-bold text-muted d-block">
+											Category
+										</span>
+										<h3>Prizm Tape Light</h3>
+										<div id="menu-top" className="pt-4" />
+										<ul className="list-unstyled sticky-sidebar-categories">
+											<li>
+												<Link
+													to="single-color-tape-light"
+													duration={500}
+													spy={true}
+													smooth={true}
+												>
+													Single Color Tapelight
+												</Link>
+												<span className="item-count">4</span>
+											</li>
+											<li>
+												<Link
+													to="tunable-cct-tape-light"
+													duration={500}
+													spy={true}
+													smooth={true}
+												>
+													RGB Tape Light
+												</Link>
+												<span className="item-count">3</span>
+											</li>
+											<li>
+												<Link
+													to="rgb-tape-light"
+													duration={500}
+													spy={true}
+													smooth={true}
+												>
+													Tunable CCT Tape Light
+												</Link>
+												<span className="item-count">3</span>
+											</li>
+										</ul>
+									</div>
 								</div>
 							</div>
 							<div className="col-md-9">
 								<div id="single-color-tape-light" className="pt-4">
-									<div className="white-block">
-										<div className="row pb-4">
-											<div className="col-md-4 col-lg-3 mb-4">
-												<div className="product-item">
-													<a href="#">
-														<div className="product-image">
-															<div className="v-center">
-																<img
-																	className="img-fluid p-3"
-																	src="_image_framewrx_sco-stage-gt.jpg"
-																/>
-															</div>
+									<h5 className="subcategory-heading">
+										Single Color Tapelight
+									</h5>
+									<div className="row pb-4">
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLSStandard}
+																alt=""
+															/>
 														</div>
-													</a>
-													<div className="product-desc">
-														<div className="pb-3">
-															<a className="text-body" href="#">
-																<h6 className="font-weight-bold">
-																	TLS - Standard Series
-																</h6>
-															</a>
-															<p className="small text-muted">
-																12V/24V - 155Lm/ft - 2.7W/ft
-															</p>
-														</div>
-														<div className="product-link">
-															<a
-																className="btn btn-secondary btn-sm"
-																role="button"
-																href="#"
-															>
-																More Info
-															</a>
-														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLS - Standard Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															12V/24V - 155Lm/ft - 2.7W/ft
+														</p>
 													</div>
 												</div>
 											</div>
-											<div className="col-md-4 col-lg-3 mb-4">
-												<div className="product-item">
-													<a href="#">
-														<div className="product-image">
-															<div className="v-center">
-																<img
-																	className="img-fluid p-3"
-																	src="_image_framewrx_bol-stage-gt.jpg"
-																/>
-															</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLMMaxRun}
+																alt=""
+															/>
 														</div>
-													</a>
-													<div className="product-desc">
-														<div className="pb-3">
-															<a className="text-body" href="#">
-																<h6 className="font-weight-bold">
-																	TLM - Max Run Series
-																</h6>
-															</a>
-															<p className="small text-muted">
-																24V - 121Lm/ft - 1.46W/ft
-															</p>
-														</div>
-														<div className="product-link">
-															<a
-																className="btn btn-secondary btn-sm"
-																role="button"
-																href="#"
-															>
-																More Info
-															</a>
-														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLM - Max Run Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 121Lm/ft - 1.46W/ft
+														</p>
 													</div>
 												</div>
 											</div>
-											<div className="col-md-4 col-lg-3 mb-4">
-												<div className="product-item">
-													<a href="#">
-														<div className="product-image">
-															<div className="v-center">
-																<img
-																	className="img-fluid p-3"
-																	src="_image_framewrx_sco-stage-gt.jpg"
-																/>
-															</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLHHighOutput}
+																alt=""
+															/>
 														</div>
-													</a>
-													<div className="product-desc">
-														<div className="pb-3">
-															<a className="text-body" href="#">
-																<h6 className="font-weight-bold">
-																	TLH - High Output Series
-																</h6>
-															</a>
-															<p className="small text-muted">
-																24V - 210Lm/ft - 4.6W/ft
-															</p>
-														</div>
-														<div className="product-link">
-															<a
-																className="btn btn-secondary btn-sm"
-																role="button"
-																href="#"
-															>
-																More Info
-															</a>
-														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLH - High Output Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 210Lm/ft - 4.6W/ft
+														</p>
 													</div>
 												</div>
 											</div>
-											<div className="col-md-4 col-lg-3 mb-4">
-												<div className="product-item">
-													<a href="#">
-														<div className="product-image">
-															<div className="v-center">
-																<img
-																	className="img-fluid p-3"
-																	src="_image_framewrx_bol-stage-gt.jpg"
-																/>
-															</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLXPremiumGrade}
+																alt=""
+															/>
 														</div>
-													</a>
-													<div className="product-desc">
-														<div className="pb-3">
-															<a className="text-body" href="#">
-																<h6 className="font-weight-bold">
-																	TLX - Premium Series
-																</h6>
-															</a>
-															<p className="small text-muted">
-																24V - 570Lm/ft - 7.8W/ft
-															</p>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLX - Premium Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 570Lm/ft - 7.8W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="tunable-cct-tape-light" className="pt-4">
+									<h5 className="subcategory-heading">
+										Tunable CCT 2700K-6000K Tape Light
+									</h5>
+									<div className="row pb-4">
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLSTuning}
+																alt=""
+															/>
 														</div>
-														<div className="product-link">
-															<a
-																className="btn btn-secondary btn-sm"
-																role="button"
-																href="#"
-															>
-																More Info
-															</a>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLS - Tuning Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 155Lm/ft - 2.9W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLXTuning}
+																alt=""
+															/>
 														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLX - Tuning Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 365Lm/ft - 7W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={TLDTuning}
+																alt=""
+															/>
+														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																TLD - Tuning Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 325Lm/ft - 5.8W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="rgb-tape-light" className="pt-4">
+									<h5 className="subcategory-heading">
+										RGB Color Mixing Tape Light
+									</h5>
+									<div className="row pb-4">
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={PixelRGBSeries}
+																alt=""
+															/>
+														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">
+																Pixel RGB Series
+															</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 4.6W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={RGBSeries}
+																alt=""
+															/>
+														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">RGB Series</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 4.6W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={RGBWSeries}
+																alt=""
+															/>
+														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">RGBW Series</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 370Lm/ft - 4.6W/ft
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-md-4 col-lg-3 mb-4">
+											<div className="product-item">
+												<a href="#">
+													<div className="product-image">
+														<div className="v-center">
+															<img
+																className="img-fluid"
+																src={RGBTWSeries}
+																alt=""
+															/>
+														</div>
+													</div>
+												</a>
+												<div className="product-desc">
+													<div>
+														<a className="text-body" href="#">
+															<h6 className="font-weight-bold">RGBTW Series</h6>
+														</a>
+														<p className="small text-muted mb-0">
+															24V - 360Lm/ft - 7W/ft
+														</p>
 													</div>
 												</div>
 											</div>

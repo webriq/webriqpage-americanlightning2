@@ -9,7 +9,8 @@ import "bootstrap/dist/css/bootstrap.css"
 import "font-awesome/css/font-awesome.min.css"
 import "./font-face.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, type }) => {
+  console.log(type)
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} type={type} />
       <main>{children}</main>
       <Footer />
     </>

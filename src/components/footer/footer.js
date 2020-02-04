@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Form from "../form/Form"
 
 const footer = props => {
 	return (
@@ -15,7 +16,11 @@ const footer = props => {
 							</p>
 						</div>
 						<div className="col-md-5">
-							<form className="subscribe-form">
+							<Form
+								form_name="Subscribe Form"
+								form_id=""
+								form_classname="subscribe-form"
+							>
 								<div className="form-group">
 									<input type="email" className="form-control" required />
 									<label>Email address</label>
@@ -25,7 +30,7 @@ const footer = props => {
 										SUBSCRIBE
 									</button>
 								</div>
-							</form>
+							</Form>
 						</div>
 					</div>
 				</div>

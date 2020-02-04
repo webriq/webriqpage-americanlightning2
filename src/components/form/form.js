@@ -1,6 +1,5 @@
 import React from "react"
 import WebriQForm from "@webriq/gatsby-webriq-form"
-import "./form.css"
 
 class WebriqForm extends React.Component {
 	constructor(props) {

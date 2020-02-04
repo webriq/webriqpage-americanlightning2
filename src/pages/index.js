@@ -37,7 +37,7 @@ class IndexPage extends React.Component {
     console.log(posts)
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} type="home">
         <SEO title="Home" description={siteDescription} />
         <Hero />
 

@@ -8,7 +8,7 @@ import Search from "../../images/search.svg"
 
 import useOutsideClick from "./clickOutside"
 
-const Header = () => {
+const Header = ({ type }) => {
   const ref = useRef()
   const [showSearch, setShowSearch] = useState()
 
@@ -26,7 +26,7 @@ const Header = () => {
         stickyClassName="is-sticky"
         stickyStyle={{ transform: "unset", zIndex: "99" }}
       >
-        <div className="header">
+        <div className={`header ${type === "home" ? "transparent" : null}`}>
           <div className="container">
             <div className="row justify-content-between align-items-center">
               <div className="col-4">
