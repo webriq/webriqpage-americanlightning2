@@ -835,19 +835,26 @@ body {
   }
   .sticky-sidebar-categories {
     li {
+      margin-bottom: 5px;
+      color: #ffffff;
       position: relative;
-      padding-right: 30px;
       a {
+        display: block;
         cursor: pointer;
-        color: $textBody;
+        background: $primaryColor;
+        border: 1px solid $primaryColor;
+        padding: 5px 15px 5px;
+        color: #ffffff;
         &.active,
         &:hover,
         &:active {
           color: $primaryColor !important;
+          background: transparent;
         }
       }
       .item-count {
         display: block;
+        color: $primaryColor;
         border-radius: 50%;
         background: $borderColor;
         height: 24px;
@@ -856,7 +863,7 @@ body {
         line-height: 1;
         padding-top: 7px;
         position: absolute;
-        right: 0;
+        right: 10px;
         top: 50%;
         transform: perspective(1px) translateY(-50%);
         font-size: 12px;
