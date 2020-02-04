@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import WebriqForm from "../form/Form"
 
 const footer = props => {
 	return (
@@ -16,7 +15,7 @@ const footer = props => {
 							</p>
 						</div>
 						<div className="col-md-5">
-							<WebriqForm
+							<form
 								form_name="Subscribe Form"
 								form_id=""
 								form_classname="subscribe-form"
@@ -30,7 +29,7 @@ const footer = props => {
 										SUBSCRIBE
 									</button>
 								</div>
-							</WebriqForm>
+							</form>
 						</div>
 					</div>
 				</div>
