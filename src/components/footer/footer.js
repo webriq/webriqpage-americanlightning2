@@ -15,11 +15,7 @@ const footer = props => {
 							</p>
 						</div>
 						<div className="col-md-5">
-							<form
-								form_name="Subscribe Form"
-								form_id=""
-								classname="subscribe-form"
-							>
+							<form className="subscribe-form">
 								<div className="form-group">
 									<input type="email" className="form-control" required />
 									<label>Email address</label>
