@@ -5,7 +5,7 @@ import "./heroCarousel.css"
 function Carousel({ position, total, handleClick, children }) {
   return (
     <div className="carousel">
-      <div className="carousel-children">
+      <div className="carousel-children carousel-home">
         {children}
 
         <div className="atf-nav v-center" style={{ zIndex: "2" }}>
