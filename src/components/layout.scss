@@ -573,7 +573,7 @@ body {
       transform: translateY(-50%);
       width: 75%;
       height: 1px;
-      background: #418fde;
+      background: $borderColor;
     }
   }
 
@@ -896,6 +896,32 @@ body {
   }
   /****** end of CATEGORIES ******/
 
+  /****** PRODUCT CAROUSEL ******/
+  .product-carousel {
+    background-image: url("../images/background-fill.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .atf-nav-left,
+    .atf-nav-right {
+      background: rgba(0, 0, 0, 0.4) !important;
+      outline: none !important;
+    }
+    .product-carousel-slide {
+      height: 575px;
+      position: relative;
+      text-align: center;
+
+      img {
+        max-height: 90%;
+        padding-top: 100px;
+      }
+    }
+  }
+
+  /****** end of PRODUCT CAROUSEL ******/
+
   /****** ACCORDION ******/
   .accordion {
     .card {
@@ -923,6 +949,12 @@ body {
     }
   }
   /****** end of ACCORDION ******/
+
+  .product-name-logo {
+    /*align name of product with inline logos*/
+    display: flex;
+    align-items: center;
+  }
 
   @keyframes ripple {
     0% {

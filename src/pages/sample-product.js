@@ -2,8 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link, Events, animateScroll as scroll, scroller } from "react-scroll"
-import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
@@ -29,10 +27,7 @@ class ProductPage extends React.Component {
 							</div>
 							<div className="col-lg-6">
 								<div className="small">
-									<div
-										className="pb-4"
-										style={{ display: "flex", alignItems: "center" }}
-									>
+									<div className="pb-4 product-name-logo">
 										<img src={PrizmLogo} height="32px" alt="Prizm" />
 										<h3 className="d-inline-block text-primary mb-0 px-3">
 											TLM - Max Run
