@@ -63,7 +63,7 @@ class FeaturedProducts extends React.Component {
 					</div>
 					<LazyLoadComponent>
 						<Swiper {...products} className="pb-4">
-							<div className="product-item">
+							<div className="product-item featured">
 								<Link to="">
 									<div className="product-image">
 										<div className="v-center">
@@ -86,14 +86,14 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											href="/"
+											to="/"
 										>
 											More Info
 										</Link>
 									</div>
 								</div>
 							</div>
-							<div className="product-item">
+							<div className="product-item featured">
 								<Link to="">
 									<div className="product-image">
 										<div className="v-center">
@@ -117,14 +117,14 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											href="/"
+											to="/"
 										>
 											More Info
 										</Link>
 									</div>
 								</div>
 							</div>
-							<div className="product-item">
+							<div className="product-item featured">
 								<Link to="">
 									<div className="product-image">
 										<div className="v-center">
@@ -146,14 +146,14 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											href="/"
+											to="/"
 										>
 											More Info
 										</Link>
 									</div>
 								</div>
 							</div>
-							<div className="product-item">
+							<div className="product-item featured">
 								<Link to="">
 									<div className="product-image">
 										<div className="v-center">
@@ -177,7 +177,7 @@ class FeaturedProducts extends React.Component {
 										<Link
 											className="btn btn-secondary btn-sm"
 											role="button"
-											href="/"
+											to="/"
 										>
 											More Info
 										</Link>

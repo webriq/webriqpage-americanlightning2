@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import Carousel from "./Carousel"
+import Carousel from "./heroCarousel"
 import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
 import Flip from "react-reveal/Flip"
@@ -20,9 +20,7 @@ class Hero extends React.Component {
 									<Col xs="8">
 										<div className="text-center">
 											<Zoom right cascade delay={500} opposite>
-												<h3 className="display-4 text-white font-weight-bold m-0">
-													{name}
-												</h3>
+												<h3 className="display-4 text-white m-0">{name}</h3>
 											</Zoom>
 											<Fade bottom delay={1500} opposite>
 												<p className="text-white py-4">{desc}</p>
@@ -53,16 +51,14 @@ class Hero extends React.Component {
 				name: "Product 1",
 				desc:
 					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-				pic:
-					"https://res.cloudinary.com/dzr4guriw/image/upload/v1580354037/Homepage%20Carousel/app3_osa88p.jpg",
+				pic: "/img/hero/hero-1.jpg",
 				link: "/",
 				button: "Learn More",
 			},
 			{
 				name: "Product 2",
 				desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-				pic:
-					"https://res.cloudinary.com/dzr4guriw/image/upload/v1580362439/Homepage%20Carousel/app12_k2g2ao.jpg",
+				pic: "/img/hero/hero-2.jpg",
 				link: "/",
 				button: "Learn More",
 			},
@@ -83,7 +79,7 @@ class Hero extends React.Component {
 										<Row className="justify-content-center">
 											<Col xs="9">
 												<div className="text-center">
-													<Zoom cascade delay={500}>
+													<Zoom delay={500}>
 														<h1 className="display-1 text-uppercase font-weight-normal text-white m-0">
 															American Lighting
 														</h1>
