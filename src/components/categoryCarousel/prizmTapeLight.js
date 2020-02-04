@@ -49,7 +49,7 @@ class PrizmTapeLight extends React.Component {
 			{
 				tagline: "Economical and versatile lighting system",
 				name: "TLS Series Tape Light",
-				pic: "img/category-carousels/prizm/tls-series-tape-light.jpg",
+				pic: "/img/category-carousels/prizm/tls-series-tape-light.jpg",
 				link: "/",
 				button: "View Product",
 			},
@@ -57,7 +57,7 @@ class PrizmTapeLight extends React.Component {
 				tagline:
 					"Need custom color temperature lighting at the turn of a dial?",
 				name: "TLS Tunable CCT Series",
-				pic: "img/category-carousels/prizm/tls-tunable-cct.jpg",
+				pic: "/img/category-carousels/prizm/tls-tunable-cct.jpg",
 				link: "/",
 				button: "View Product",
 			},

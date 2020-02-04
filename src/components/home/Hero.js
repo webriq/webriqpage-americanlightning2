@@ -51,14 +51,14 @@ class Hero extends React.Component {
 				name: "Product 1",
 				desc:
 					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-				pic: "img/hero/hero-1.jpg",
+				pic: "/img/hero/hero-1.jpg",
 				link: "/",
 				button: "Learn More",
 			},
 			{
 				name: "Product 2",
 				desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-				pic: "img/hero/hero-2.jpg",
+				pic: "/img/hero/hero-2.jpg",
 				link: "/",
 				button: "Learn More",
 			},
