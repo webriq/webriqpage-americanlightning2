@@ -1,8 +1,13 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link, Events, animateScroll as scroll, scroller } from "react-scroll"
+import {
+	Link as Anchor,
+	Events,
+	animateScroll as scroll,
+	scroller,
+} from "react-scroll"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 //images
@@ -100,36 +105,36 @@ class CategoryPage extends React.Component {
 										<div id="menu-top" className="pt-4" />
 										<ul className="list-unstyled sticky-sidebar-categories">
 											<li>
-												<Link
+												<Anchor
 													to="single-color-tape-light"
 													duration={500}
 													spy={true}
 													smooth={true}
 												>
 													Single Color Tapelight
-												</Link>
+												</Anchor>
 												<span className="item-count">4</span>
 											</li>
 											<li>
-												<Link
+												<Anchor
 													to="tunable-cct-tape-light"
 													duration={500}
 													spy={true}
 													smooth={true}
 												>
 													Tunable CCT Tape Light
-												</Link>
+												</Anchor>
 												<span className="item-count">3</span>
 											</li>
 											<li>
-												<Link
+												<Anchor
 													to="rgb-tape-light"
 													duration={500}
 													spy={true}
 													smooth={true}
 												>
 													RGB Tape Light
-												</Link>
+												</Anchor>
 												<span className="item-count">4</span>
 											</li>
 										</ul>
