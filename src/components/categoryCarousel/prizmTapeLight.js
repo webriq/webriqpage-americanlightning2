@@ -20,10 +20,10 @@ class PrizmTapeLight extends React.Component {
 									<Col xs={{ span: 8, offset: 2 }} md={{ span: 7, offset: 1 }}>
 										<div className="text-left">
 											<Fade right delay={500} opposite>
-												<h3 className="display-4 text-white m-0">{tagline}</h3>
+												<h3 className="display-4 m-0">{tagline}</h3>
 											</Fade>
 											<Fade bottom delay={1500} opposite>
-												<p className="text-white py-4 lead">{name}</p>
+												<p className="py-4 lead">{name}</p>
 											</Fade>
 											<Flip bottom delay={2000} opposite>
 												<Link to="/" className="btn btn-primary">

@@ -20,9 +20,7 @@ class Hero extends React.Component {
 									<Col xs="8">
 										<div className="text-center">
 											<Zoom right cascade delay={500} opposite>
-												<h3 className="display-4 text-white font-weight-bold m-0">
-													{name}
-												</h3>
+												<h3 className="display-4 text-white m-0">{name}</h3>
 											</Zoom>
 											<Fade bottom delay={1500} opposite>
 												<p className="text-white py-4">{desc}</p>
@@ -83,7 +81,7 @@ class Hero extends React.Component {
 										<Row className="justify-content-center">
 											<Col xs="9">
 												<div className="text-center">
-													<Zoom cascade delay={500}>
+													<Zoom delay={500}>
 														<h1 className="display-1 text-uppercase font-weight-normal text-white m-0">
 															American Lighting
 														</h1>

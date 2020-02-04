@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, Events, animateScroll as scroll, scroller } from "react-scroll"
+import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 //images
 import TLSStandard from "../images/sample-products/tls-standard-grade.png"
@@ -80,7 +81,9 @@ class CategoryPage extends React.Component {
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO title="Category" description={siteDescription} />
-				<PrizmCarousel />
+				<LazyLoadComponent>
+					<PrizmCarousel />
+				</LazyLoadComponent>
 				<div className="py-10 bg-light">
 					<div className="container">
 						<div className="row justify-content-between">
