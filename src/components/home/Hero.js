@@ -52,14 +52,14 @@ class Hero extends React.Component {
 				desc:
 					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 				pic: "/img/hero/hero-1.jpg",
-				link: "/",
+				link: "/sample-product",
 				button: "Learn More",
 			},
 			{
 				name: "Product 2",
 				desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 				pic: "/img/hero/hero-2.jpg",
-				link: "/",
+				link: "/sample-product-with-splash",
 				button: "Learn More",
 			},
 		]
@@ -90,7 +90,10 @@ class Hero extends React.Component {
 														</h2>
 													</Fade>
 													<Fade delay={2000}>
-														<Link to="/" className="btn btn-primary btn-lg">
+														<Link
+															to="/sample-category"
+															className="btn btn-primary btn-lg"
+														>
 															Discover
 														</Link>
 													</Fade>
