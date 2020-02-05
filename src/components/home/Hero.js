@@ -26,7 +26,7 @@ class Hero extends React.Component {
 												<p className="text-white py-4">{desc}</p>
 											</Fade>
 											<Flip bottom delay={2000} opposite>
-												<Link to="/" className="btn btn-primary">
+												<Link to={link} className="btn btn-primary">
 													{button}
 												</Link>
 											</Flip>
