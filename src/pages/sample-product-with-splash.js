@@ -39,11 +39,11 @@ class ProductPageSplash extends React.Component {
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO title="SÉNIK A40X" description={siteDescription} />
 				<div className="product-carousel">
-					<div className="atf-nav v-center" style={{ zIndex: "2" }}>
-						<div className="atf-nav-left" id="prev">
+					<div className="swiper-nav v-center" style={{ zIndex: "2" }}>
+						<div className="swiper-arrow-left" id="prev">
 							<i className="fa fa-angle-left" />
 						</div>
-						<div className="atf-nav-right" id="next">
+						<div className="swiper-arrow-right" id="next">
 							<i className="fa fa-angle-right" />
 						</div>
 					</div>

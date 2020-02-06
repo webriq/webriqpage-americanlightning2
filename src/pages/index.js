@@ -5,11 +5,10 @@ import SEO from "../components/seo"
 import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import Hero from "../components/home/Hero"
+import HeroCarousel from "../components/carousels/homepageCarousel"
 import AboutUs from "../components/home/AboutUs"
 import FeaturedProducts from "../components/home/FeaturedProducts"
 import NewsEvents from "../components/home/NewsEvents"
-import Sticky from "react-sticky-el"
 
 class IndexPage extends React.Component {
   constructor(props, context) {
@@ -40,7 +39,7 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle} type="home">
         <SEO title="Home" description={siteDescription} />
-        <Hero />
+        <HeroCarousel />
 
         <Tab.Container defaultActiveKey={1}>
           <Nav className="home-tabs nav-justified">

@@ -1,23 +1,22 @@
 import React from "react"
 import makeCarousel from "react-reveal/makeCarousel"
-import "./categoryCarousel.scss"
+import "./Carousel.scss"
 
 function Carousel({ position, total, handleClick, children }) {
   return (
     <div className="carousel">
       <div className="carousel-children">
         {children}
-
-        <div className="atf-nav v-center" style={{ zIndex: "2" }}>
+        <div className="carousel-arrows v-center" style={{ zIndex: "2" }}>
           <div
-            className="atf-nav-left"
+            className="carousel-arrow-left"
             onClick={handleClick}
             data-position={position - 1}
           >
             <i className="fa fa-angle-left" />
           </div>
           <div
-            className="atf-nav-right"
+            className="carousel-arrow-right"
             onClick={handleClick}
             data-position={position + 1}
           >

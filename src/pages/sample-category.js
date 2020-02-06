@@ -24,7 +24,7 @@ import RGBWSeries from "../images/sample-products/rgbw-series.png"
 import RGBTWSeries from "../images/sample-products/rgbtw-series.png"
 
 //carousel
-import PrizmCarousel from "../components/categoryCarousel/prizmTapeLight"
+import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
 class CategoryPage extends React.Component {
 	constructor(props) {

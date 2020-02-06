@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import Carousel from "./heroCarousel"
+import Carousel from "./Carousel"
 import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
 import Flip from "react-reveal/Flip"
@@ -14,7 +14,7 @@ class Hero extends React.Component {
 			return (
 				<Fade wait={7000}>
 					<div>
-						<div className="atf-banner">
+						<div className="hero-banner">
 							<Container>
 								<Row className="justify-content-center">
 									<Col xs="8">
@@ -35,7 +35,7 @@ class Hero extends React.Component {
 								</Row>
 							</Container>
 							<div
-								className="atf-banner-bg"
+								className="hero-banner-bg"
 								style={{ backgroundImage: `url(${pic})` }}
 							/>
 						</div>
@@ -69,12 +69,12 @@ class Hero extends React.Component {
 		)
 
 		return (
-			<div className="atf-section">
+			<div className="hero-section">
 				<LazyLoadComponent>
 					<Carousel defaultWait={5000} maxTurns={1}>
 						<Fade wait={7000}>
 							<div>
-								<div className="atf-banner brand">
+								<div className="hero-banner brand">
 									<Container>
 										<Row className="justify-content-center">
 											<Col xs="9">

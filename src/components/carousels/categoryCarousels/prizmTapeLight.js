@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import Carousel from "./categoryCarousel"
+import Carousel from "../Carousel"
 import Fade from "react-reveal/Fade"
 import Flip from "react-reveal/Flip"
 
@@ -13,7 +13,7 @@ class PrizmTapeLight extends React.Component {
 			return (
 				<Fade wait={7000}>
 					<div>
-						<div className="atf-banner category-atf">
+						<div className="category-banner">
 							<Container>
 								<Row>
 									<Col xs={{ span: 8, offset: 2 }} md={{ span: 7, offset: 1 }}>
@@ -34,7 +34,7 @@ class PrizmTapeLight extends React.Component {
 								</Row>
 							</Container>
 							<div
-								className="atf-banner-bg"
+								className="category-banner-bg"
 								style={{ backgroundImage: `url(${pic})` }}
 							/>
 						</div>
@@ -68,7 +68,7 @@ class PrizmTapeLight extends React.Component {
 		)
 
 		return (
-			<div className="category-carousel">
+			<div className="category-hero-section">
 				<LazyLoadComponent>
 					<Carousel defaultWait={5000} maxTurns={1}>
 						{slides}
