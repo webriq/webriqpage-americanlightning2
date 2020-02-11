@@ -1,119 +1,202 @@
 import React from "react"
-import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
-import { Container } from "reactstrap"
+import Layout from "../components/layout"
 import SEO from "../components/seo"
+import {
+	Link as Anchor,
+	Events,
+	animateScroll as scroll,
+	scroller,
+} from "react-scroll"
+import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-const slugify = require("slugify")
-const Category = ({ data }) => (
-	<Layout>
-		<SEO title="Latest Posts" description="description" />
-		<div class="page-headline">
-			<div class="container">
-				<div class="section-heading text-center">
-					<h6 class="font-weight-bold text-uppercase flair">Blog</h6>
-					<h1>
-						<strong>Latest Posts</strong>
-					</h1>
-				</div>
-			</div>
-		</div>
-		<div class="blog-section">
-			<Container>
-				<div class="row justify-content-between">
-					<div class="col-md-7">
-						{data.allSanityPost.edges.map(blog => (
-							<div class="blog-item bg-light" key={blog}>
-								<div class="row">
-									<div class="col-lg-4 pr-lg-0">
-										<Link to={blog.node.slug.current}>
-											<div
-												class="blog-image h-100"
-												style={{
-													backgroundImage: `url(${
-														blog.node.mainImage !== null
-															? blog.node.mainImage.asset.fluid.src
-															: "https://source.unsplash.com/user/joshhild/500x500"
-													})`,
-												}}
-											/>
-										</Link>
-									</div>
-									<div class="col-lg-8 pl-lg-0">
-										<div class="blog-text">
-											<Link to={blog.node.slug.current}>
-												<h4>{blog.node.title}</h4>
-											</Link>
-											<div class="text-muted small">
-												{blog &&
-												blog.node &&
-												blog.node.categories &&
-												blog.node.categories.length !== 0
-													? blog.node.categories.map(ct => (
-															<span>
-																<i class="fa fa-folder pr-1" />
+//images
+import TLSStandard from "../images/sample-products/tls-standard-grade.png"
+import TLMMaxRun from "../images/sample-products/tlm-max-run.png"
+// import TLHHighOutput from "../images/sample-products/tlh-high-output.png"
+// import TLXPremiumGrade from "../images/sample-products/tlx-premium-grade.png"
+// import TLSTuning from "../images/sample-products/tls-tunable.png"
+// import TLXTuning from "../images/sample-products/tlx-tunable.png"
+// import TLDTuning from "../images/sample-products/tld-tunable.png"
+// import PixelRGBSeries from "../images/sample-products/pixel-rgb-series.png"
+// import RGBSeries from "../images/sample-products/rgb-series.png"
+// import RGBWSeries from "../images/sample-products/rgbw-series.png"
+// import RGBTWSeries from "../images/sample-products/rgbtw-series.png"
 
-																<Link to="/">{ct.title + " "}</Link>
-															</span>
-													  ))
-													: null}
-											</div>
-											<p class="pt-2 text-muted">{blog.node.excerpt}</p>
-											<span class="text-muted small">
-												<i class="fa fa-calendar-o pr-1" />
-												{blog.node.publishedAt}
+//carousel
+import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
+
+class CategoryPageTemplate extends React.Component {
+	constructor(props) {
+		super(props)
+		this.scrollToTop = this.scrollToTop.bind(this)
+	}
+
+	componentDidMount() {
+		Events.scrollEvent.register("begin", function() {
+			console.log("begin", arguments)
+		})
+
+		Events.scrollEvent.register("end", function() {
+			console.log("end", arguments)
+		})
+	}
+	scrollToTop() {
+		scroll.scrollToTop()
+	}
+	scrollTo() {
+		scroller.scrollTo("scroll-to-element", {
+			duration: 800,
+			delay: 0,
+			smooth: "easeInOutQuart",
+		})
+	}
+	scrollToWithContainer() {
+		let goToContainer = new Promise((resolve, reject) => {
+			Events.scrollEvent.register("end", () => {
+				resolve()
+				Events.scrollEvent.remove("end")
+			})
+
+			scroller.scrollTo("scroll-container", {
+				duration: 800,
+				delay: 0,
+				smooth: "easeInOutQuart",
+			})
+		})
+
+		goToContainer.then(() =>
+			scroller.scrollTo("scroll-container-second-element", {
+				duration: 800,
+				delay: 0,
+				smooth: "easeInOutQuart",
+				containerId: "scroll-container",
+			})
+		)
+	}
+	componentWillUnmount() {
+		Events.scrollEvent.remove("begin")
+		Events.scrollEvent.remove("end")
+	}
+
+	render() {
+		const siteTitle = this.props.data.site.siteMetadata.title
+		const siteDescription = this.props.data.site.siteMetadata.description
+		console.log(this.props.data)
+		const ctgry = this.props.data.sanityCategory
+		return (
+			<Layout location={this.props.location} title={siteTitle}>
+				<SEO title={ctgry.title} description={siteDescription} />
+				<LazyLoadComponent>
+					<PrizmCarousel />
+				</LazyLoadComponent>
+				<div className="py-10">
+					<div className="container">
+						<div className="row justify-content-between">
+							{/* sticky sidebar */}
+							<div className="col-md-3">
+								<div className="category-sidebar">
+									<div className="sticky-top">
+										<div>
+											<span className="small text-uppercase font-weight-bold text-muted d-block">
+												Category
 											</span>
+											<h3>{ctgry.title}</h3>
 										</div>
+										<div id="menu-top" className="pt-4" />
+										<ul className="list-unstyled sticky-sidebar-categories">
+											{ctgry.subcategory.map(subcat => (
+												<li key={subcat.title}>
+													<Anchor
+														to={subcat.title}
+														duration={500}
+														spy={true}
+														smooth={true}
+													>
+														{subcat.title}
+													</Anchor>
+													<span className="item-count">4</span>
+												</li>
+											))}
+										</ul>
 									</div>
 								</div>
 							</div>
-						))}
-					</div>
-					<div class="col-md-4 mb-4">
-						<div class="side-content">
-							<h6 class="text-uppercase text-muted">Categories</h6>
-							<ul class="list-unstyled">
-								{data.allSanityPost.group.map(cat => (
-									<li key={cat.fieldValue}>
-										<Link
-											class="text-body font-weight-bold"
-											to={slugify(cat.fieldValue.toLowerCase())}
-										>
-											{cat.fieldValue}
-										</Link>
-									</li>
+							<div className="col-md-9">
+								{ctgry.subcategory.map(subct => (
+									<div id={subct.title} className="scroll-spacer">
+										<h5 className="subcategory-heading">{subct.title}</h5>
+										<div className="row no-gutters">
+											<div className="col-md-4">
+												<div className="product-item">
+													<Link to="/sample-product">
+														<div className="product-image">
+															<div className="v-center">
+																<img
+																	className="img-fluid"
+																	src={TLSStandard}
+																	alt=""
+																/>
+															</div>
+														</div>
+													</Link>
+													<div className="product-desc">
+														<div>
+															<Link className="text-body" to="/sample-product">
+																<h6 className="font-weight-bold">
+																	TLS - Standard Series
+																</h6>
+															</Link>
+															<p className="small text-muted mb-0">
+																12V/24V - 155Lm/ft - 2.7W/ft
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className="col-md-4">
+												<div className="product-item">
+													<Link to="/sample-product">
+														<div className="product-image">
+															<div className="v-center">
+																<img
+																	className="img-fluid"
+																	src={TLMMaxRun}
+																	alt=""
+																/>
+															</div>
+														</div>
+													</Link>
+													<div className="product-desc">
+														<div>
+															<Link className="text-body" to="/sample-product">
+																<h6 className="font-weight-bold">
+																	TLM - Max Run Series
+																</h6>
+															</Link>
+															<p className="small text-muted mb-0">
+																24V - 121Lm/ft - 1.46W/ft
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								))}
-							</ul>
-						</div>
-						<div class="side-content">
-							<h6 class="text-uppercase text-muted">Keep Up-to-Date</h6>
-							<p class="small">
-								Get our latest news and updates straight to your inbox. Enter
-								your email address to subscribe:
-							</p>
-							<form className="subsc">
-								<div class="form-group">
-									<input class="form-control" type="email" required="" />
-									<label>Email address</label>
-								</div>
-								<div class="form-group mb-4">
-									<button class="btn btn-primary" type="submit">
-										Subscribe
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>
-			</Container>
-		</div>
-	</Layout>
-)
+			</Layout>
+		)
+	}
+}
 
-export default Category
+export default CategoryPageTemplate
 
-export const blogQuery = graphql`
-	query CategoryTemplateQuery($title: String!) {
+export const CategoryPageTemplateQuery = graphql`
+	query CategoryPageTemplateQuery($title: String!) {
 		site {
 			siteMetadata {
 				title
@@ -121,34 +204,23 @@ export const blogQuery = graphql`
 				description
 			}
 		}
-		allSanityPost(
-			filter: { categories: { elemMatch: { title: { eq: $title } } } }
-			sort: { order: ASC, fields: publishedAt }
+		sanityCategory(title: { eq: $title }) {
+			id
+			title
+			subcategory {
+				title
+			}
+		}
+		allSanityProduct(
+			filter: { subcategory: { elemMatch: { title: { eq: "PUCK LIGHTS" } } } }
 		) {
 			edges {
 				node {
-					id
 					title
-					publishedAt(formatString: "MMMM DD, YYYY")
-					mainImage {
-						asset {
-							fluid {
-								src
-							}
-						}
-					}
-					excerpt
-					slug {
-						current
-					}
-					body
-					categories {
+					subcategory {
 						title
 					}
 				}
-			}
-			group(field: categories___title) {
-				fieldValue
 			}
 		}
 	}

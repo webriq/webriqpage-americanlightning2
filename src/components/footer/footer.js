@@ -17,8 +17,13 @@ const footer = props => {
 						<div className="col-md-5">
 							<form className="subscribe-form">
 								<div className="form-group">
-									<input type="email" className="form-control" required />
-									<label>Email address</label>
+									<input
+										type="email"
+										className="form-control"
+										required={true}
+										id="footeremail"
+									/>
+									<label htmlFor="footeremail">Email address</label>
 								</div>
 								<div className="form-group">
 									<button className="btn subscribe-btn" type="submit">

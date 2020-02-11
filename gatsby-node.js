@@ -75,9 +75,11 @@ exports.createPages = ({ graphql, actions }) => {
   const categoryPage = makeRequest(
     graphql,
     `query {
-      allSanityPost {
-        group(field: categories___title) {
-          fieldValue
+      allSanityCategory {
+        edges {
+          node {
+            title
+          }
         }
       }
     }
@@ -88,14 +90,14 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog posts pages.
-    const cats = result.data.allSanityPost.group
+    const cats = result.data.allSanityCategory.edges
 
     cats.map(cat =>
       createPage({
-        path: slugify(cat.fieldValue.toLowerCase()),
+        path: slugify(cat.node.title.toLowerCase()),
         component: path.resolve(`./src/templates/category.js`),
         context: {
-          title: cat.fieldValue,
+          title: cat.node.title,
         },
       })
     )

@@ -16,62 +16,62 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allSanityPost } }) => {
-              return allSanityPost.edges.map(edge => {
-                return Object.assign({}, edge.node, {
-                  title: edge.node.title,
-                  description: edge.node.excerpt,
-                  date: edge.node.publishedAt,
-                  url: site.siteMetadata.siteUrl + "/" + edge.node.slug.current,
-                  guid:
-                    site.siteMetadata.siteUrl + "/" + edge.node.slug.current,
-                  custom_elements: [{ "content:encoded": edge.node.body }],
-                })
-              })
-            },
-            query: `
-              {
-                allSanityPost(
-                  sort: { order: ASC, fields: publishedAt }
-                ) {
-                  edges {
-                    node {
-                      id
-                      title
-                      publishedAt
-                      excerpt
-                      slug {
-                        current
-                      }
-                      body
-                    }
-                  }
-                }
-              }
-            `,
-            output: "/rss.xml",
-            title: "Gatsby + Sanity CMS",
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allSanityPost } }) => {
+    //           return allSanityPost.edges.map(edge => {
+    //             return Object.assign({}, edge.node, {
+    //               title: edge.node.title,
+    //               description: edge.node.excerpt,
+    //               date: edge.node.publishedAt,
+    //               url: site.siteMetadata.siteUrl + "/" + edge.node.slug.current,
+    //               guid:
+    //                 site.siteMetadata.siteUrl + "/" + edge.node.slug.current,
+    //               custom_elements: [{ "content:encoded": edge.node.body }],
+    //             })
+    //           })
+    //         },
+    //         query: `
+    //           {
+    //             allSanityPost(
+    //               sort: { order: ASC, fields: publishedAt }
+    //             ) {
+    //               edges {
+    //                 node {
+    //                   id
+    //                   title
+    //                   publishedAt
+    //                   excerpt
+    //                   slug {
+    //                     current
+    //                   }
+    //                   body
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         `,
+    //         output: "/rss.xml",
+    //         title: "Gatsby + Sanity CMS",
+    //       },
+    //     ],
+    //   },
+    // },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sass`,
@@ -82,11 +82,11 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "dwkgbi7l",
+        projectId: "anbkks9g",
         dataset: "production",
         // a token with read permissions is required
         // if you have a private dataset
-        token: `sksklRrFOJCKNtbUiiaIb19DQOAXUOsbSpm5sybWtfwCINJ8Weui3kxkmf5hqQbuNiUltLRVRoAIHqFYoY7odWEePCS1IypYXZVmOuOQc0kqCorLtBA7Mv0bei8q220feyTitwmeh36FV4MLVUA6cxO44roFbs6PSpDtZk2U65NuWPi9BfrB`,
+        token: `skdYTE9CTZKbrvYwZFtk8gbTZvfyTe1Pl0KzEnvpP9wWEprkbjsVDwF4aycWaA1TlgG1vXSVMdvUvSBPIKiYpShq51qePwOa0Rh6Vpiu0wSQNzDsKdW5k7uTVT9ZXEW0oeR3EdREjrNGsxymPtat2CRpvFO6asKz5bfgjt0ShNMBAzNedz4G`,
       },
     },
     {

@@ -10,7 +10,7 @@ import "font-awesome/css/font-awesome.min.css"
 import "./font-face.css"
 
 const Layout = ({ children, type }) => {
-  console.log(type)
+  // console.log(type)
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
