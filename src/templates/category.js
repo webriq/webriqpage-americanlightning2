@@ -10,19 +10,6 @@ import {
 } from "react-scroll"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-//images
-import TLSStandard from "../images/sample-products/tls-standard-grade.png"
-import TLMMaxRun from "../images/sample-products/tlm-max-run.png"
-// import TLHHighOutput from "../images/sample-products/tlh-high-output.png"
-// import TLXPremiumGrade from "../images/sample-products/tlx-premium-grade.png"
-// import TLSTuning from "../images/sample-products/tls-tunable.png"
-// import TLXTuning from "../images/sample-products/tlx-tunable.png"
-// import TLDTuning from "../images/sample-products/tld-tunable.png"
-// import PixelRGBSeries from "../images/sample-products/pixel-rgb-series.png"
-// import RGBSeries from "../images/sample-products/rgb-series.png"
-// import RGBWSeries from "../images/sample-products/rgbw-series.png"
-// import RGBTWSeries from "../images/sample-products/rgbtw-series.png"
-
 //carousel
 import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
@@ -82,13 +69,14 @@ class CategoryPageTemplate extends React.Component {
 	render() {
 		const siteTitle = this.props.data.site.siteMetadata.title
 		const siteDescription = this.props.data.site.siteMetadata.description
-		console.log(this.props.data)
+		// console.log(this.props.data)
 		const ctgry = this.props.data.sanityCategory
+
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO title={ctgry.title} description={siteDescription} />
 				<LazyLoadComponent>
-					<PrizmCarousel />
+					<PrizmCarousel slider={ctgry.slider} />
 				</LazyLoadComponent>
 				<div className="py-10">
 					<div className="container">
@@ -105,85 +93,97 @@ class CategoryPageTemplate extends React.Component {
 										</div>
 										<div id="menu-top" className="pt-4" />
 										<ul className="list-unstyled sticky-sidebar-categories">
-											{ctgry.subcategory.map(subcat => (
-												<li key={subcat.title}>
-													<Anchor
-														to={subcat.title}
-														duration={500}
-														spy={true}
-														smooth={true}
-													>
-														{subcat.title}
-													</Anchor>
-													<span className="item-count">4</span>
-												</li>
-											))}
+											{/*	const products = this.props.data.allSanityProduct.edges.filter(
+										test => test.node.subcategory[0].title === subct.title
+									)*/}
+											{ctgry.subcategory.map(subcat => {
+												const count = this.props.data.allSanityProduct.edges.filter(
+													test =>
+														test.node.subcategory[0].title === subcat.title
+												)
+												console.log(count)
+												return (
+													<li key={subcat.title}>
+														<Anchor
+															to={subcat.title}
+															duration={500}
+															spy={true}
+															smooth={true}
+														>
+															{subcat.title}
+														</Anchor>
+														<span className="item-count">{count.length}</span>
+													</li>
+												)
+											})}
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div className="col-md-9">
-								{ctgry.subcategory.map(subct => (
-									<div id={subct.title} className="scroll-spacer">
-										<h5 className="subcategory-heading">{subct.title}</h5>
-										<div className="row no-gutters">
-											<div className="col-md-4">
-												<div className="product-item">
-													<Link to="/sample-product">
-														<div className="product-image">
-															<div className="v-center">
-																<img
-																	className="img-fluid"
-																	src={TLSStandard}
-																	alt=""
-																/>
+								{ctgry.subcategory.map(subct => {
+									const products = this.props.data.allSanityProduct.edges.filter(
+										test => test.node.subcategory[0].title === subct.title
+									)
+
+									return (
+										<div
+											key={subct.title}
+											id={subct.title}
+											className="scroll-spacer"
+										>
+											<h5 className="subcategory-heading">{subct.title}</h5>
+											<div className="row no-gutters">
+												{products.length !== 0 ? (
+													products.map(prod => (
+														<div className="col-md-4" key={prod.node.id}>
+															<div className="product-item">
+																<Link to="/sample-product">
+																	<div className="product-image">
+																		<div className="v-center">
+																			<img
+																				className="img-fluid"
+																				src={
+																					prod.node &&
+																					prod.node.productImage[0] &&
+																					prod.node.productImage[0].image &&
+																					prod.node.productImage[0].image
+																						.asset &&
+																					prod.node.productImage[0].image.asset
+																						.fixed &&
+																					prod.node.productImage[0].image.asset
+																						.fixed.src
+																				}
+																				alt=""
+																			/>
+																		</div>
+																	</div>
+																</Link>
+																<div className="product-desc">
+																	<div>
+																		<Link
+																			className="text-body"
+																			to="/sample-product"
+																		>
+																			<h6 className="font-weight-bold">
+																				{prod.node.title}
+																			</h6>
+																		</Link>
+																		<p className="small text-muted mb-0">
+																			{prod.node.description}
+																		</p>
+																	</div>
+																</div>
 															</div>
 														</div>
-													</Link>
-													<div className="product-desc">
-														<div>
-															<Link className="text-body" to="/sample-product">
-																<h6 className="font-weight-bold">
-																	TLS - Standard Series
-																</h6>
-															</Link>
-															<p className="small text-muted mb-0">
-																12V/24V - 155Lm/ft - 2.7W/ft
-															</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div className="col-md-4">
-												<div className="product-item">
-													<Link to="/sample-product">
-														<div className="product-image">
-															<div className="v-center">
-																<img
-																	className="img-fluid"
-																	src={TLMMaxRun}
-																	alt=""
-																/>
-															</div>
-														</div>
-													</Link>
-													<div className="product-desc">
-														<div>
-															<Link className="text-body" to="/sample-product">
-																<h6 className="font-weight-bold">
-																	TLM - Max Run Series
-																</h6>
-															</Link>
-															<p className="small text-muted mb-0">
-																24V - 121Lm/ft - 1.46W/ft
-															</p>
-														</div>
-													</div>
-												</div>
+													))
+												) : (
+													<h2>No Items yet!!!</h2>
+												)}
 											</div>
 										</div>
-									</div>
-								))}
+									)
+								})}
 							</div>
 						</div>
 					</div>
@@ -210,13 +210,37 @@ export const CategoryPageTemplateQuery = graphql`
 			subcategory {
 				title
 			}
+			slider {
+				title
+				description
+				pagelink
+				pagelinkname
+				banner {
+					asset {
+						fluid {
+							src
+						}
+					}
+				}
+			}
 		}
 		allSanityProduct(
-			filter: { subcategory: { elemMatch: { title: { eq: "PUCK LIGHTS" } } } }
+			filter: { category: { elemMatch: { title: { eq: $title } } } }
 		) {
 			edges {
 				node {
+					id
 					title
+					description
+					productImage {
+						image {
+							asset {
+								fixed(width: 290, height: 244) {
+									src
+								}
+							}
+						}
+					}
 					subcategory {
 						title
 					}

@@ -54,7 +54,11 @@ class SideBarMenu extends React.Component {
 					},
 				}}
 			>
-				<span className="bm-burger-button" onClick={() => this.toggleMenu()}>
+				<button
+					style={{ background: "transparent", border: "none", outline: "none" }}
+					className="bm-burger-button"
+					onClick={() => this.toggleMenu()}
+				>
 					<svg viewBox="0 0 96 96" height="55px" style={style}>
 						<Motion
 							style={{
@@ -99,7 +103,7 @@ class SideBarMenu extends React.Component {
 							)}
 						</Motion>
 					</svg>
-				</span>
+				</button>
 			</SideBar>
 		)
 	}

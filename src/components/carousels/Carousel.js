@@ -8,32 +8,32 @@ function Carousel({ position, total, handleClick, children }) {
       <div className="carousel-children">
         {children}
         <div className="carousel-arrows v-center" style={{ zIndex: "2" }}>
-          <div
+          <button
             className="carousel-arrow-left"
             onClick={handleClick}
             data-position={position - 1}
           >
             <i className="fa fa-angle-left" />
-          </div>
-          <div
+          </button>
+          <button
             className="carousel-arrow-right"
             onClick={handleClick}
             data-position={position + 1}
           >
             <i className="fa fa-angle-right" />
-          </div>
+          </button>
         </div>
       </div>
       <div className="carousel-dots">
         {Array(...Array(total)).map((val, index) => (
-          <span
+          <button
             className="carousel-dot"
             key={index}
             onClick={handleClick}
             data-position={index}
           >
             {index === position ? "● " : "○ "}
-          </span>
+          </button>
         ))}
       </div>
     </div>

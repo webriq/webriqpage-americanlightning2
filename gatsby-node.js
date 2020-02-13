@@ -103,5 +103,41 @@ exports.createPages = ({ graphql, actions }) => {
     )
   })
 
-  return Promise.all([getSanityPost, categoryPage])
+  const productPage = makeRequest(
+    graphql,
+    `query {
+      allSanityProduct {
+        edges {
+          node {
+            id
+            title
+            slug{
+              current
+            }
+          }
+        }
+      }
+    }
+ `
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    // Create blog posts pages.
+    const products = result.data.allSanityProduct.edges
+
+    products.map(prod =>
+      createPage({
+        path: prod.node.slug.current,
+        component: path.resolve(`./src/templates/product.js`),
+        context: {
+          id: prod.node.id,
+          title: prod.node.title,
+        },
+      })
+    )
+  })
+
+  return Promise.all([getSanityPost, categoryPage, productPage])
 }

@@ -125,6 +125,9 @@ body {
       }
     }
   }
+  button {
+    outline: none !important;
+  }
 
   /***** COLORS - texts and backgrounds ******/
   .text-primary {
@@ -422,6 +425,7 @@ body {
         font-size: medium;
         opacity: 0.45;
         transition: all 0.35s ease;
+        text-transform: capitalize;
         &:hover {
           opacity: 1;
         }

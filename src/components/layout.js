@@ -18,14 +18,21 @@ const Layout = ({ children, type }) => {
           title
         }
       }
+      allSanityCategory(sort: { fields: shortname, order: ASC }) {
+        edges {
+          node {
+            title
+            shortname
+          }
+        }
+      }
     }
   `)
-
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} type={type} />
       <main>{children}</main>
-      <Footer />
+      <Footer categories={data.allSanityCategory.edges} />
     </>
   )
 }

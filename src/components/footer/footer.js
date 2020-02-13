@@ -64,24 +64,11 @@ const footer = props => {
 						<div className="col-md-3 col-lg-2">
 							<h5 className="text-uppercase section-heading">Products</h5>
 							<ul className="list-unstyled footer-links">
-								<li>
-									<Link to="/">Trulux</Link>
-								</li>
-								<li>
-									<Link to="/">Task</Link>
-								</li>
-								<li>
-									<Link to="/">Downlighting</Link>
-								</li>
-								<li>
-									<Link to="/">Linear</Link>
-								</li>
-								<li>
-									<Link to="/">Architectural</Link>
-								</li>
-								<li>
-									<Link to="/">Seasonal</Link>
-								</li>
+								{props.categories.map(cat => (
+									<li key={cat.node.title}>
+										<Link to="/">{cat.node.shortname}</Link>
+									</li>
+								))}
 							</ul>
 						</div>
 						<div className="col-md-3 col-lg-2">

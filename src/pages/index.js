@@ -35,6 +35,7 @@ class IndexPage extends React.Component {
     const siteDescription = this.props.data.site.siteMetadata.description
     const posts = this.props.data.allSanityPost.edges
     console.log(posts)
+    const products = this.props.data.allSanityProduct.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle} type="home">
@@ -66,7 +67,7 @@ class IndexPage extends React.Component {
             </Tab.Pane>
             <Tab.Pane eventKey={2}>
               <LazyLoadComponent>
-                <FeaturedProducts />
+                <FeaturedProducts products={products} />
               </LazyLoadComponent>
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
@@ -109,6 +110,28 @@ export const indexPageQuery = graphql`
           }
           excerpt
           publishedAt(formatString: "MMMM DD, YYYY")
+        }
+      }
+    }
+
+    allSanityProduct(limit: 20, sort: { fields: title, order: ASC }) {
+      edges {
+        node {
+          id
+          title
+          description
+          slug {
+            current
+          }
+          productImage {
+            image {
+              asset {
+                fluid(maxHeight: 200, maxWidth: 283) {
+                  src
+                }
+              }
+            }
+          }
         }
       }
     }

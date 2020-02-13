@@ -12,7 +12,7 @@ class Hero extends React.Component {
 	render() {
 		function makeSlide(name, desc, pic, link, button) {
 			return (
-				<Fade wait={7000}>
+				<Fade wait={7000} key={name}>
 					<div>
 						<div className="hero-banner">
 							<Container>
