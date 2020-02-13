@@ -213,7 +213,9 @@ export const CategoryPageTemplateQuery = graphql`
 			slider {
 				title
 				description
-				pagelink
+				pagelink {
+					current
+				}
 				pagelinkname
 				banner {
 					asset {
