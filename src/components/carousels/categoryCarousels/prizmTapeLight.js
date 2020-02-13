@@ -2,13 +2,16 @@ import React from "react"
 import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
-
+import marked from "marked"
 import Carousel from "../Carousel"
 import Fade from "react-reveal/Fade"
 import Flip from "react-reveal/Flip"
 
 class PrizmTapeLight extends React.Component {
 	render() {
+		console.log(this.props)
+		console.log("test")
+
 		return (
 			<div className="category-hero-section">
 				<LazyLoadComponent>
@@ -25,10 +28,17 @@ class PrizmTapeLight extends React.Component {
 												>
 													<div className="text-left">
 														<Fade right delay={500} opposite>
-															<h3 className="display-4 m-0">{slide.title}</h3>
+															<h3 className="display-4 m-0">
+																{slide.title || null}
+															</h3>
 														</Fade>
 														<Fade bottom delay={1500} opposite>
-															<p className="py-4 lead">{slide.description}</p>
+															<div
+																className="py-4 lead"
+																dangerouslySetInnerHTML={{
+																	__html: marked(slide.description || null),
+																}}
+															/>
 														</Fade>
 														<Flip bottom delay={2000} opposite>
 															<Link
