@@ -4,6 +4,7 @@ import SideBarMenu from "../sidebar/sidebar"
 import Sticky from "react-sticky-el"
 
 import Logo from "../../images/logo-image.png"
+import LogoText from "../../images/logo-text-only.png"
 import Search from "../../images/search.svg"
 
 import useOutsideClick from "./clickOutside"
@@ -29,18 +30,23 @@ const Header = ({ type }) => {
         <div className={`header ${type === "home" ? "transparent" : null}`}>
           <div className="container">
             <div className="row justify-content-between align-items-center">
-              <div className="col-4">
-                <div className="header-logo">
+              <div className="col-8">
+                <div>
                   <Link to="/">
                     <img
                       src={Logo}
                       alt="American Lighting"
-                      className="header-logo"
+                      className="header-logo d-inline-block"
+                    />
+                    <img
+                      src={LogoText}
+                      alt="American Lighting"
+                      className="header-logo-text d-none d-lg-inline-block"
                     />
                   </Link>
                 </div>
               </div>
-              <div className="col-8 text-right">
+              <div className="col-4 text-right">
                 <div className="d-none d-lg-inline-block">
                   <div className="header-search">
                     <div className="search-field">
@@ -70,15 +76,8 @@ const Header = ({ type }) => {
                       )}
                     </div>
                   </div>
-                  <Link
-                    to="/"
-                    className="btn btn-primary header-cta mx-4"
-                    role="button"
-                  >
-                    Contact Us
-                  </Link>
                 </div>
-                <div className="d-inline-block">
+                <div className="ml-4 d-inline-block">
                   <SideBarMenu />
                 </div>
               </div>

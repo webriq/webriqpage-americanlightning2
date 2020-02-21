@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 const footer = props => {
 	return (
 		<footer>
-			<div className="subscribe-section">
+			{/*<div className="subscribe-section">
 				<div className="container">
 					<div className="row no-gutters justify-content-between align-items-center">
 						<div className="col-md-6">
@@ -34,7 +34,7 @@ const footer = props => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>*/}
 			<div className="footer">
 				<div className="container">
 					<div className="row justify-content-between">
@@ -86,7 +86,34 @@ const footer = props => {
 							</ul>
 						</div>
 						<div className="col-md-3 col-lg-4">
-							<h5 className="text-uppercase section-heading">Connect</h5>
+							<h5 className="text-uppercase section-heading d-inline-block">
+								Connect
+							</h5>
+							<div className=" d-inline-block">
+								<div className="social-icons">
+									<a
+										href="https://www.facebook.com/americanlightinginc"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<i className="fa fa-facebook" />
+									</a>
+									<a
+										href="https://www.linkedin.com/company/american-lighting"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<i className="fa fa-linkedin" />
+									</a>
+									<a
+										href="https://www.youtube.com/channel/UCjhQVRx5GgDR4bouEOGmfjw"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<i className="fa fa-youtube" />
+									</a>
+								</div>
+							</div>
 							<ul className="list-unstyled footer-links">
 								<li className="pb-3">
 									<span className="small d-block">Customer Service</span>
@@ -115,52 +142,10 @@ const footer = props => {
 					</div>
 				</div>
 				<div className="container small text-white-50">
-					<div className="row align-items-center">
-						<div className="col-12 col-md-6 text-center text-md-left order-2 order-md-1">
-							<div>
-								<span className="d-block">
-									2020 © American Lighting, Inc. All rights reserved.
-								</span>
-								<span className="d-block copyright">
-									Designed and powered by{" "}
-									<a
-										href="https://webriq.com/"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										WebriQ
-									</a>
-									.
-								</span>
-							</div>
-						</div>
-						<div className="col-12 col-md-6 text-center text-md-right order-1 order-md-2">
-							<div>
-								<div className="social-icons">
-									<a
-										href="https://www.facebook.com/americanlightinginc"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<i className="fa fa-facebook" />
-									</a>
-									<a
-										href="https://www.linkedin.com/company/american-lighting"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<i className="fa fa-linkedin" />
-									</a>
-									<a
-										href="https://www.youtube.com/channel/UCjhQVRx5GgDR4bouEOGmfjw"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<i className="fa fa-youtube" />
-									</a>
-								</div>
-							</div>
-						</div>
+					<div>
+						<span className="d-block">
+							2020 © American Lighting, Inc. All rights reserved.
+						</span>
 					</div>
 				</div>
 			</div>

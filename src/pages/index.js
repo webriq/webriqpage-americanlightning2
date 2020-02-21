@@ -42,10 +42,10 @@ class IndexPage extends React.Component {
         <SEO title="Home" description={siteDescription} />
         <HeroCarousel />
 
-        <Tab.Container defaultActiveKey={1}>
+        <Tab.Container defaultActiveKey={2}>
           <Nav className="home-tabs nav-justified">
             <Nav.Item>
-              <Nav.Link eventKey={1}>About Us</Nav.Link>
+              <Nav.Link eventKey={1}>News & Events</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey={2}>
@@ -54,7 +54,7 @@ class IndexPage extends React.Component {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey={3}>
-                <div>News & Events</div>
+                <div>Support</div>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -62,7 +62,7 @@ class IndexPage extends React.Component {
           <Tab.Content>
             <Tab.Pane eventKey={1}>
               <LazyLoadComponent>
-                <AboutUs />
+                <NewsEvents />
               </LazyLoadComponent>
             </Tab.Pane>
             <Tab.Pane eventKey={2}>
@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
               <LazyLoadComponent>
-                <NewsEvents />
+                <AboutUs />
               </LazyLoadComponent>
             </Tab.Pane>
           </Tab.Content>
