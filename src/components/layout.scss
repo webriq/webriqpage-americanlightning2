@@ -104,6 +104,8 @@ body {
     /*** default full header is hidden. show only on sticky ***/
     .full-header-menu {
       display: none;
+      opacity: 0;
+      transition: all 0.5s ease-out;
     }
 
     .nav-item {
@@ -165,6 +167,8 @@ body {
 
         .full-header-menu {
           display: inline-block;
+          opacity: 1;
+          transition: all 0.5s ease-out;
         }
       }
       .bm-burger-button,

@@ -6,7 +6,7 @@ import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 import HeroCarousel from "../components/carousels/homepageCarousel"
-import AboutUs from "../components/home/AboutUs"
+import Support from "../components/home/Support"
 import FeaturedProducts from "../components/home/FeaturedProducts"
 import NewsEvents from "../components/home/NewsEvents"
 
@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
               <LazyLoadComponent>
-                <AboutUs />
+                <Support />
               </LazyLoadComponent>
             </Tab.Pane>
           </Tab.Content>
