@@ -39,6 +39,7 @@ body {
       }
       .header-search {
         display: inline-block;
+        padding-top: 3px;
         .search-icon {
           position: relative;
           cursor: pointer;
@@ -46,9 +47,12 @@ body {
             content: "Search";
             text-transform: none;
             letter-spacing: 0;
-            padding-right: 15px;
             opacity: 0;
+            position: absolute;
+            right: 35px;
+            top: 3px;
             transition: all 0.15s ease-out;
+            pointer-events: none;
           }
           &:hover {
             &:before {
@@ -96,40 +100,76 @@ body {
         }
       }
     }
+
+    /*** default full header is hidden. show only on sticky ***/
+    .full-header-menu {
+      display: none;
+    }
+
+    .nav-item {
+      display: inline-block;
+      a {
+        color: $textBody !important;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0 10px;
+        display: block;
+        &:hover {
+          color: $primaryColor !important;
+        }
+      }
+    }
+
+    /*** sidebar menu ***/
+    .navigation {
+      padding: 2rem;
+      text-align: left;
+      .menu-title {
+        color: #418fde;
+        text-transform: uppercase;
+        border-bottom: 1px solid $borderColor;
+        padding-bottom: 10px;
+        margin-bottom: 0;
+        font-family: $headingFont;
+      }
+      .nav-item {
+        border-bottom: 1px solid $borderColor;
+        display: block;
+        a {
+          display: block;
+          padding: 5px 5px 5px 0;
+        }
+      }
+    }
+
+    /*** when header is sticky ***/
+    .sticky-wrapper {
+      transform: unset !important;
+      z-index: 99;
+    }
+
     .is-sticky {
       .header {
-        padding: 3px 0;
+        padding: 0;
         background: #ffffff;
         transition: all 0.35s ease;
         border-bottom: 1px solid $borderColor;
         .header-logo {
-          transform: scale(0.9);
+          transform: scale(0.75);
           transform-origin: center left;
         }
         .header-logo-text {
-          filter: none;
+          display: none !important;
+        }
+
+        .full-header-menu {
+          display: inline-block;
         }
       }
       .bm-burger-button,
       .header-search {
         filter: none !important;
-      }
-    }
-    .sticky-wrapper {
-      transform: unset !important;
-      z-index: 99;
-    }
-    .navigation {
-      padding: 3rem;
-      text-align: left;
-      .nav-item {
-        margin-bottom: 10px;
-        a {
-          color: $textBody !important;
-          &:hover {
-            color: $primaryColor !important;
-          }
-        }
       }
     }
   }
@@ -443,12 +483,6 @@ body {
       padding-top: 75px;
       padding-bottom: 30px;
     }
-    /*copyright*/
-    .container:nth-child(2) {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      font-weight: 300;
-    }
     .social-icons {
       a {
         margin-left: 15px;
@@ -700,7 +734,26 @@ body {
 
   /****** SUBSRIBE SECTION ******/
 
-  .subscribe-section {
+  .newsletter-subscribe-form-wrapper {
+    @media (min-width: 768px) {
+      margin-top: -85px;
+    }
+    h6 {
+      margin-top: -10px;
+      vertical-align: middle;
+    }
+    form {
+      transform: scale(0.85);
+      transform-origin: left center;
+    }
+    @media (min-width: 1366px) {
+      .form-control {
+        width: 450px;
+      }
+    }
+  }
+
+  /*.subscribe-section {
     background: $primaryColor;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -717,7 +770,7 @@ body {
         no-repeat;
       filter: brightness(0) invert(1);
     }
-  }
+  }*/
 
   /****** end of SUBSRIBE SECTION ******/
 

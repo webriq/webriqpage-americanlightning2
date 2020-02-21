@@ -114,7 +114,10 @@ const footer = props => {
 									</a>
 								</div>
 							</div>
-							<ul className="list-unstyled footer-links">
+							<ul
+								className="list-unstyled footer-links"
+								style={{ position: "relative", zIndex: "1" }}
+							>
 								<li className="pb-3">
 									<span className="small d-block">Customer Service</span>
 									<a href="tel:18002858051">800.285.8051</a>
@@ -139,11 +142,32 @@ const footer = props => {
 								</li>
 							</ul>
 						</div>
+						<div className="col-md-12">
+							<div className="newsletter-subscribe-form-wrapper">
+								<h6 className="font-weight-bold text-primary d-inline-block mr-3">
+									Stay in the know with our newsletter!
+								</h6>
+								<form className="subscribe-form d-inline-block">
+									<div className="form-group">
+										<input
+											type="email"
+											className="form-control"
+											required={true}
+											id="footeremail"
+										/>
+										<label htmlFor="footeremail">Your email address</label>
+									</div>
+									<div className="form-group">
+										<button className="btn subscribe-btn" type="submit">
+											SUBSCRIBE
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div className="container small text-white-50">
-					<div>
-						<span className="d-block">
+					<div className="pt-5 ">
+						<span className="text-white-50 small">
 							2020 © American Lighting, Inc. All rights reserved.
 						</span>
 					</div>
