@@ -14,7 +14,7 @@ class NewsEvents extends React.Component {
 						<div className="col-lg-6 mb-4">
 							<h2 className="section-heading">News and Updates</h2>
 							{this.props.posts.map(post => (
-								<div>
+								<div className="mb-4">
 									<div className="news-item">
 										<Link to="/">
 											<div
@@ -38,7 +38,10 @@ class NewsEvents extends React.Component {
 														</div>
 													</div>
 													<div className="col-9 pl-0">
-														<Link to="/" className="text-body">
+														<Link
+															to={post.node.slug.current}
+															className="text-body"
+														>
 															<h5 className="font-weight-bold">
 																LightFair 2018 - American Lighting Inc. &amp;
 																Tivoli Lighting
@@ -60,9 +63,8 @@ class NewsEvents extends React.Component {
 										</div>
 									</div>
 									<Link
-										to="/"
+										to={post.node.slug.current}
 										className="btn btn-secondary btn-sm"
-										role="button"
 									>
 										Continue Reading
 									</Link>
