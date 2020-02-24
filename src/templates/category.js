@@ -89,7 +89,9 @@ class CategoryPageTemplate extends React.Component {
 											<span className="small text-uppercase font-weight-bold text-muted d-block">
 												Category
 											</span>
-											<h3>{ctgry.title}</h3>
+											<h3 className="text-transform-capitalize">
+												{ctgry.title}
+											</h3>
 										</div>
 										<div id="menu-top" className="pt-4" />
 										<ul className="list-unstyled sticky-sidebar-categories">
