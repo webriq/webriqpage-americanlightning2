@@ -6,7 +6,7 @@ import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 import HeroCarousel from "../components/carousels/homepageCarousel"
-import AboutUs from "../components/home/AboutUs"
+import Support from "../components/home/Support"
 import FeaturedProducts from "../components/home/FeaturedProducts"
 import NewsEvents from "../components/home/NewsEvents"
 
@@ -41,10 +41,10 @@ class IndexPage extends React.Component {
         <SEO title="Home" description={siteDescription} />
         <HeroCarousel sliders={this.props.data.allSanityHomeBanner.edges} />
 
-        <Tab.Container defaultActiveKey={1}>
+        <Tab.Container defaultActiveKey={2}>
           <Nav className="home-tabs nav-justified">
             <Nav.Item>
-              <Nav.Link eventKey={1}>About Us</Nav.Link>
+              <Nav.Link eventKey={1}>News & Events</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey={2}>
@@ -53,7 +53,7 @@ class IndexPage extends React.Component {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey={3}>
-                <div>News & Events</div>
+                <div>Support</div>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -61,7 +61,7 @@ class IndexPage extends React.Component {
           <Tab.Content>
             <Tab.Pane eventKey={1}>
               <LazyLoadComponent>
-                <AboutUs />
+                <NewsEvents posts={posts} />
               </LazyLoadComponent>
             </Tab.Pane>
             <Tab.Pane eventKey={2}>
@@ -71,7 +71,7 @@ class IndexPage extends React.Component {
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
               <LazyLoadComponent>
-                <NewsEvents posts={posts} />
+                <Support />
               </LazyLoadComponent>
             </Tab.Pane>
           </Tab.Content>
