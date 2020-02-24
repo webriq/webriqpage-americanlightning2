@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
-
+import marked from "marked"
 import Carousel from "./Carousel"
 import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
@@ -10,6 +10,8 @@ import Flip from "react-reveal/Flip"
 
 class Hero extends React.Component {
 	render() {
+		console.log(this.props.sliders)
+		console.log("test")
 		function makeSlide(name, desc, pic, link, button) {
 			return (
 				<Fade wait={7000} key={name}>
@@ -72,45 +74,161 @@ class Hero extends React.Component {
 			<div className="hero-section">
 				<LazyLoadComponent>
 					<Carousel defaultWait={5000} maxTurns={1}>
-						<Fade wait={7000}>
-							<div>
-								<div className="hero-banner brand">
-									<Container>
-										<Row className="justify-content-center">
-											<Col xs="9">
-												<div className="text-center">
-													<Zoom delay={500}>
-														<h1 className="display-1 text-uppercase font-weight-normal text-white m-0">
-															American Lighting
-														</h1>
-													</Zoom>
-													<Fade bottom delay={1500}>
-														<h2 className="slogan text-white lead py-4 text-uppercase">
-															Bright Ideas • Innovative Solutions
-														</h2>
-													</Fade>
-													<Fade delay={2000}>
-														<Link
-															to="/sample-category"
-															className="btn btn-primary btn-lg"
-														>
-															Discover
-														</Link>
-													</Fade>
-												</div>
-											</Col>
-										</Row>
-									</Container>
-									<div
-										className="atf-banner-bg"
-										style={{
-											backgroundImage: `url(https://res.cloudinary.com/dzr4guriw/image/upload/v1580352405/Homepage%20Carousel/banner_1_tn6kdi.jpg)`,
-										}}
-									/>
-								</div>
-							</div>
-						</Fade>
-						{slides}
+						{this.props.sliders.map(slide =>
+							slide.animation === "fade" ? (
+								<Fade wait={7000} key={slide.node.id}>
+									<div>
+										<div className="hero-banner">
+											<Container>
+												<Row className="justify-content-center">
+													<Col xs="8">
+														<div className="text-center">
+															<Zoom right cascade delay={500} opposite>
+																<h3 className="display-4 text-white m-0">
+																	{slide.node.title || null}
+																</h3>
+															</Zoom>
+															<Fade bottom delay={1500} opposite>
+																{slide &&
+																slide.node &&
+																slide.node.description ? (
+																	<div
+																		className="text-white"
+																		dangerouslySetInnerHTML={{
+																			__html: marked(slide.node.description),
+																		}}
+																	/>
+																) : null}
+															</Fade>
+															<Flip bottom delay={2000} opposite>
+																<Link
+																	to={slide.node.pagelink.current || "/"}
+																	className="btn btn-primary"
+																>
+																	{slide.node.paglinkname || "Home"}
+																</Link>
+															</Flip>
+														</div>
+													</Col>
+												</Row>
+											</Container>
+											<div
+												className="hero-banner-bg"
+												style={{
+													backgroundImage: `url(${
+														slide.node.banner.length !== 0
+															? slide.node.banner.asset.fluid.src
+															: "/img/hero/hero-2.jpg"
+													})`,
+												}}
+											/>
+										</div>
+									</div>
+								</Fade>
+							) : slide.node.animation === "flip" ? (
+								<Flip wait={7000} key={slide.node.id}>
+									<div>
+										<div className="hero-banner">
+											<Container>
+												<Row className="justify-content-center">
+													<Col xs="8">
+														<div className="text-center">
+															<Zoom right cascade delay={500} opposite>
+																<h3 className="display-4 text-white m-0">
+																	{slide.node.title || null}
+																</h3>
+															</Zoom>
+															<Fade bottom delay={1500} opposite>
+																{slide &&
+																slide.node &&
+																slide.node.description ? (
+																	<div
+																		className="text-white"
+																		dangerouslySetInnerHTML={{
+																			__html: marked(slide.node.description),
+																		}}
+																	/>
+																) : null}
+															</Fade>
+															<Flip bottom delay={2000} opposite>
+																<Link
+																	to={slide.node.pagelink.current || "/"}
+																	className="btn btn-primary"
+																>
+																	{slide.node.paglinkname || "Home"}
+																</Link>
+															</Flip>
+														</div>
+													</Col>
+												</Row>
+											</Container>
+											<div
+												className="hero-banner-bg"
+												style={{
+													backgroundImage: `url(${
+														slide.node.banner.length !== 0
+															? slide.node.banner.asset.fluid.src
+															: "/img/hero/hero-2.jpg"
+													})`,
+												}}
+											/>
+										</div>
+									</div>
+								</Flip>
+							) : slide.node.animation === "zoom" ? (
+								<Zoom wait={7000} key={slide.node.id}>
+									<div>
+										<div className="hero-banner">
+											<Container>
+												<Row className="justify-content-center">
+													<Col xs="8">
+														<div className="text-center">
+															<Zoom right cascade delay={500} opposite>
+																<h3 className="display-4 text-white m-0">
+																	{slide.node.title || null}
+																</h3>
+															</Zoom>
+															<Fade bottom delay={1500} opposite>
+																{slide &&
+																slide.node &&
+																slide.node.description ? (
+																	<div
+																		className="text-white"
+																		dangerouslySetInnerHTML={{
+																			__html: marked(slide.node.description),
+																		}}
+																	/>
+																) : null}
+															</Fade>
+															<Flip bottom delay={2000} opposite>
+																<Link
+																	to={slide.node.pagelink.current || "/"}
+																	className="btn btn-primary"
+																>
+																	{slide.node.paglinkname || "Home"}
+																</Link>
+															</Flip>
+														</div>
+													</Col>
+												</Row>
+											</Container>
+											<div
+												className="hero-banner-bg"
+												style={{
+													backgroundImage: `url(${
+														slide.node.banner.length !== 0
+															? slide.node.banner.asset.fluid.src
+															: "/img/hero/hero-2.jpg"
+													})`,
+												}}
+											/>
+										</div>
+									</div>
+								</Zoom>
+							) : (
+								slides
+							)
+						)}
 					</Carousel>
 				</LazyLoadComponent>
 			</div>

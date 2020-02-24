@@ -34,13 +34,12 @@ class IndexPage extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = this.props.data.site.siteMetadata.description
     const posts = this.props.data.allSanityPost.edges
-    console.log(posts)
     const products = this.props.data.allSanityProduct.edges
-
+    // console.log(this.props.data)
     return (
       <Layout location={this.props.location} title={siteTitle} type="home">
         <SEO title="Home" description={siteDescription} />
-        <HeroCarousel />
+        <HeroCarousel sliders={this.props.data.allSanityHomeBanner.edges} />
 
         <Tab.Container defaultActiveKey={1}>
           <Nav className="home-tabs nav-justified">
@@ -72,7 +71,7 @@ class IndexPage extends React.Component {
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
               <LazyLoadComponent>
-                <NewsEvents />
+                <NewsEvents posts={posts} />
               </LazyLoadComponent>
             </Tab.Pane>
           </Tab.Content>
@@ -93,11 +92,14 @@ export const indexPageQuery = graphql`
         description
       }
     }
-    allSanityPost(sort: { order: ASC, fields: publishedAt }, limit: 3) {
+    allSanityPost(sort: { fields: publishedAt, order: ASC }, limit: 3) {
       edges {
         node {
           id
           title
+          slug {
+            current
+          }
           mainImage {
             asset {
               fluid {
@@ -105,11 +107,12 @@ export const indexPageQuery = graphql`
               }
             }
           }
-          slug {
-            current
-          }
-          excerpt
           publishedAt(formatString: "MMMM DD, YYYY")
+          authors {
+            person {
+              name
+            }
+          }
         }
       }
     }
@@ -131,6 +134,27 @@ export const indexPageQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    allSanityHomeBanner {
+      edges {
+        node {
+          id
+          title
+          description
+          animation
+          banner {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          pagelinkname
+          pagelink {
+            current
           }
         }
       }
