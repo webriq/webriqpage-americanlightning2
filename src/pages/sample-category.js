@@ -86,9 +86,9 @@ class CategoryPage extends React.Component {
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO title="Category" description={siteDescription} />
-				<LazyLoadComponent>
+				{/*<LazyLoadComponent>
 					<PrizmCarousel />
-				</LazyLoadComponent>
+				</LazyLoadComponent>*/}
 				<div className="py-10">
 					<div className="container">
 						<div className="row justify-content-between">
@@ -147,7 +147,7 @@ class CategoryPage extends React.Component {
 										Single Color Tape Light
 									</h5>
 									<div className="row no-gutters">
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -174,7 +174,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -201,7 +201,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -228,7 +228,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -262,7 +262,7 @@ class CategoryPage extends React.Component {
 										Tunable CCT 2700K-6000K Tape Light
 									</h5>
 									<div className="row no-gutters">
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product-with-splash">
 													<div className="product-image">
@@ -292,7 +292,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product-with-splash">
 													<div className="product-image">
@@ -322,7 +322,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product-with-splash">
 													<div className="product-image">
@@ -359,7 +359,7 @@ class CategoryPage extends React.Component {
 										RGB Color Mixing Tape Light
 									</h5>
 									<div className="row no-gutters">
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -386,7 +386,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -411,7 +411,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
@@ -436,7 +436,7 @@ class CategoryPage extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="col-md-4">
+										<div className="col-6 col-md-3">
 											<div className="product-item">
 												<Link to="/sample-product">
 													<div className="product-image">
