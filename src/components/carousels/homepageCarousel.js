@@ -7,6 +7,7 @@ import Carousel from "./Carousel"
 import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
 import Flip from "react-reveal/Flip"
+import Slide from "react-reveal/Slide"
 
 class Hero extends React.Component {
 	render() {
@@ -84,7 +85,7 @@ class Hero extends React.Component {
 													<Col xs="8">
 														<div className="text-center">
 															<Zoom right cascade delay={500} opposite>
-																<h3 className="display-4 text-white m-0">
+																<h3 className="display-2 text-white m-0">
 																	{slide.node.title || null}
 																</h3>
 															</Zoom>
@@ -126,7 +127,7 @@ class Hero extends React.Component {
 									</div>
 								</Fade>
 							) : slide.node.animation === "flip" ? (
-								<Flip wait={7000} key={slide.node.id}>
+								<Slide wait={7000} key={slide.node.id}>
 									<div>
 										<div className="hero-banner">
 											<Container>
@@ -174,7 +175,7 @@ class Hero extends React.Component {
 											/>
 										</div>
 									</div>
-								</Flip>
+								</Slide>
 							) : slide.node.animation === "zoom" ? (
 								<Zoom wait={7000} key={slide.node.id}>
 									<div>

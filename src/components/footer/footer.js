@@ -148,7 +148,7 @@ const footer = props => {
 									Stay in the know with our newsletter!
 								</h6>
 								<form className="subscribe-form d-inline-block">
-									<div className="form-group">
+									<div className="form-group d-inline-block">
 										<input
 											type="email"
 											className="form-control"
@@ -157,7 +157,7 @@ const footer = props => {
 										/>
 										<label htmlFor="footeremail">Your email address</label>
 									</div>
-									<div className="form-group">
+									<div className="form-group d-inline-block">
 										<button className="btn subscribe-btn" type="submit">
 											SUBSCRIBE
 										</button>
@@ -166,7 +166,7 @@ const footer = props => {
 							</div>
 						</div>
 					</div>
-					<div className="pt-5 ">
+					<div className="copyright-text">
 						<span className="text-white-50 small">
 							2020 © American Lighting, Inc. All rights reserved.
 						</span>

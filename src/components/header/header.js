@@ -73,29 +73,32 @@ const Header = ({ type }) => {
                 <div className="d-none d-lg-inline-block">
                   <div className="header-search">
                     <div className="search-field">
-                      {!showSearch && (
-                        <button
-                          className="btn p-0 search-icon"
-                          onClick={e => setShowSearch(true)}
-                        >
-                          <img src={Search} alt="Search" height="24px" />
-                        </button>
-                      )}
+                      <button
+                        className="btn p-0 search-icon"
+                        onClick={e => setShowSearch(true)}
+                      >
+                        <img src={Search} alt="Search" height="18px" />
+                      </button>
 
                       {showSearch && (
-                        <form className="search-field" ref={ref}>
-                          <div className="form-group">
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Search..."
-                              required
-                            />
-                          </div>
-                          <button type="submit" className="btn search-icon-btn">
-                            <img src={Search} alt="Search" height="24px" />
-                          </button>
-                        </form>
+                        <div className="search-form-wrapper">
+                          <form ref={ref}>
+                            <div className="form-group">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Search..."
+                                required
+                              />
+                            </div>
+                            <button
+                              type="submit"
+                              className="btn search-icon-btn"
+                            >
+                              <img src={Search} alt="Search" height="18px" />
+                            </button>
+                          </form>
+                        </div>
                       )}
                     </div>
                   </div>

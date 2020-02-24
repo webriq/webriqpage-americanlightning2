@@ -22,14 +22,14 @@ body {
   header {
     .header {
       position: absolute;
-      padding: 15px 0;
+      padding: 7px 0;
       z-index: 999;
       transition: all 0.35s ease;
       width: 100%;
       background: #ffffff;
       border-bottom: 1px solid $borderColor;
       .header-logo {
-        height: 70px;
+        height: 30px;
         transform: scale(1.05);
         transform-origin: center left;
         transition: all 0.35s ease-in-out;
@@ -49,8 +49,7 @@ body {
             letter-spacing: 0;
             opacity: 0;
             position: absolute;
-            right: 35px;
-            top: 3px;
+            right: 25px;
             transition: all 0.15s ease-out;
             pointer-events: none;
           }
@@ -62,41 +61,47 @@ body {
         }
         .search-field {
           position: relative;
-          .form-group {
-            margin: 0;
-            position: relative;
-          }
-          .form-control {
-            padding: 15px 50px 15px 15px;
-            font-size: 14px;
-            margin-bottom: 0;
-            height: 50px; /*to match header-cta button*/
-            background: transparent;
-          }
-          .search-icon-btn {
-            border: 0 !important;
-            background: transparent;
-            outline: none;
+          .search-form-wrapper {
             position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: perspective(1px) translateY(-50%);
-            border: 1px solid $borderColor;
-            padding: 0;
+            right: -20px;
+            bottom: -90px;
+            width: 200px;
+            background: #ffffff;
+            padding: 15px;
+            box-shadow: 0 0.5rem 1rem rgba(8, 28, 39, 0.15);
+            &:before {
+              content: "";
+              position: absolute;
+              width: 25px;
+              height: 25px;
+              transform: rotate(45deg);
+              background: #ffffff;
+              top: 0;
+              right: 15px;
+            }
+            .form-group {
+              margin: 0;
+              position: relative;
+            }
+            .form-control {
+              padding: 10px 30px 10px 10px;
+              font-size: 14px;
+              margin-bottom: 0;
+              height: 40px;
+              background: transparent;
+            }
+            .search-icon-btn {
+              border: 0 !important;
+              background: transparent;
+              outline: none;
+              position: absolute;
+              right: 20px;
+              top: 50%;
+              transform: perspective(1px) translateY(-50%);
+              border: 1px solid $borderColor;
+              padding: 0;
+            }
           }
-        }
-      }
-      /*transparent header for homepage*/
-      &.transparent {
-        background: transparent;
-        border-bottom: 0;
-        .bm-burger-button,
-        .header-search {
-          filter: brightness(0) invert(1);
-        }
-        .header-logo-text {
-          width: 85%;
-          filter: brightness(0) invert(1);
         }
       }
     }
@@ -115,7 +120,7 @@ body {
         text-transform: uppercase;
         font-size: 14px;
         font-weight: 600;
-        padding: 0 10px;
+        padding: 0 25px;
         display: block;
         &:hover {
           color: $primaryColor !important;
@@ -133,7 +138,7 @@ body {
         border-bottom: 1px solid $borderColor;
         padding-bottom: 10px;
         margin-bottom: 0;
-        font-family: $headingFont;
+        font-weight: bold;
       }
       .nav-item {
         border-bottom: 1px solid $borderColor;
@@ -158,7 +163,7 @@ body {
         transition: all 0.35s ease;
         border-bottom: 1px solid $borderColor;
         .header-logo {
-          transform: scale(0.75);
+          transform: scale(0.85);
           transform-origin: center left;
         }
         .header-logo-text {
@@ -391,33 +396,6 @@ body {
       font-size: 12px;
       color: $primaryColor;
     }
-
-    &.subscribe-form {
-      position: relative;
-      .form-control,
-      .form-group {
-        margin: 0;
-      }
-      .form-control {
-        padding-right: 150px !important;
-      }
-      .subscribe-btn {
-        position: absolute;
-        right: 3px;
-        top: -52px;
-        height: 49px;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        padding: 0 22px !important;
-        color: #ffffff !important;
-        background: linear-gradient(to right, $primaryGradient);
-        &:before {
-          content: none;
-        }
-      }
-    }
   }
   /*end of form*/
 
@@ -449,6 +427,8 @@ body {
 
   /****** FOOTER ******/
   .footer {
+    padding-top: 35px;
+    padding-bottom: 35px;
     position: relative;
     background-image: url("../images/adobestock_74280309.jpg");
     background-size: cover;
@@ -483,10 +463,6 @@ body {
         }
       }
     }
-    .container:first-child {
-      padding-top: 75px;
-      padding-bottom: 30px;
-    }
     .social-icons {
       a {
         margin-left: 15px;
@@ -508,6 +484,51 @@ body {
           text-align: center;
           border-radius: 50%;
           line-height: 40px;
+        }
+      }
+    }
+
+    .newsletter-subscribe-form-wrapper {
+      @media (min-width: 768px) {
+        margin-top: -85px;
+      }
+      h6 {
+        margin-top: -10px;
+        vertical-align: middle;
+      }
+      form.subscribe-form {
+        transform: scale(0.85);
+        transform-origin: left center;
+        position: relative;
+        .form-control,
+        .form-group {
+          margin: 0;
+        }
+        .subscribe-btn {
+          height: 55px;
+          padding: 0 22px !important;
+          color: #ffffff !important;
+          background: linear-gradient(to right, $primaryGradient);
+          margin-top: -21px;
+          margin-left: 10px !important;
+          &:before {
+            content: none;
+          }
+        }
+        @media (min-width: 768px) {
+          .copyright-text {
+            margin-top: -15px;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+          input.form-control {
+            width: 325px;
+          }
+        }
+        @media (min-width: 1280px) {
+          input.form-control {
+            width: 350px;
+          }
         }
       }
     }
@@ -736,27 +757,6 @@ body {
   }
   /****** end of BLOG SECTION******/
 
-  /****** SUBSRIBE SECTION ******/
-
-  .newsletter-subscribe-form-wrapper {
-    @media (min-width: 768px) {
-      margin-top: -85px;
-    }
-    h6 {
-      margin-top: -10px;
-      vertical-align: middle;
-    }
-    form {
-      transform: scale(0.85);
-      transform-origin: left center;
-    }
-    @media (min-width: 1366px) {
-      .form-control {
-        width: 450px;
-      }
-    }
-  }
-
   /*.subscribe-section {
     background: $primaryColor;
     padding-top: 50px;
@@ -789,8 +789,8 @@ body {
         color: $primaryColor !important;
         position: relative;
         text-align: center;
-        padding-top: 15px;
-        padding-bottom: 10px;
+        padding-top: 5px;
+        padding-bottom: 3px;
         cursor: pointer;
         background: #ffffff;
         letter-spacing: 2px;
@@ -798,6 +798,10 @@ body {
         text-transform: uppercase;
         border-bottom: 5px solid transparent;
         height: 100%;
+
+        &:hover {
+          color: $textBody !important;
+        }
 
         &.active {
           color: $textBody !important;

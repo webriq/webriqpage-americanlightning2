@@ -6,7 +6,7 @@ export default () => (
 	<div className="navigation">
 		<Nav className="flex-column">
 			<div>
-				<h5 className="menu-title">Products</h5>
+				<h6 className="menu-title">Products</h6>
 				<Nav.Item>
 					<Link to="/">Downlighting</Link>
 				</Nav.Item>
@@ -30,7 +30,7 @@ export default () => (
 				</Nav.Item>
 			</div>
 			<div className="mt-5">
-				<h5 className="menu-title">Resources</h5>
+				<h6 className="menu-title">Resources</h6>
 				<Nav.Item>
 					<Link to="/">Literature & Media</Link>
 				</Nav.Item>

@@ -26,7 +26,7 @@ class FeaturedProducts extends React.Component {
 
 		console.log(this.props)
 		return (
-			<div className="py-10 bg-light products-swiper">
+			<div className="py-10 products-swiper">
 				<div className="container">
 					<div className="swiper-nav v-center" style={{ zIndex: "2" }}>
 						<div className="swiper-arrow-left" id="featured-prev">

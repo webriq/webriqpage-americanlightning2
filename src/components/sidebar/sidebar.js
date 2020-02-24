@@ -59,7 +59,7 @@ class SideBarMenu extends React.Component {
 					className="bm-burger-button"
 					onClick={() => this.toggleMenu()}
 				>
-					<svg viewBox="0 0 96 96" height="55px" style={style}>
+					<svg viewBox="0 0 96 96" height="35px" style={style}>
 						<Motion
 							style={{
 								x: spring(this.state.toggle ? 1 : 0, presets.wobbly),

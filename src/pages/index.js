@@ -92,7 +92,7 @@ export const indexPageQuery = graphql`
         description
       }
     }
-    allSanityPost(sort: { fields: publishedAt, order: ASC }, limit: 3) {
+    allSanityPost(sort: { fields: publishedAt, order: ASC }, limit: 1) {
       edges {
         node {
           id
