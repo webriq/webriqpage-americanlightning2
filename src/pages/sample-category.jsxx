@@ -2,7 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import {
+	Link as Anchor,
+	Events,
+	animateScroll as scroll,
+	scroller,
+} from "react-scroll"
 // import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 //images
@@ -22,6 +27,58 @@ import RGBTWSeries from "../images/sample-products/rgbtw-series.png"
 // import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
 class CategoryPage extends React.Component {
+	constructor(props) {
+		super(props)
+		this.scrollToTop = this.scrollToTop.bind(this)
+	}
+
+	componentDidMount() {
+		Events.scrollEvent.register("begin", function() {
+			console.log("begin", arguments)
+		})
+
+		Events.scrollEvent.register("end", function() {
+			console.log("end", arguments)
+		})
+	}
+	scrollToTop() {
+		scroll.scrollToTop()
+	}
+	scrollTo() {
+		scroller.scrollTo("scroll-to-element", {
+			duration: 800,
+			delay: 0,
+			smooth: "easeInOutQuart",
+		})
+	}
+	scrollToWithContainer() {
+		let goToContainer = new Promise((resolve, reject) => {
+			Events.scrollEvent.register("end", () => {
+				resolve()
+				Events.scrollEvent.remove("end")
+			})
+
+			scroller.scrollTo("scroll-container", {
+				duration: 800,
+				delay: 0,
+				smooth: "easeInOutQuart",
+			})
+		})
+
+		goToContainer.then(() =>
+			scroller.scrollTo("scroll-container-second-element", {
+				duration: 800,
+				delay: 0,
+				smooth: "easeInOutQuart",
+				containerId: "scroll-container",
+			})
+		)
+	}
+	componentWillUnmount() {
+		Events.scrollEvent.remove("begin")
+		Events.scrollEvent.remove("end")
+	}
+
 	render() {
 		const siteTitle = this.props.data.site.siteMetadata.title
 		const siteDescription = this.props.data.site.siteMetadata.description
@@ -42,6 +99,41 @@ class CategoryPage extends React.Component {
 										<span className="text-uppercase">Prizm Tape Light</span> |{" "}
 										<span className="text-primary">Reset</span>
 										<div id="menu-top" className="pt-4" />
+										<ul className="list-unstyled sticky-sidebar-categories">
+											<li>
+												<Anchor
+													to="single-color-tape-light"
+													duration={500}
+													spy={true}
+													smooth={true}
+												>
+													Single Color Tapelight
+												</Anchor>
+												<span className="item-count">4</span>
+											</li>
+											<li>
+												<Anchor
+													to="tunable-cct-tape-light"
+													duration={500}
+													spy={true}
+													smooth={true}
+												>
+													Tunable CCT Tape Light
+												</Anchor>
+												<span className="item-count">3</span>
+											</li>
+											<li>
+												<Anchor
+													to="rgb-tape-light"
+													duration={500}
+													spy={true}
+													smooth={true}
+												>
+													RGB Tape Light
+												</Anchor>
+												<span className="item-count">4</span>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>

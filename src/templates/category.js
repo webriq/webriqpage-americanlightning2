@@ -2,70 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {
-	Link as Anchor,
-	Events,
-	animateScroll as scroll,
-	scroller,
-} from "react-scroll"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 //carousel
 import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
 class CategoryPageTemplate extends React.Component {
-	constructor(props) {
-		super(props)
-		this.scrollToTop = this.scrollToTop.bind(this)
-	}
-
-	componentDidMount() {
-		Events.scrollEvent.register("begin", function() {
-			console.log("begin", arguments)
-		})
-
-		Events.scrollEvent.register("end", function() {
-			console.log("end", arguments)
-		})
-	}
-	scrollToTop() {
-		scroll.scrollToTop()
-	}
-	scrollTo() {
-		scroller.scrollTo("scroll-to-element", {
-			duration: 800,
-			delay: 0,
-			smooth: "easeInOutQuart",
-		})
-	}
-	scrollToWithContainer() {
-		let goToContainer = new Promise((resolve, reject) => {
-			Events.scrollEvent.register("end", () => {
-				resolve()
-				Events.scrollEvent.remove("end")
-			})
-
-			scroller.scrollTo("scroll-container", {
-				duration: 800,
-				delay: 0,
-				smooth: "easeInOutQuart",
-			})
-		})
-
-		goToContainer.then(() =>
-			scroller.scrollTo("scroll-container-second-element", {
-				duration: 800,
-				delay: 0,
-				smooth: "easeInOutQuart",
-				containerId: "scroll-container",
-			})
-		)
-	}
-	componentWillUnmount() {
-		Events.scrollEvent.remove("begin")
-		Events.scrollEvent.remove("end")
-	}
-
 	render() {
 		const siteTitle = this.props.data.site.siteMetadata.title
 		const siteDescription = this.props.data.site.siteMetadata.description
@@ -106,14 +48,14 @@ class CategoryPageTemplate extends React.Component {
 												console.log(count)
 												return (
 													<li key={subcat.title}>
-														<Anchor
+														<Link
 															to={subcat.title}
 															duration={500}
 															spy={true}
 															smooth={true}
 														>
 															{subcat.title}
-														</Anchor>
+														</Link>
 														<span className="item-count">{count.length}</span>
 													</li>
 												)

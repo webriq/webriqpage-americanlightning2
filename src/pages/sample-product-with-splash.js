@@ -15,7 +15,17 @@ import Image2 from "../images/senik-wwa40-bk-crop-u176936.png"
 import Image3 from "../images/senik a40 3set_alt.png"
 import Image4 from "../images/senik a40 3set.png"
 
+import RelatedItems from "../components/RelatedItems"
+
 class ProductPageSplash extends React.Component {
+	state = {
+		collapseID: "collapse3",
+	}
+
+	toggleCollapse = collapseID => () =>
+		this.setState(prevState => ({
+			collapseID: prevState.collapseID !== collapseID ? collapseID : "",
+		}))
 	render() {
 		const siteTitle = this.props.data.site.siteMetadata.title
 		const siteDescription = this.props.data.site.siteMetadata.description
@@ -357,6 +367,7 @@ class ProductPageSplash extends React.Component {
 						</div>
 					</div>
 				</div>
+				<RelatedItems />
 			</Layout>
 		)
 	}

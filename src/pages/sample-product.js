@@ -11,6 +11,9 @@ import TLMMaxRun from "../images/sample-products/tlm-max-run.png"
 import PrizmLogo from "../images/prizm-logo.svg"
 import CULUS from "../images/culus-icon.svg"
 
+import ProductAccordion from "../components/ProductAccordion"
+import RelatedItems from "../components/RelatedItems"
+
 class ProductPage extends React.Component {
 	render() {
 		const siteTitle = this.props.data.site.siteMetadata.title
@@ -56,216 +59,192 @@ class ProductPage extends React.Component {
 									</ul>
 									<Accordion>
 										<Card>
-											<Accordion.Toggle as={Card.Header} eventKey="0">
-												<div className="accordion-heading">Quick Specs</div>
-											</Accordion.Toggle>
-											<Accordion.Collapse eventKey="0">
-												<Card.Body>
-													<div className="row">
-														<div className="col-4">
-															<strong>Series</strong>
-														</div>
-														<div className="col-8">TLM</div>
+											<ProductAccordion eventKey={0} heading={"Quick Specs"}>
+												<div className="row">
+													<div className="col-4">
+														<strong>Series</strong>
 													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Voltage</strong>
-														</div>
-														<div className="col-8">24V</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>CCT</strong>
-														</div>
-														<div className="col-8">
-															2400K / 2700K / 3000K / 4000K
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>CRI</strong>
-														</div>
-														<div className="col-8">90+</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Wattage</strong>
-														</div>
-														<div className="col-8">1.46W per ft</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Lumens</strong>
-														</div>
-														<div className="col-8">Up to 121Lm per ft</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Max Run</strong>
-														</div>
-														<div className="col-8">65.6ft</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Cuttable</strong>
-														</div>
-														<div className="col-8">Every 1.97"</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>IP Rating</strong>
-														</div>
-														<div className="col-8">IP54 (unjacketed)</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Dimmable</strong>
-														</div>
-														<div className="col-8">
-															(5-100%) with most dimmers
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Rating</strong>
-														</div>
-														<div className="col-8">cULus Listed</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>Rated Life</strong>
-														</div>
-														<div className="col-8">50,000 hrs</div>
-													</div>
-												</Card.Body>
-											</Accordion.Collapse>
-										</Card>
-										<Card>
-											<Accordion.Toggle as={Card.Header} eventKey="1">
-												<div className="accordion-heading">Accessories</div>
-											</Accordion.Toggle>
-											<Accordion.Collapse eventKey="1">
-												<Card.Body>
-													<div className="row">
-														<div className="col-4">
-															<span className="font-weight-bold text-uppercase text-muted">
-																Item Number
-															</span>
-														</div>
-														<div className="col-8">
-															<span className="font-weight-bold text-uppercase text-muted">
-																Description
-															</span>
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-CONKIT</strong>
-														</div>
-														<div className="col-8">
-															Trulink 4-in-1 Connector Power Feed
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-BLKS</strong>
-														</div>
-														<div className="col-8">
-															Trulink 4-in-1 Connector Block
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2SPL</strong>
-														</div>
-														<div className="col-8">Splice Connector</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2L</strong>
-														</div>
-														<div className="col-8">L - Snap Connector</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2T</strong>
-														</div>
-														<div className="col-8">T - Snap Connector</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2X</strong>
-														</div>
-														<div className="col-8">X - Snap Connector</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2JUMP-.5</strong>
-														</div>
-														<div className="col-8">6" Linking Cable (IP54)</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2JUMP-1</strong>
-														</div>
-														<div className="col-8">
-															12" Linking Cable (IP54)
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2JUMP-2</strong>
-														</div>
-														<div className="col-8">
-															24" Linking Cable (IP54)
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2JUMP65-.5</strong>
-														</div>
-														<div className="col-8">6" Linking Cable (IP65)</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2JUMP65-1</strong>
-														</div>
-														<div className="col-8">
-															12" Linking Cable (IP65)
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2JUMP65-2</strong>
-														</div>
-														<div className="col-8">
-															24" Linking Cable (IP65)
-														</div>
-													</div>
-													<div className="row">
-														<div className="col-4">
-															<strong>TL-2DC</strong>
-														</div>
-														<div className="col-8">
-															Snap Connector to DC Jack
-														</div>
-													</div>
-												</Card.Body>
-											</Accordion.Collapse>
-										</Card>
-										<Card>
-											<Accordion.Toggle as={Card.Header} eventKey="2">
-												<div className="accordion-heading">
-													IES / Photometrics
+													<div className="col-8">TLM</div>
 												</div>
-											</Accordion.Toggle>
-											<Accordion.Collapse eventKey="2">
-												<Card.Body>
-													<span className="font-weight-bold">
-														Please contact factory for additional information.
-													</span>
-												</Card.Body>
-											</Accordion.Collapse>
+												<div className="row">
+													<div className="col-4">
+														<strong>Voltage</strong>
+													</div>
+													<div className="col-8">24V</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>CCT</strong>
+													</div>
+													<div className="col-8">
+														2400K / 2700K / 3000K / 4000K
+													</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>CRI</strong>
+													</div>
+													<div className="col-8">90+</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Wattage</strong>
+													</div>
+													<div className="col-8">1.46W per ft</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Lumens</strong>
+													</div>
+													<div className="col-8">Up to 121Lm per ft</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Max Run</strong>
+													</div>
+													<div className="col-8">65.6ft</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Cuttable</strong>
+													</div>
+													<div className="col-8">Every 1.97"</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>IP Rating</strong>
+													</div>
+													<div className="col-8">IP54 (unjacketed)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Dimmable</strong>
+													</div>
+													<div className="col-8">
+														(5-100%) with most dimmers
+													</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Rating</strong>
+													</div>
+													<div className="col-8">cULus Listed</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>Rated Life</strong>
+													</div>
+													<div className="col-8">50,000 hrs</div>
+												</div>
+											</ProductAccordion>
+										</Card>
+										<Card>
+											<ProductAccordion eventKey={1} heading={"Accessories"}>
+												<div className="row">
+													<div className="col-4">
+														<span className="font-weight-bold text-uppercase text-muted">
+															Item Number
+														</span>
+													</div>
+													<div className="col-8">
+														<span className="font-weight-bold text-uppercase text-muted">
+															Description
+														</span>
+													</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-CONKIT</strong>
+													</div>
+													<div className="col-8">
+														Trulink 4-in-1 Connector Power Feed
+													</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-BLKS</strong>
+													</div>
+													<div className="col-8">
+														Trulink 4-in-1 Connector Block
+													</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2SPL</strong>
+													</div>
+													<div className="col-8">Splice Connector</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2L</strong>
+													</div>
+													<div className="col-8">L - Snap Connector</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2T</strong>
+													</div>
+													<div className="col-8">T - Snap Connector</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2X</strong>
+													</div>
+													<div className="col-8">X - Snap Connector</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2JUMP-.5</strong>
+													</div>
+													<div className="col-8">6" Linking Cable (IP54)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2JUMP-1</strong>
+													</div>
+													<div className="col-8">12" Linking Cable (IP54)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2JUMP-2</strong>
+													</div>
+													<div className="col-8">24" Linking Cable (IP54)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2JUMP65-.5</strong>
+													</div>
+													<div className="col-8">6" Linking Cable (IP65)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2JUMP65-1</strong>
+													</div>
+													<div className="col-8">12" Linking Cable (IP65)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2JUMP65-2</strong>
+													</div>
+													<div className="col-8">24" Linking Cable (IP65)</div>
+												</div>
+												<div className="row">
+													<div className="col-4">
+														<strong>TL-2DC</strong>
+													</div>
+													<div className="col-8">Snap Connector to DC Jack</div>
+												</div>
+											</ProductAccordion>
+										</Card>
+										<Card>
+											<ProductAccordion
+												eventKey={2}
+												heading={"IES / Photometrics"}
+											>
+												<span className="font-weight-bold">
+													Please contact factory for additional information.
+												</span>
+											</ProductAccordion>
 										</Card>
 									</Accordion>
 								</div>
@@ -273,6 +252,7 @@ class ProductPage extends React.Component {
 						</div>
 					</div>
 				</div>
+				<RelatedItems />
 			</Layout>
 		)
 	}
@@ -280,13 +260,35 @@ class ProductPage extends React.Component {
 
 export default ProductPage
 
-export const ProductPageQuery = graphql`
-	query ProductPageQuery {
+export const productPageQuery = graphql`
+	query productPageQuery {
 		site {
 			siteMetadata {
 				title
 				author
 				description
+			}
+		}
+
+		allSanityProduct(limit: 20, sort: { fields: title, order: ASC }) {
+			edges {
+				node {
+					id
+					title
+					description
+					slug {
+						current
+					}
+					productImage {
+						image {
+							asset {
+								fluid(maxHeight: 200, maxWidth: 283) {
+									src
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
