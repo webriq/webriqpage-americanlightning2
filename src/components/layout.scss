@@ -834,70 +834,6 @@ body {
       font-size: 9px !important;
     }
   }
-  /****** CATEGORIES ******/
-  .sticky-top {
-    top: 100px;
-  }
-  .scroll-spacer {
-    padding-top: 100px;
-    &:first-child {
-      padding-top: 100px;
-      margin-top: -95px;
-    }
-  }
-  .subcategory-heading {
-    border-bottom: 1px solid $borderColor;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-  }
-  .category-sidebar {
-    padding-right: 20px;
-    height: 100%;
-    padding-bottom: 50px;
-    @media (min-width: $break-md) {
-      border-right: 1px solid $borderColor;
-      padding-bottom: 0;
-    }
-  }
-  .sticky-sidebar-categories {
-    li {
-      margin-bottom: 15px;
-      color: #ffffff;
-      position: relative;
-      a {
-        display: block;
-        cursor: pointer;
-        background: $primaryColor;
-        border: 1px solid $primaryColor;
-        padding: 5px 15px 5px;
-        color: #ffffff;
-        &.active,
-        &:hover,
-        &:active {
-          color: $primaryColor !important;
-          background: transparent;
-        }
-      }
-      .item-count {
-        display: block;
-        color: $primaryColor;
-        border-radius: 50%;
-        background: $borderColor;
-        height: 24px;
-        width: 24px;
-        text-align: center;
-        line-height: 1;
-        padding-top: 7px;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: perspective(1px) translateY(-50%);
-        font-size: 12px;
-        font-weight: 600;
-      }
-    }
-  }
-  /****** end of CATEGORIES ******/
 
   /****** PRODUCT CAROUSEL ******/
 
@@ -1028,6 +964,14 @@ body {
   /****** end of ACCORDION FOR PRODUCT DETAILS ******/
 
   /****** ACCORDION FOR CATEGORIES ******/
+  .category-sidebar {
+    padding-right: 20px;
+    height: 100%;
+    padding-bottom: 50px;
+    @media (min-width: $break-md) {
+      padding-bottom: 0;
+    }
+  }
   .category-accordion-wrapper {
     .accordion {
       .card {
