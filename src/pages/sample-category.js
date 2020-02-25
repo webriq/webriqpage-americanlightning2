@@ -104,7 +104,7 @@ class CategoryPage extends React.Component {
 							{/* sticky sidebar */}
 							<div className="col-md-3">
 								<div className="category-sidebar">
-									<div className="sticky-top">
+									<div>
 										<span className="text-uppercase font-weight-bold">
 											Prizm Tape Light
 										</span>{" "}

@@ -965,10 +965,10 @@ body {
 
   /****** ACCORDION FOR CATEGORIES ******/
   .category-sidebar {
-    padding-right: 20px;
     height: 100%;
     padding-bottom: 50px;
     @media (min-width: $break-md) {
+      padding-left: 20px;
       padding-bottom: 0;
     }
   }
