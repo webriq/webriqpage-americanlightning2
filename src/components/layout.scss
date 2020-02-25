@@ -952,55 +952,150 @@ body {
 
   /****** end of PRODUCT CAROUSEL ******/
 
-  /****** ACCORDION ******/
-
-  .accordion {
-    .card {
-      border-radius: 0;
-      border: 0;
-      border-left: 3px solid $borderColor;
-
-      .card-header {
+  /****** ACCORDION FOR PRODUCT DETAILS ******/
+  .product-accordion-wrapper {
+    .accordion {
+      .card {
         border-radius: 0;
-        border: 1px solid $borderColor;
-        background: #ffffff;
-        text-transform: uppercase;
-        font-weight: 600;
-        cursor: pointer;
-        position: relative;
-        &:after {
-          font-family: FontAwesome;
-          /*content: "\f055";*/
-          content: "closed";
-          position: absolute;
-          right: 15px;
-          top: 15px;
-        }
-        &.opened {
+        border: 0;
+        margin-bottom: -1px;
+
+        .accordion-label {
+          position: relative;
+          display: block;
+          width: 100%;
+          text-align: left;
+          font: inherit;
+          padding: 7px 7px 7px 45px;
+          text-decoration: none !important;
+          color: $textBody !important;
+          letter-spacing: 0;
+          font-weight: 600 !important;
+          background: $lightColor;
           &:after {
-            /*content: "\f056";*/
-            content: "opened";
+            font-family: FontAwesome;
+            /*content: "\f055";*/
+            content: "";
+            background-image: url(/img/plus.svg);
+            background-size: cover;
+            height: 18px;
+            width: 18px;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
           }
-          color: $primaryColor;
-        }
-      }
-      .card-body {
-        border: 1px solid $borderColor;
-        .row {
-          border-bottom: 1px solid $borderColor;
-          &:last-child {
-            border-bottom: 0;
+          &.active {
+            color: #fff !important;
+            background: linear-gradient(to right, $primaryGradient) !important;
+            &:after {
+              background-image: url(/img/minus.svg);
+              filter: brightness(0) invert(1);
+            }
+            color: $primaryColor;
           }
         }
-      }
-      &:last-child {
+
         .card-header {
-          margin-bottom: 0 !important;
+          border-radius: 0;
+          border: 1px solid $borderColor;
+          background: #ffffff;
+          text-transform: uppercase;
+          font-weight: 600;
+          cursor: pointer;
+          position: relative;
+          padding: 0;
+        }
+
+        .card-body {
+          border: 1px solid $borderColor;
+          margin-top: -1px;
+          .row {
+            border-bottom: 1px solid $borderColor;
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+        &:last-child {
+          .card-header {
+            margin-bottom: 0 !important;
+          }
         }
       }
     }
   }
-  /****** end of ACCORDION ******/
+  /****** end of ACCORDION FOR PRODUCT DETAILS ******/
+
+  /****** ACCORDION FOR CATEGORIES ******/
+  .category-accordion-wrapper {
+    .accordion {
+      .card {
+        border-radius: 0;
+        border-width: 0 0 1px 0;
+        border-bottom: 1px solid $borderColor !important;
+
+        .accordion-label {
+          position: relative;
+          display: block;
+          width: 100%;
+          text-align: left;
+          font: inherit;
+          padding: 7px 15px 7px 0;
+          border: 0 !important;
+          text-decoration: none !important;
+          color: $textBody !important;
+          letter-spacing: 0;
+          text-transform: none;
+          &:after {
+            font-family: FontAwesome;
+            /*content: "\f055";*/
+            content: "";
+            background-image: url(/img/plus.svg);
+            background-size: cover;
+            height: 18px;
+            width: 18px;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &.active {
+            &:after {
+              background-image: url(/img/minus.svg);
+            }
+          }
+        }
+
+        .card-header {
+          background: transparent;
+          border-radius: 0;
+          border: 0;
+          cursor: pointer;
+          position: relative;
+          padding: 0;
+        }
+
+        .card-body {
+          padding: 0 0 15px 0;
+        }
+
+        .subcategory {
+          display: block;
+          font-size: 13px;
+          font-weight: 600;
+          opacity: 0.5;
+          cursor: pointer;
+          transition: all 0.15s ease;
+          &:hover {
+            color: $primaryColor;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  /****** end of ACCORDION FOR CATEGORIES ******/
 
   .product-name-logo {
     /*align name of product with inline logos*/
