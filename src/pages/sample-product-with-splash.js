@@ -94,7 +94,7 @@ class ProductPageSplash extends React.Component {
 								A40X Array Series
 							</h3>
 						</div>
-						<div className="row justify-content-between small">
+						<div className="row justify-content-between">
 							<div className="col-lg-6">
 								<p>
 									The Sēnik A40X is a premium high-performance option for any
@@ -123,7 +123,7 @@ class ProductPageSplash extends React.Component {
 									<li>20° Optics (Standard) / 40° optics (Special Order)</li>
 								</ul>
 							</div>
-							<div className="col-lg-6">
+							<div className="col-lg-6 small">
 								<div className="product-accordion-wrapper">
 									<Accordion>
 										<Card>

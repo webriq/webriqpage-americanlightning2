@@ -69,8 +69,11 @@ const Header = ({ type }) => {
                   </Nav.Item>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="d-none d-lg-inline-block">
+              <div
+                className="text-right d-inline-block"
+                style={{ minWidth: "91px" }}
+              >
+                <div className="d-inline-block">
                   <div className="header-search">
                     <div className="search-field">
                       <button

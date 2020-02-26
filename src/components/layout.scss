@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,600,600i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,600i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:700&display=swap");
 
 $fontStack: "Open Sans", sans-serif;
@@ -16,7 +16,7 @@ body {
   font-family: $fontStack !important;
   line-height: 2 !important;
   font-size: 16px !important;
-  font-weight: 300 !important;
+  font-weight: 400 !important;
   color: $textBody !important;
 
   header {
@@ -100,6 +100,16 @@ body {
               transform: perspective(1px) translateY(-50%);
               border: 1px solid $borderColor;
               padding: 0;
+            }
+            @media (max-width: 991px) {
+              right: -15px;
+              padding: 0;
+              bottom: -4px;
+              box-shadow: none;
+
+              .form-control {
+                height: 35px;
+              }
             }
           }
         }
@@ -463,6 +473,7 @@ body {
       a {
         color: #ffffff !important;
         font-size: medium;
+        font-weight: 300;
         opacity: 0.45;
         transition: all 0.35s ease;
         text-transform: capitalize;
@@ -891,6 +902,7 @@ body {
   /****** ACCORDION FOR PRODUCT DETAILS ******/
   .product-accordion-wrapper {
     .accordion {
+      font-size: small;
       .card {
         border-radius: 0;
         border: 0;
@@ -922,13 +934,9 @@ body {
             transform: translateY(-50%);
           }
           &.active {
-            color: #fff !important;
-            background: linear-gradient(to right, $primaryGradient) !important;
             &:after {
               background-image: url(/img/minus.svg);
-              filter: brightness(0) invert(1);
             }
-            color: $primaryColor;
           }
         }
 
