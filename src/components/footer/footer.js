@@ -148,7 +148,7 @@ const footer = props => {
 									Stay in the know with our newsletter!
 								</h6>
 								<form className="subscribe-form d-inline-block">
-									<div className="form-group d-inline-block">
+									<div className="form-group d-inline-block mr-2">
 										<input
 											type="email"
 											className="form-control"
