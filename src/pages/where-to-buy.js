@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import USAMap from "react-usa-map"
-// import USAMap from "../components/USAMap"
+
+import USA from "@svg-maps/usa"
+import { RadioSVGMap } from "react-svg-map"
+// import "react-svg-map/lib/index.css"
 
 const states = {
-	AL: {
+	al: {
 		state: "Alabama",
 		city: [
 			{
@@ -88,7 +90,7 @@ const states = {
 			},
 		],
 	},
-	AK: {
+	ak: {
 		state: "Alaska",
 		city: [
 			{
@@ -155,100 +157,304 @@ const states = {
 			},
 		],
 	},
+	az: {
+		state: "Arizona",
+		city: [
+			{
+				name: "Chandler",
+				stores: [
+					{
+						storeName: "CES-Chandler",
+						streetAddress: "4340 W Chandler Blvd",
+						zipcode: "85226",
+						phoneNum: "480-246-8561",
+					},
+				],
+			},
+		],
+	},
+	ar: {
+		state: "Arkansas",
+	},
+	ca: {
+		state: "California",
+	},
+	co: {
+		state: "Colorado",
+	},
+	ct: {
+		state: "Connecticut",
+	},
+	de: {
+		state: "Delaware",
+	},
+	fl: {
+		state: "Florida",
+	},
+	ga: {
+		state: "Georgia",
+	},
+	hi: {
+		state: "Hawaii",
+	},
+	id: {
+		state: "Idaho",
+	},
+	il: {
+		state: "Illinois",
+	},
+	in: {
+		state: "Indiana",
+	},
+	ia: {
+		state: "Iowa",
+	},
+	ks: {
+		state: "Kansas",
+	},
+	ky: {
+		state: "Kentucky",
+	},
+	la: {
+		state: "Louisiana",
+	},
+	me: {
+		state: "Maine",
+	},
+	md: {
+		state: "Maryland",
+	},
+	ma: {
+		state: "Massachusetts",
+	},
+	mi: {
+		state: "Michigan",
+	},
+	mn: {
+		state: "Minnesota",
+	},
+	ms: {
+		state: "Mississippi",
+	},
+	mo: {
+		state: "Missouri",
+	},
+	mt: {
+		state: "Montana",
+	},
+	ne: {
+		state: "Nebraska",
+	},
+	nv: {
+		state: "Nevada",
+	},
+	nh: {
+		state: "New Hampshire",
+	},
+	nj: {
+		state: "New Jersey",
+	},
+	nm: {
+		state: "New Mexico",
+	},
+	ny: {
+		state: "New York",
+	},
+	nc: {
+		state: "North Carolina",
+	},
+	nd: {
+		state: "North Dakota",
+	},
+	oh: {
+		state: "Ohio",
+	},
+	ok: {
+		state: "Oklahoma",
+	},
+	or: {
+		state: "Oregon",
+	},
+	pa: {
+		state: "Pennsylvania",
+	},
+	ri: {
+		state: "Rhode Island",
+	},
+	sc: {
+		state: "South Carolina",
+	},
+	sd: {
+		state: "South Dakota",
+	},
+	tn: {
+		state: "Tennessee",
+	},
+	tx: {
+		state: "Texas",
+	},
+	ut: {
+		state: "Utah",
+	},
+	vt: {
+		state: "Vermont",
+	},
+	va: {
+		state: "Virginia",
+	},
+	wa: {
+		state: "Washington",
+	},
+	wv: {
+		state: "West Virginia	",
+	},
+	wi: {
+		state: "Wisconsin",
+	},
+	wy: {
+		state: "Wyoming",
+	},
 }
 
-const WhereToBuyPage = () => {
-	const [selectedState, setSelectedState] = useState("AL") //default Alabama
-	const [highlighted, setHighlighted] = useState({
-		AL: {
-			fill: "#418fde",
-		},
-	})
-	const mapHandler = e => {
-		setHighlighted({
-			[e.target.dataset.name]: {
-				fill: "#418fde",
-			},
-		})
-		setSelectedState(e.target.dataset.name)
+class WhereToBuyPage extends React.Component {
+	// const [selectedState, setSelectedState] = useState("AL") //default Alabama
+	// const [highlighted, setHighlighted] = useState({
+	// 	AL: {
+	// 		fill: "#418fde",
+	// 	},
+	// })
+	// const mapHandler = e => {
+	// 	setHighlighted({
+	// 		[e.target.dataset.name]: {
+	// 			fill: "#418fde",
+	// 		},
+	// 	})
+	// 	setSelectedState(e.target.dataset.name)
+	// }
+
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			selectedLocation: "al",
+			stateData: "al",
+		}
+
+		this.handleOnChange = this.handleOnChange.bind(this)
 	}
 
-	return (
-		<Layout>
-			<SEO title="Where to Buy" />
-			<div class="page-headline">
-				<div class="container">
-					<div class="section-heading">
-						<h1>Where to Buy</h1>
-					</div>
-				</div>
-			</div>
-			<div className="page-content">
-				<div className="container">
-					<div className="row justify-content-between">
-						<div className="col-md-6">
-							<div className="select-state-wrapper">
-								<p className="small text-muted">
-									Select a state or province listed below for showrooms and
-									distributors in your area.
-								</p>
-								<span className="mr-2">Select:</span>
-								<select onChange={e => setSelectedState(e.target.value)}>
-									<optgroup label="United States">
-										<option
-											value="AL"
-											selected={selectedState === "AL" ? true : false}
-										>
-											Alabama
-										</option>
-										<option
-											value="AK"
-											selected={selectedState === "AK" ? true : false}
-										>
-											Alaska
-										</option>
-									</optgroup>
-								</select>
-								<br />
-								<USAMap customize={highlighted} onClick={mapHandler} />
-							</div>
-						</div>
-						<div className="col-lg-5">
-							<div>
-								<h3 className="section-heading">
-									{states[selectedState].state}
-								</h3>
+	handleOnChange(selectedNode) {
+		this.setState(prevState => {
+			document
+				.getElementById(prevState.selectedLocation)
+				.setAttribute("aria-checked", false)
+			return {
+				...prevState,
+				selectedLocation: selectedNode.attributes.id.value,
+				stateData:
+					(states[selectedNode.attributes.id.value.toString()] &&
+						states[selectedNode.attributes.id.value.toString()]) ||
+					[],
+			}
+		})
+	}
 
-								{states[selectedState].city.map(city => (
-									<div>
-										<h5 className="text-primary text-uppercase bordered-heading">
-											{city.name}
-										</h5>
-										<div className="row">
-											{city.stores.map(store => (
-												<div className="col-6 mb-4">
-													<h6 className="font-weight-bold">
-														{store.storeName}
-													</h6>
-													<p className="small text-muted">
-														{store.streetAddress}
-														<br />
-														{city.name}, {selectedState} {store.zipcode}
-														<br />
-														PH: {store.phoneNum}
-													</p>
-												</div>
+	handleSelect(abbr) {
+		this.setState(prevState => {
+			document
+				.getElementById(prevState.selectedLocation)
+				.setAttribute("aria-checked", false)
+			return {
+				...prevState,
+				selectedLocation: abbr,
+				stateData: (states[abbr.toString()] && states[abbr.toString()]) || [],
+			}
+		})
+		document.getElementById(abbr.toString()).setAttribute("aria-checked", true)
+	}
+
+	render() {
+		return (
+			<Layout>
+				<SEO title="Where to Buy" />
+				<div class="page-headline">
+					<div class="container">
+						<div class="section-heading">
+							<h1>Where to Buy</h1>
+						</div>
+					</div>
+				</div>
+				<div className="page-content">
+					<div className="container">
+						<div className="row justify-content-between">
+							<div className="col-md-6">
+								<div className="select-state-wrapper">
+									<p className="small text-muted">
+										Select a state or province listed below for showrooms and
+										distributors in your area.
+									</p>
+									<div className="pb-3">
+										<span className="mr-2">Select:</span>
+										<select onChange={e => this.handleSelect(e.target.value)}>
+											{Object.entries(states).map(([key, values]) => (
+												<option
+													value={key}
+													selected={
+														key === this.state.selectedLocation ? true : false
+													}
+												>
+													{values.state}
+												</option>
 											))}
-										</div>
+										</select>
 									</div>
-								))}
+									<RadioSVGMap map={USA} onChange={this.handleOnChange} />
+								</div>
+							</div>
+							<div className="col-lg-5">
+								<h3 className="section-heading">
+									{this.state.stateData.state}
+								</h3>
+								{(this.state.stateData &&
+									this.state.stateData.city &&
+									this.state.stateData.city.map(city => (
+										<div>
+											<h5 className="text-primary text-uppercase bordered-heading">
+												{city.name}
+											</h5>
+											<div className="row">
+												{(city &&
+													city.stores &&
+													city.stores.map(store => (
+														<div className="col-6 mb-4">
+															<h6 className="font-weight-bold">
+																{store.storeName}
+															</h6>
+															<p className="small text-muted">
+																{store.streetAddress}
+																<br />
+																{city.name},{" "}
+																<span className="text-uppercase">
+																	{this.state.selectedLocation}
+																</span>{" "}
+																{store.zipcode}
+																<br />
+																PH: {store.phoneNum}
+															</p>
+														</div>
+													))) ||
+													""}
+											</div>
+										</div>
+									))) ||
+									"No stores."}
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</Layout>
-	)
+			</Layout>
+		)
+	}
 }
 
 export default WhereToBuyPage
