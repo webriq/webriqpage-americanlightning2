@@ -441,6 +441,18 @@ body {
     }
   }
 
+  .page-headline {
+    padding-top: 100px;
+    padding-bottom: 25px;
+    background: url("../images/houselines-right.png") bottom -300px right no-repeat,
+      $lightColor;
+  }
+
+  .page-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   /****** end of GLOBAL STYLES ******/
 
   /****** FOOTER ******/
@@ -900,10 +912,9 @@ body {
 
   /****** end of PRODUCT CAROUSEL ******/
 
-  /****** ACCORDION FOR PRODUCT DETAILS ******/
-  .product-accordion-wrapper {
+  /****** GLOBAL ACCORDION STYLING ******/
+  .basic-accordion-wrapper {
     .accordion {
-      font-size: small;
       .card {
         border-radius: 0;
         border: 0;
@@ -969,8 +980,12 @@ body {
         }
       }
     }
+    &.product-accordion {
+      font-size: small;
+    }
   }
-  /****** end of ACCORDION FOR PRODUCT DETAILS ******/
+
+  /****** end of GLOBAL ACCORDION STYLING ******/
 
   /****** ACCORDION FOR CATEGORIES ******/
   .category-sidebar {
@@ -1096,6 +1111,10 @@ body {
 
   /*** Literature and Media ***/
   .literature-content-wrapper {
+    .container {
+      z-index: 4;
+      //fix for video modal
+    }
     .catalog-nav .nav-link {
       padding: 5px 0;
       border-radius: 0;

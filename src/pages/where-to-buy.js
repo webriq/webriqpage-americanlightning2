@@ -86,11 +86,22 @@ const WhereToBuyPage = () => {
 	return (
 		<Layout>
 			<SEO title="Where to Buy" />
-			<div className="py-10">
+			<div class="page-headline">
+				<div class="container">
+					<div class="section-heading">
+						<h1>Where to Buy</h1>
+					</div>
+				</div>
+			</div>
+			<div className="page-content">
 				<div className="container">
 					<div className="row justify-content-between">
 						<div className="col-md-7">
 							<div className="select-state-wrapper">
+								<p>
+									Select a state or province listed below for showrooms and
+									distributors in your area.
+								</p>
 								<span className="mr-2">Select:</span>
 								<select onChange={e => setSelectedState(e.target.value)}>
 									<optgroup label="United States">

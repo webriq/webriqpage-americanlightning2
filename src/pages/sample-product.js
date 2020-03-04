@@ -68,7 +68,7 @@ class ProductPage extends React.Component {
 									</li>
 									<li>Run lengths up to 65.6 feet and cuttable every 1.97"</li>
 								</ul>
-								<div className="product-accordion-wrapper">
+								<div className="basic-accordion-wrapper product-accordion">
 									<Accordion>
 										<Card>
 											<Card.Header>

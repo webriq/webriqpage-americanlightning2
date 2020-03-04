@@ -124,7 +124,7 @@ class ProductPageSplash extends React.Component {
 								</ul>
 							</div>
 							<div className="col-lg-6 small">
-								<div className="product-accordion-wrapper">
+								<div className="basic-accordion-wrapper product-accordion">
 									<Accordion>
 										<Card>
 											<Card.Header>

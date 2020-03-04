@@ -24,7 +24,7 @@ class Videos extends React.Component {
 						<ModalVideo
 							channel="vimeo"
 							isOpen={this.state.isOpen}
-							videoID={videoID}
+							videoId={videoID}
 							onClose={() => this.setState({ isOpen: false })}
 						/>
 						<div
