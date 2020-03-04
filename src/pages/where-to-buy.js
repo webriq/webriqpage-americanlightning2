@@ -322,7 +322,7 @@ class WhereToBuyPage extends React.Component {
 
 		this.state = {
 			selectedLocation: "al",
-			stateData: "",
+			stateData: states["al"],
 		}
 
 		this.handleOnChange = this.handleOnChange.bind(this)
