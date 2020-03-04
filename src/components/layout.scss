@@ -1076,4 +1076,89 @@ body {
       transform: translateY(-50%) scale(1.02, 1.09);
     }
   }
+
+  /*** US Map ***/
+  .select-state-wrapper {
+    position: sticky;
+    top: 75px;
+  }
+  .us-state-map {
+    width: 100%;
+    path {
+      pointer-events: all;
+    }
+    path:hover,
+    .highlighted-state {
+      fill: $primaryColor;
+      cursor: pointer;
+    }
+  }
+
+  /*** Literature and Media ***/
+  .literature-content-wrapper {
+    .catalog-nav .nav-link {
+      padding: 5px 0;
+      border-radius: 0;
+      background: transparent !important;
+      color: $textBody;
+
+      &.active {
+        color: $primaryColor;
+      }
+    }
+
+    .tab-pane {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+
+    .video-thumbnail {
+      display: block;
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: $lightColor;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      cursor: pointer;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+      }
+      &:before {
+        content: "\f04b";
+        width: 100%;
+        font-family: FontAwesome;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 50%;
+        transform: perspective(1px) translateY(-50%);
+        text-align: center;
+        color: #ffffff;
+        font-size: 28px;
+        width: 50px;
+        height: 50px;
+        background: $primaryColor;
+        line-height: 1;
+        padding: 12px 15px;
+        border-radius: 50%;
+        transition: all 0.35s ease-in-out;
+      }
+      &:hover:before {
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.25);
+      }
+    }
+    .modal-video-body {
+      width: 750px;
+      max-width: 100%;
+    }
+  }
 }
