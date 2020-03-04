@@ -317,27 +317,12 @@ const states = {
 }
 
 class WhereToBuyPage extends React.Component {
-	// const [selectedState, setSelectedState] = useState("AL") //default Alabama
-	// const [highlighted, setHighlighted] = useState({
-	// 	AL: {
-	// 		fill: "#418fde",
-	// 	},
-	// })
-	// const mapHandler = e => {
-	// 	setHighlighted({
-	// 		[e.target.dataset.name]: {
-	// 			fill: "#418fde",
-	// 		},
-	// 	})
-	// 	setSelectedState(e.target.dataset.name)
-	// }
-
 	constructor(props) {
 		super(props)
 
 		this.state = {
 			selectedLocation: "al",
-			stateData: "al",
+			stateData: "",
 		}
 
 		this.handleOnChange = this.handleOnChange.bind(this)
@@ -447,7 +432,7 @@ class WhereToBuyPage extends React.Component {
 											</div>
 										</div>
 									))) ||
-									"No stores."}
+									"No stores. Please select another state."}
 							</div>
 						</div>
 					</div>
