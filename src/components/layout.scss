@@ -1106,21 +1106,25 @@ body {
     }
   }
 
-  /*** US Map ***/
+  /*** Map ***/
   .select-state-wrapper {
     position: sticky;
     top: 75px;
-  }
-  .us-state-map {
-    width: 100%;
-    path {
-      pointer-events: all;
+    select {
+      outline: none !important;
     }
-    path:hover,
-    .highlighted-state {
-      fill: $primaryColor;
+  }
+  .svg-map {
+    fill: #d3d3d3;
+    stroke: #ffffff;
+    stroke-width: 1px;
+    path {
+      outline: none !important;
       cursor: pointer;
     }
+  }
+  .svg-map__location[aria-checked="true"] {
+    fill: $primaryColor;
   }
 
   /*** Literature and Media ***/

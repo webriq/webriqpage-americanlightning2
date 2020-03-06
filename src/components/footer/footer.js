@@ -54,7 +54,7 @@ const footer = props => {
 									<Link to="/">Catalogs &amp; Materials</Link>
 								</li>
 								<li>
-									<Link to="/">Where to Buy</Link>
+									<Link to="/where-to-buy">Where to Buy</Link>
 								</li>
 								<li>
 									<Link to="/">Customer Support</Link>
