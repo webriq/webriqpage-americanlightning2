@@ -39,9 +39,10 @@ class CategoryPage extends React.Component {
 		}
 
 		var coolButton = document.getElementsByClassName("accordion-label")
-
+		console.log("coolButton", coolButton)
 		for (var i = 0; i < coolButton.length; i++) {
 			coolButton[i].addEventListener("click", handleClicked)
+			console.log("handleClicked", handleClicked)
 		}
 	}
 	render() {

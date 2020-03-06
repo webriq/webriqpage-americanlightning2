@@ -428,6 +428,20 @@ body {
   }
 
   /*styled list*/
+  .product-body {
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        padding-left: 25px;
+        display: block;
+        background: url("../images/check.svg") no-repeat left 5px;
+        background-size: 18px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+      }
+    }
+  }
   .styled-list {
     list-style: none;
     padding: 0;

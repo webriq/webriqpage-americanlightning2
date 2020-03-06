@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import USA from "@svg-maps/usa"
-import { SVGMap, RadioSVGMap } from "react-svg-map"
+import { RadioSVGMap } from "react-svg-map"
 import "react-svg-map/lib/index.css"
 
 const states = {

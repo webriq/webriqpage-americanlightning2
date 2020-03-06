@@ -1,15 +1,280 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 import Swiper from "react-id-swiper"
 import "swiper/css/swiper.css"
-import Accordion from "react-bootstrap/Accordion"
-import Card from "react-bootstrap/Card"
+import { Accordion, useAccordionToggle, Card } from "react-bootstrap/"
 import marked from "marked"
+import RelatedItems from "../components/RelatedItems"
 //images
 import SenikLogo from "../images/senik-logo.svg"
+
+function CustomToggle({ children, eventKey }) {
+	const [buttonClass, setButtonClass] = useState(false)
+	const decoratedOnClick = useAccordionToggle(eventKey, () =>
+		setButtonClass(buttonClass + 1)
+	)
+	console.log("buttonClass", buttonClass)
+
+	return (
+		<button
+			type="button"
+			className={`${
+				buttonClass
+					? "accordion-label btn btn-link active"
+					: "accordion-label btn btn-link"
+			}`}
+			onClick={decoratedOnClick}
+		>
+			{children}
+		</button>
+	)
+}
+
+function ProductAccordion(props) {
+	console.log("product", props)
+	const { specs, accessories, alldownload, video, order } = props
+	return (
+		<Accordion>
+			{props.specs.length !== 0 ? (
+				<Card>
+					<Card.Header>
+						<CustomToggle eventKey="specs">Quick Specs</CustomToggle>
+					</Card.Header>
+					<Accordion.Collapse eventKey="specs">
+						<Card.Body>
+							<div className="row">
+								<div className="col-4">
+									<strong>Series</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].series ? specs[0].series : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Voltage</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].voltage ? specs[0].voltage : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>CCT</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].cct.length !== 0
+										? specs[0].cct.map(cct => (
+												<li className="d-inline" key={cct._key}>
+													<span>/ </span>
+													{cct.cct}{" "}
+												</li>
+										  ))
+										: "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>CRI</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].cri ? specs[0].cri : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Wattage</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].wattage ? specs[0].wattage : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Lumens</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].lumens ? specs[0].lumens : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Max Run</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].maxRun ? specs[0].maxRun : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Cuttable</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].cuttable ? specs[0].cuttable : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>IP Rating</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].ipRating ? specs[0].ipRating : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Dimmable</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].dimmable ? specs[0].dimmable : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Rating</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].rating ? specs[0].rating : "N/A"}
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-4">
+									<strong>Rated Life</strong>
+								</div>
+								<div className="col-8">
+									{specs[0].ratedLife ? specs[0].ratedLife : "N/A"}
+								</div>
+							</div>
+						</Card.Body>
+					</Accordion.Collapse>
+				</Card>
+			) : null}
+			{props.accessories.length !== 0 ? (
+				<Card>
+					<Card.Header>
+						<CustomToggle eventKey="accessories">Accessories</CustomToggle>
+					</Card.Header>
+					<Accordion.Collapse eventKey="accessories">
+						<Card.Body>
+							<div className="row">
+								<div className="col-4">
+									<span className="font-weight-bold text-uppercase text-muted">
+										Item
+									</span>
+								</div>
+								<div className="col-8">
+									<span className="font-weight-bold text-uppercase text-muted">
+										Description
+									</span>
+								</div>
+							</div>
+
+							{accessories.map(accs => (
+								<div className="row" key={accs._key}>
+									<div className="col-4">
+										<strong>{accs.itemNumber}</strong>
+									</div>
+									<div className="col-8">{accs.description}</div>
+								</div>
+							))}
+						</Card.Body>
+					</Accordion.Collapse>
+				</Card>
+			) : null}
+
+			{props.order.length !== 0 ? (
+				<Card>
+					<Card.Header>
+						<CustomToggle eventKey="order">Order</CustomToggle>
+					</Card.Header>
+					<Accordion.Collapse eventKey="order">
+						<Card.Body>
+							{order.map(ord => (
+								<div className="row" key={ord._key}>
+									<div className="col-md-12 text-center">
+										<span className="font-weight-bold text-uppercase text-muted">
+											{ord.title}
+										</span>
+									</div>
+									<div
+										className="col-md-12"
+										dangerouslySetInnerHTML={{ __html: marked(ord.body) }}
+									/>
+								</div>
+							))}
+						</Card.Body>
+					</Accordion.Collapse>
+				</Card>
+			) : null}
+			{props.alldownload.length !== 0 ? (
+				<Card>
+					<Card.Header>
+						<CustomToggle eventKey="alldownload">All Downloads</CustomToggle>
+					</Card.Header>
+					<Accordion.Collapse eventKey="alldownload">
+						<Card.Body>
+							{alldownload.map(dwnld => (
+								<div className="row" key={dwnld._key}>
+									<div className="col-md-12">
+										<span className="font-weight-bold text-uppercase text-muted">
+											{dwnld.title}
+										</span>
+										{dwnld.pdfinfo.map(info => (
+											<div className="row" key={info._key}>
+												<div className="col-12">
+													{info.file ? (
+														<a
+															href={info.file.asset.url}
+															target="_blank"
+															rel="noopener noreferrer"
+														>
+															{info.title}
+														</a>
+													) : (
+														<p>{info.title}</p>
+													)}
+												</div>
+											</div>
+										))}
+									</div>
+								</div>
+							))}
+						</Card.Body>
+					</Accordion.Collapse>
+				</Card>
+			) : null}
+			{props.video.length !== 0 ? (
+				<Card>
+					<Card.Header>
+						<CustomToggle eventKey="videos">Videos</CustomToggle>
+					</Card.Header>
+					<Accordion.Collapse eventKey="videos">
+						<Card.Body>
+							{video.map(vid => (
+								<div className="row" key={video._key}>
+									<div className="col-md-12">
+										<span className="font-weight-bold text-uppercase text-muted">
+											<a
+												href={vid.videoUrl}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{vid.videoTitle}
+											</a>
+										</span>
+									</div>
+								</div>
+							))}
+						</Card.Body>
+					</Accordion.Collapse>
+				</Card>
+			) : null}
+		</Accordion>
+	)
+}
 
 class ProductPageSplashTemplate extends React.Component {
 	render() {
@@ -52,7 +317,7 @@ class ProductPageSplashTemplate extends React.Component {
 										{product.productImage.map(prdctImg => (
 											<div
 												className="product-carousel-slide"
-												key={prdctImg.image.asset.id}
+												key={prdctImg._key}
 											>
 												<img
 													src={prdctImg.image.asset.fluid.src}
@@ -67,7 +332,7 @@ class ProductPageSplashTemplate extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className="py-10">
+				<div className="py-10 product-body">
 					<div className="container">
 						<div className="pb-4 product-name-logo">
 							<img src={SenikLogo} height="32px" alt="SÉNIK" />
@@ -75,9 +340,9 @@ class ProductPageSplashTemplate extends React.Component {
 								{product.title}
 							</h3>
 						</div>
-						<div className="row justify-content-between small">
+						<div className="row justify-content-between">
 							<div className="col-lg-6">
-								<div>{product.description}</div>
+								<p>{product.description}</p>
 								<div
 									dangerouslySetInnerHTML={{
 										__html: marked(product.productDetails),
@@ -86,255 +351,52 @@ class ProductPageSplashTemplate extends React.Component {
 							</div>
 
 							<div className="col-lg-6">
-								<Accordion>
-									<Card>
-										<Accordion.Toggle as={Card.Header} eventKey="0">
-											<div className="accordion-heading">Quick Specs</div>
-										</Accordion.Toggle>
-										<Accordion.Collapse eventKey="0">
-											<Card.Body>
-												<div className="row">
-													<div className="col-4">
-														<strong>Series</strong>
-													</div>
-													<div className="col-8">TLM</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Voltage</strong>
-													</div>
-													<div className="col-8">24V</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>CCT</strong>
-													</div>
-													<div className="col-8">
-														2400K / 2700K / 3000K / 4000K
-													</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>CRI</strong>
-													</div>
-													<div className="col-8">90+</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Wattage</strong>
-													</div>
-													<div className="col-8">1.46W per ft</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Lumens</strong>
-													</div>
-													<div className="col-8">Up to 121Lm per ft</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Max Run</strong>
-													</div>
-													<div className="col-8">65.6ft</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Cuttable</strong>
-													</div>
-													<div className="col-8">Every 1.97"</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>IP Rating</strong>
-													</div>
-													<div className="col-8">IP54 (unjacketed)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Dimmable</strong>
-													</div>
-													<div className="col-8">
-														(5-100%) with most dimmers
-													</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Rating</strong>
-													</div>
-													<div className="col-8">cULus Listed</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>Rated Life</strong>
-													</div>
-													<div className="col-8">50,000 hrs</div>
-												</div>
-											</Card.Body>
-										</Accordion.Collapse>
-									</Card>
-									<Card>
-										<Accordion.Toggle as={Card.Header} eventKey="1">
-											<div className="accordion-heading">Accessories</div>
-										</Accordion.Toggle>
-										<Accordion.Collapse eventKey="1">
-											<Card.Body>
-												<div className="row">
-													<div className="col-4">
-														<span className="font-weight-bold text-uppercase text-muted">
-															Item Number
-														</span>
-													</div>
-													<div className="col-8">
-														<span className="font-weight-bold text-uppercase text-muted">
-															Description
-														</span>
-													</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-CONKIT</strong>
-													</div>
-													<div className="col-8">
-														Trulink 4-in-1 Connector Power Feed
-													</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-BLKS</strong>
-													</div>
-													<div className="col-8">
-														Trulink 4-in-1 Connector Block
-													</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2SPL</strong>
-													</div>
-													<div className="col-8">Splice Connector</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2L</strong>
-													</div>
-													<div className="col-8">L - Snap Connector</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2T</strong>
-													</div>
-													<div className="col-8">T - Snap Connector</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2X</strong>
-													</div>
-													<div className="col-8">X - Snap Connector</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2JUMP-.5</strong>
-													</div>
-													<div className="col-8">6" Linking Cable (IP54)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2JUMP-1</strong>
-													</div>
-													<div className="col-8">12" Linking Cable (IP54)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2JUMP-2</strong>
-													</div>
-													<div className="col-8">24" Linking Cable (IP54)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2JUMP65-.5</strong>
-													</div>
-													<div className="col-8">6" Linking Cable (IP65)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2JUMP65-1</strong>
-													</div>
-													<div className="col-8">12" Linking Cable (IP65)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2JUMP65-2</strong>
-													</div>
-													<div className="col-8">24" Linking Cable (IP65)</div>
-												</div>
-												<div className="row">
-													<div className="col-4">
-														<strong>TL-2DC</strong>
-													</div>
-													<div className="col-8">Snap Connector to DC Jack</div>
-												</div>
-											</Card.Body>
-										</Accordion.Collapse>
-									</Card>
-									<Card>
-										<Accordion.Toggle as={Card.Header} eventKey="2">
-											<div className="accordion-heading">
-												IES / Photometrics
-											</div>
-										</Accordion.Toggle>
-										<Accordion.Collapse eventKey="2">
-											<Card.Body>
-												<span className="font-weight-bold">
-													Please contact factory for additional information.
-												</span>
-											</Card.Body>
-										</Accordion.Collapse>
-									</Card>
-								</Accordion>
+								<div className="basic-accordion-wrapper product-accordion">
+									<ProductAccordion
+										specs={product.quickSpecs}
+										accessories={product.accessories}
+										alldownload={product.alldownload}
+										video={product.videoInfo}
+										order={product.orderingInfo}
+									/>
+								</div>
+
 								<div className="pt-4">
-									<h6 className="font-weight-bold">CCT & Color Options</h6>
 									<div className="pt-3">
-										<div className="text-center d-inline-block pr-4">
-											<img src="/img/swatches/2700k swatch.png" alt="" />
-											<span className="d-block font-weight-bold">2700K</span>
-										</div>
-										<div className="text-center d-inline-block pr-4">
-											<img src="/img/swatches/3000k swatch.png" alt="" />
-											<span className="d-block font-weight-bold">300K</span>
-										</div>
-										<div className="text-center d-inline-block pr-4">
-											<img src="/img/swatches/4000k swatch.png" alt="" />
-											<span className="d-block font-weight-bold">400K</span>
-										</div>
-										<div className="text-center d-inline-block pr-4">
-											<img src="/img/swatches/5000k swatch.png" alt="" />
-											<span className="d-block font-weight-bold">500K</span>
-										</div>
-										<div className="text-center d-inline-block pr-4">
-											<img src="/img/swatches/6000k swatch.png" alt="" />
-											<span className="d-block font-weight-bold">600K</span>
-										</div>
-										<div className="text-center d-inline-block pr-4">
-											<img
-												src="/img/swatches/rgb-icon.svg"
-												height="33px"
-												alt=""
-											/>
-											<span className="d-block font-weight-bold">RGB</span>
-										</div>
-										<div className="text-center d-inline-block pr-4">
-											<img
-												src="/img/swatches/rgbw-icon.svg"
-												height="33px"
-												alt=""
-											/>
-											<span className="d-block font-weight-bold">RGBW</span>
-										</div>
+										{product.quickSpecs.length !== 0 ? (
+											<div>
+												<h6 className="font-weight-bold">
+													CCT & Color Options
+												</h6>
+												{product.quickSpecs[0].cct.length !== 0
+													? product.quickSpecs[0].cct.map(cct => (
+															<div
+																className="text-center d-inline-block pr-4"
+																key={cct._key}
+															>
+																<img
+																	src={cct.color.asset.fluid.src}
+																	alt={cct.cct}
+																	className="img-fluid"
+																	style={{ maxWidth: 33 }}
+																/>
+																<span className="d-block font-weight-bold">
+																	{cct.cct}
+																</span>
+															</div>
+													  ))
+													: null}
+											</div>
+										) : null}
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<LazyLoadComponent>
+					<RelatedItems />
+				</LazyLoadComponent>
 			</Layout>
 		)
 	}
@@ -357,6 +419,7 @@ export const ProductPageSplashTemplateQuery = graphql`
 			description
 			productDetails
 			productImage {
+				_key
 				title
 				image {
 					asset {
@@ -366,6 +429,60 @@ export const ProductPageSplashTemplateQuery = graphql`
 						}
 					}
 				}
+			}
+			quickSpecs {
+				_key
+				series
+				voltage
+				cct {
+					_key
+					cct
+					color {
+						asset {
+							fluid {
+								src
+							}
+						}
+					}
+				}
+				cri
+				wattage
+				lumens
+				maxRun
+				cuttable
+				ipRating
+				dimmable
+				rating
+				ratedLife
+			}
+			orderingInfo {
+				_key
+				title
+				body
+				limited
+			}
+			accessories {
+				_key
+				itemNumber
+				description
+			}
+			alldownload {
+				_key
+				title
+				pdfinfo {
+					_key
+					title
+					file {
+						asset {
+							url
+						}
+					}
+				}
+			}
+			videoInfo {
+				_key
+				videoTitle
+				videoUrl
 			}
 		}
 	}
