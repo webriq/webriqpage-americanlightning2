@@ -54,7 +54,7 @@ const queries = [
   {
     query: postQuery,
     transformer: ({ data }) => data.allSanityProduct.edges,
-    indexName: `products`,
+    indexName: `allproducts`,
     // settings,
   },
 ]
