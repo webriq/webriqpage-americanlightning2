@@ -24,7 +24,7 @@ class FeaturedProducts extends React.Component {
 			},
 		}
 
-		console.log("this.props", this.props)
+		console.log("props", this.props)
 		return (
 			<div className="related-items-wrapper">
 				<div className="container">
@@ -44,7 +44,7 @@ class FeaturedProducts extends React.Component {
 									{this.props.items ? (
 										this.props.items.map(item => (
 											<div className="product-item featured mb-3" key={item.id}>
-												<Link to="/">
+												<Link to={item.slug.current}>
 													<div className="product-image">
 														<div className="v-center">
 															<img
@@ -57,7 +57,7 @@ class FeaturedProducts extends React.Component {
 												</Link>
 												<div className="product-desc text-center p-3">
 													<div>
-														<Link className="text-body" to="/">
+														<Link className="text-body" to={item.slug.current}>
 															<h6 className="font-weight-bold text-uppercase">
 																{item.title}
 															</h6>
