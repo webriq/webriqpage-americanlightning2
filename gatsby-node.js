@@ -114,6 +114,9 @@ exports.createPages = ({ graphql, actions }) => {
             slug{
               current
             }
+            category {
+              title
+            }
           }
         }
       }
@@ -134,6 +137,7 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           id: prod.node.id,
           title: prod.node.title,
+          category: prod.node.category[0].title,
         },
       })
     )

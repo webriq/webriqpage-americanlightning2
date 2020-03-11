@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
-
+import { Accordion, Card, Button } from "react-bootstrap/"
 //carousel
 import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
@@ -11,7 +11,7 @@ class CategoryPageTemplate extends React.Component {
 	render() {
 		const siteTitle = this.props.data.site.siteMetadata.title
 		const siteDescription = this.props.data.site.siteMetadata.description
-		// console.log(this.props.data)
+		const allproduct = this.props.data.allSanityProduct.edges.map(t => t.node)
 		const ctgry = this.props.data.sanityCategory
 
 		return (
@@ -36,98 +36,209 @@ class CategoryPageTemplate extends React.Component {
 											</h3>
 										</div>
 										<div id="menu-top" className="pt-4" />
-										<ul className="list-unstyled sticky-sidebar-categories">
-											{/*	const products = this.props.data.allSanityProduct.edges.filter(
-										test => test.node.subcategory[0].title === subct.title
-									)*/}
-											{ctgry.subcategory.map(subcat => {
-												const count = this.props.data.allSanityProduct.edges.filter(
-													test =>
-														test.node.subcategory[0].title === subcat.title
-												)
-												console.log(count)
-												return (
-													<li key={subcat.title}>
-														<Link
-															to={subcat.title}
-															duration={500}
-															spy={true}
-															smooth={true}
+										<div className="category-accordion-wrapper">
+											<Accordion>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="1"
+															className="accordion-label"
 														>
-															{subcat.title}
-														</Link>
-														<span className="item-count">{count.length}</span>
-													</li>
-												)
-											})}
-										</ul>
+															Product Type
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="1">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="2"
+															className="accordion-label"
+														>
+															CCT / Color
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="2">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="3"
+															className="accordion-label"
+														>
+															Lumens / Foot
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="3">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="4"
+															className="accordion-label"
+														>
+															Wattage / Foot
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="4">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="5"
+															className="accordion-label"
+														>
+															Max Run Length
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="5">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="6"
+															className="accordion-label"
+														>
+															Cutting Increments
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="6">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="7"
+															className="accordion-label"
+														>
+															Input Voltage
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="7">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+												<Card>
+													<Card.Header>
+														<Accordion.Toggle
+															as={Button}
+															variant="link"
+															eventKey="8"
+															className="accordion-label"
+														>
+															Environment / IP Rating
+														</Accordion.Toggle>
+													</Card.Header>
+													<Accordion.Collapse eventKey="8">
+														<Card.Body>
+															<span className="subcategory">Option 1</span>
+															<span className="subcategory">Option 2</span>
+															<span className="subcategory">Option 3</span>
+														</Card.Body>
+													</Accordion.Collapse>
+												</Card>
+											</Accordion>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div className="col-md-9">
-								{ctgry.subcategory.map(subct => {
-									const products = this.props.data.allSanityProduct.edges.filter(
-										test => test.node.subcategory[0].title === subct.title
-									)
-
-									return (
-										<div
-											key={subct.title}
-											id={subct.title}
-											className="scroll-spacer"
-										>
-											<h5 className="subcategory-heading">{subct.title}</h5>
-											<div className="row no-gutters">
-												{products.length !== 0 ? (
-													products.map(prod => (
-														<div className="col-md-4" key={prod.node.id}>
-															<div className="product-item">
-																<Link to="/sample-product">
-																	<div className="product-image">
-																		<div className="v-center">
-																			<img
-																				className="img-fluid"
-																				src={
-																					prod.node &&
-																					prod.node.productImage[0] &&
-																					prod.node.productImage[0].image &&
-																					prod.node.productImage[0].image
-																						.asset &&
-																					prod.node.productImage[0].image.asset
-																						.fixed &&
-																					prod.node.productImage[0].image.asset
-																						.fixed.src
-																				}
-																				alt=""
-																			/>
-																		</div>
-																	</div>
-																</Link>
-																<div className="product-desc">
-																	<div>
-																		<Link
-																			className="text-body"
-																			to="/sample-product"
-																		>
-																			<h6 className="font-weight-bold">
-																				{prod.node.title}
-																			</h6>
-																		</Link>
-																		<p className="small text-muted mb-0">
-																			{prod.node.description}
-																		</p>
-																	</div>
-																</div>
+								<div id="single-color-tape-light">
+									<div className="row no-gutters">
+										{allproduct.map(prod => (
+											<div className="col-6 col-md-3" key={prod.id}>
+												<div className="product-item">
+													<Link to={prod.slug.current}>
+														<div className="product-image">
+															<div className="v-center">
+																<img
+																	className="img-fluid"
+																	src={
+																		prod &&
+																		prod.productImage[0] &&
+																		prod.productImage[0].image &&
+																		prod.productImage[0].image.asset &&
+																		prod.productImage[0].image.asset.fixed &&
+																		prod.productImage[0].image.asset.fixed.src
+																	}
+																	alt={prod.title}
+																/>
 															</div>
 														</div>
-													))
-												) : (
-													<h2>No Items yet!!!</h2>
-												)}
+													</Link>
+													<div className="product-desc">
+														<div>
+															<Link
+																className="text-body"
+																to={prod.slug.current}
+															>
+																<h6 className="font-weight-bold">
+																	{prod.title}
+																</h6>
+															</Link>
+															<p className="small text-muted mb-0">
+																{prod.description}
+															</p>
+														</div>
+													</div>
+												</div>
 											</div>
-										</div>
-									)
-								})}
+										))}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -178,6 +289,9 @@ export const CategoryPageTemplateQuery = graphql`
 					id
 					title
 					description
+					slug {
+						current
+					}
 					productImage {
 						image {
 							asset {

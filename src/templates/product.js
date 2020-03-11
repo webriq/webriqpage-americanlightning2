@@ -36,6 +36,7 @@ function CustomToggle({ children, eventKey }) {
 function ProductAccordion(props) {
 	console.log("product", props)
 	const { specs, accessories, alldownload, video, order } = props
+
 	return (
 		<Accordion>
 			{props.specs.length !== 0 ? (
@@ -194,7 +195,7 @@ function ProductAccordion(props) {
 						<Card.Body>
 							{order.map(ord => (
 								<div className="row" key={ord._key}>
-									<div className="col-md-12 text-center">
+									<div className="col-md-12">
 										<span className="font-weight-bold text-uppercase text-muted">
 											{ord.title}
 										</span>
@@ -254,7 +255,7 @@ function ProductAccordion(props) {
 					<Accordion.Collapse eventKey="videos">
 						<Card.Body>
 							{video.map(vid => (
-								<div className="row" key={video._key}>
+								<div className="row" key={vid._key}>
 									<div className="col-md-12">
 										<span className="font-weight-bold text-uppercase text-muted">
 											<a
@@ -278,9 +279,8 @@ function ProductAccordion(props) {
 
 class ProductPageSplashTemplate extends React.Component {
 	render() {
-		const siteTitle = this.props.data.site.siteMetadata.title
-		const siteDescription = this.props.data.site.siteMetadata.description
-
+		const siteDescription = "description"
+		const products = this.props.data.allSanityProduct.edges.map(t => t.node)
 		const carousel = {
 			slidesPerView: 1,
 			spaceBetween: 0,
@@ -295,10 +295,11 @@ class ProductPageSplashTemplate extends React.Component {
 				prevEl: "#prev",
 			},
 		}
-		console.log(this.props.data)
+		console.log("allData", this.props.data)
 		const product = this.props.data.sanityProduct
+
 		return (
-			<Layout location={this.props.location} title={siteTitle}>
+			<Layout location={this.props.location} title={product.title}>
 				<SEO title={product.title} description={siteDescription} />
 				<div className="product-carousel">
 					<div className="swiper-nav v-center" style={{ zIndex: "2" }}>
@@ -395,7 +396,7 @@ class ProductPageSplashTemplate extends React.Component {
 					</div>
 				</div>
 				<LazyLoadComponent>
-					<RelatedItems />
+					<RelatedItems items={products} />
 				</LazyLoadComponent>
 			</Layout>
 		)
@@ -405,7 +406,7 @@ class ProductPageSplashTemplate extends React.Component {
 export default ProductPageSplashTemplate
 
 export const ProductPageSplashTemplateQuery = graphql`
-	query ProductPageSplashTemplateQuery($id: String!) {
+	query ProductPageSplashTemplateQuery($id: String!, $category: String!) {
 		site {
 			siteMetadata {
 				title
@@ -483,6 +484,31 @@ export const ProductPageSplashTemplateQuery = graphql`
 				_key
 				videoTitle
 				videoUrl
+			}
+		}
+
+		allSanityProduct(
+			filter: { category: { elemMatch: { title: { eq: $category } } } }
+			limit: 10
+		) {
+			edges {
+				node {
+					id
+					title
+					slug {
+						current
+					}
+					description
+					productImage {
+						image {
+							asset {
+								fluid(maxWidth: 290) {
+									src
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

@@ -6,8 +6,12 @@ import { Nav } from "react-bootstrap"
 import Logo from "../../images/logo-image.png"
 import LogoText from "../../images/logo-text-only.png"
 import Search from "../../images/search.svg"
-
+import SearchBar from "../search"
 import useOutsideClick from "./clickOutside"
+
+const searchIndices = [
+  { name: `products`, title: `Products`, hitComp: `PostHit` },
+]
 
 const Header = ({ type }) => {
   const ref = useRef()
@@ -87,19 +91,10 @@ const Header = ({ type }) => {
                         <div className="search-form-wrapper">
                           <form ref={ref}>
                             <div className="form-group">
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Search..."
-                                required
-                              />
+                              <div className="fixed-search text-left py-5">
+                                <SearchBar collapse indices={searchIndices} />
+                              </div>
                             </div>
-                            <button
-                              type="submit"
-                              className="btn search-icon-btn"
-                            >
-                              <img src={Search} alt="Search" height="18px" />
-                            </button>
                           </form>
                         </div>
                       )}

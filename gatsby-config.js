@@ -1,3 +1,4 @@
+const queries = require("./src/utils/algolia")
 module.exports = {
   siteMetadata: {
     title: `American Lighting`,
@@ -14,6 +15,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: "289N66N94S",
+        apiKey: "4be67740186aa2b48aa0d61d1a5c1850",
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
     // {

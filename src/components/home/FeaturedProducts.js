@@ -72,7 +72,9 @@ class FeaturedProducts extends React.Component {
 														</h5>
 													</Link>
 													<p className="small text-muted">
-														{prod.node.description}
+														{prod.node.description.length > 200
+															? prod.node.description.substring(0, 200) + `...`
+															: prod.node.description}
 													</p>
 												</div>
 												<div className="product-link">

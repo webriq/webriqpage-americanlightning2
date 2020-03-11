@@ -62,13 +62,15 @@ body {
         .search-field {
           position: relative;
           .search-form-wrapper {
-            position: absolute;
-            right: -20px;
-            bottom: -90px;
+            position: fixed;
+            right: 135px;
+            top: 0;
             width: 200px;
             background: #ffffff;
             padding: 15px;
             box-shadow: 0 0.5rem 1rem rgba(8, 28, 39, 0.15);
+            overflow: scroll;
+            max-height: 90%;
             &:before {
               content: "";
               position: absolute;
@@ -82,6 +84,19 @@ body {
             .form-group {
               margin: 0;
               position: relative;
+              .fixed-search {
+                svg {
+                  display: none;
+                }
+                ul {
+                  list-style: none !important;
+                  text-align: left;
+                  padding: 0 !important;
+                }
+                span {
+                  display: block;
+                }
+              }
             }
             .form-control {
               padding: 10px 30px 10px 10px;
@@ -596,7 +611,7 @@ body {
     border: 1px solid $borderColor;
     margin-right: -1px;
     margin-bottom: -1px;
-    height: 100%;
+    height: auto;
     position: relative;
     background: #ffffff;
     transition: all 0.35s ease;
@@ -1042,7 +1057,7 @@ body {
             top: 50%;
             transform: translateY(-50%);
           }
-          &.active {
+          &[aria-expanded="true"] {
             &:after {
               background-image: url(/img/minus.svg);
             }

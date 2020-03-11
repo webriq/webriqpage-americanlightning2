@@ -14,7 +14,7 @@ class PrizmTapeLight extends React.Component {
 
 		function makeSlide(tagline, name, pic, link, button) {
 			return (
-				<Fade wait={7000}>
+				<Fade wait={7000} key={tagline}>
 					<div>
 						<div className="category-banner">
 							<Container>
