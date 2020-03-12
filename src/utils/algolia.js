@@ -1,49 +1,16 @@
 const postQuery = `{
   allSanityProduct {
-      edges {
-        node {
-          id
-          title
-          description
-          slug {
-            current
-          }
-          quickSpecs {
-            _key
-            series
-            voltage
-            cct {
-              _key
-              cct
-              color {
-                asset {
-                  fluid {
-                    src
-                  }
-                }
-              }
-            }
-            cri
-            wattage
-            lumens
-            maxRun
-            cuttable
-            ipRating
-            dimmable
-            rating
-            ratedLife
-          }
-          productDetails
-          orderingInfo {
-            _key
-            title
-            body
-            limited
-          }
-          
+    edges {
+      node {
+        id
+        title
+        description
+        slug {
+          current
         }
       }
     }
+  }
 }`
 // const flatten = arr =>
 //   arr.map(({ node: { ...rest } }) => ({
@@ -54,7 +21,7 @@ const queries = [
   {
     query: postQuery,
     transformer: ({ data }) => data.allSanityProduct.edges,
-    indexName: `products`,
+    indexName: `records`,
     // settings,
   },
 ]
