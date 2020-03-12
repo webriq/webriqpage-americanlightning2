@@ -72,6 +72,48 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const getSanityEvent = makeRequest(
+    graphql,
+    `query {
+      allSanityEvent {
+        edges {
+          node {
+            id
+            title
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+ `
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    // Create blog posts pages.
+    const events = result.data.allSanityEvent.edges
+
+    events.forEach((event, index) => {
+      const previous =
+        index === events.length - 1 ? null : events[index + 1].node
+      const next = index === 0 ? null : events[index - 1].node
+
+      createPage({
+        path: event.node.slug.current,
+        component: path.resolve(`./src/templates/event-template.js`),
+        context: {
+          id: event.node.id,
+          slug: event.node.slug.current,
+          previous,
+          next,
+        },
+      })
+    })
+  })
+
   const categoryPage = makeRequest(
     graphql,
     `query {
@@ -143,5 +185,5 @@ exports.createPages = ({ graphql, actions }) => {
     )
   })
 
-  return Promise.all([getSanityPost, categoryPage, productPage])
+  return Promise.all([getSanityPost, getSanityEvent, categoryPage, productPage])
 }

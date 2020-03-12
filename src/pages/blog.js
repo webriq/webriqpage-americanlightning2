@@ -25,9 +25,9 @@ const Blogs = ({ data }) => (
 				<div class="row justify-content-between">
 					<div class="col-md-7">
 						{data.allSanityPost.edges.map(blog => (
-							<div class="blog-item bg-light" key={blog}>
+							<div class="blog-item bg-light mb-4" key={blog}>
 								<div class="row">
-									<div class="col-lg-4 pr-lg-0">
+									<div class="col-md-4">
 										<Link to={blog.node.slug.current}>
 											<div
 												class="blog-image h-100"
@@ -37,11 +37,14 @@ const Blogs = ({ data }) => (
 															? blog.node.mainImage.asset.fluid.src
 															: "https://source.unsplash.com/user/joshhild/500x500"
 													})`,
+													backgroundSize: "cover",
+													backgroundPosition: "center center",
+													backgroundRepeat: "no-repeat",
 												}}
 											/>
 										</Link>
 									</div>
-									<div class="col-lg-8 pl-lg-0">
+									<div class="col-md-8">
 										<div class="blog-text">
 											<Link to={blog.node.slug.current}>
 												<h4>{blog.node.title}</h4>
@@ -49,13 +52,13 @@ const Blogs = ({ data }) => (
 											<div class="text-muted small">
 												{blog &&
 												blog.node &&
-												blog.node.categories &&
-												blog.node.categories.length !== 0
-													? blog.node.categories.map(ct => (
-															<span>
+												blog.node.authors &&
+												blog.node.authors.length !== 0
+													? blog.node.authors.map(at => (
+															<span key={at.person.id}>
 																<i class="fa fa-folder pr-1" />
 
-																<Link to="/">{ct.title + " "}</Link>
+																<Link to="/">{at.person.name}</Link>
 															</span>
 													  ))
 													: null}
@@ -146,12 +149,16 @@ export const blogQuery = graphql`
 						current
 					}
 					body
-					categories {
-						title
+					categories
+					authors {
+						person {
+							id
+							name
+						}
 					}
 				}
 			}
-			group(field: categories___title) {
+			group(field: categories) {
 				fieldValue
 			}
 		}

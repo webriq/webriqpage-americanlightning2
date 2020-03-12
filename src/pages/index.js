@@ -35,6 +35,7 @@ class IndexPage extends React.Component {
     const siteDescription = this.props.data.site.siteMetadata.description
     const posts = this.props.data.allSanityPost.edges
     const products = this.props.data.allSanityProduct.edges
+    const events = this.props.data.allSanityEvent.edges
     // console.log(this.props.data)
     return (
       <Layout location={this.props.location} title={siteTitle} type="home">
@@ -61,7 +62,7 @@ class IndexPage extends React.Component {
           <Tab.Content>
             <Tab.Pane eventKey={1}>
               <LazyLoadComponent>
-                <NewsEvents posts={posts} />
+                <NewsEvents posts={posts} events={events} />
               </LazyLoadComponent>
             </Tab.Pane>
             <Tab.Pane eventKey={2}>
@@ -92,7 +93,7 @@ export const indexPageQuery = graphql`
         description
       }
     }
-    allSanityPost(sort: { fields: publishedAt, order: ASC }, limit: 1) {
+    allSanityPost(sort: { fields: publishedAt, order: ASC }, limit: 2) {
       edges {
         node {
           id
@@ -107,12 +108,33 @@ export const indexPageQuery = graphql`
               }
             }
           }
-          publishedAt(formatString: "MMMM DD, YYYY")
           authors {
             person {
               name
             }
           }
+          excerpt
+          publishedAt(formatString: "MMMM DD, YYYY")
+          authors {
+            person {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+
+    allSanityEvent(limit: 3) {
+      edges {
+        node {
+          id
+          title
+          slug {
+            current
+          }
+          publishedAt
+          categories
         }
       }
     }
