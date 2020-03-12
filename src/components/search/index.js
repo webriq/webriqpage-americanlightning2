@@ -7,7 +7,7 @@ import {
 } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 import { Root, HitsWrapper, PoweredBy } from "./styles"
-import Input from "./Input"
+import Input from "./input"
 import * as hitComps from "./hitComps"
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
@@ -38,7 +38,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     "289N66N94S",
     "916fa8522e8c9e300803305e413d52a9"
   )
-  // useClickOutside(ref, () => setFocus(false))
+  useClickOutside(ref, () => setFocus(false))
   return (
     <InstantSearch
       searchClient={searchClient}
