@@ -33,7 +33,7 @@ class SideBarMenu extends React.Component {
 		return (
 			<SideBar
 				sidebar={
-					<Menu /> // Menu list
+					<Menu categories={this.props.categories} /> // Menu list
 				}
 				open={this.state.sidebarOpen}
 				onSetOpen={this.onSetSidebarOpen}

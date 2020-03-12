@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import slugify from "slugify"
 const footer = props => {
 	return (
 		<footer>
@@ -66,7 +66,9 @@ const footer = props => {
 							<ul className="list-unstyled footer-links">
 								{props.categories.map(cat => (
 									<li key={cat.node.title}>
-										<Link to="/">{cat.node.shortname}</Link>
+										<Link to={slugify(cat.node.title.toLowerCase())}>
+											{cat.node.shortname}
+										</Link>
 									</li>
 								))}
 							</ul>

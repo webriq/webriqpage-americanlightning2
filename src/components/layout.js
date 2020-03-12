@@ -21,6 +21,7 @@ const Layout = ({ children, type }) => {
       allSanityCategory(sort: { fields: shortname, order: ASC }) {
         edges {
           node {
+            id
             title
             shortname
           }
@@ -30,7 +31,11 @@ const Layout = ({ children, type }) => {
   `)
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} type={type} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        categories={data.allSanityCategory.edges}
+        type={type}
+      />
       <main>{children}</main>
       <Footer categories={data.allSanityCategory.edges} />
     </>

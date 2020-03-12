@@ -8,12 +8,12 @@ import LogoText from "../../images/logo-text-only.png"
 import Search from "../../images/search.svg"
 import SearchBar from "../search"
 import useOutsideClick from "./clickOutside"
-
+import slugify from "slugify"
 const searchIndices = [
   { name: `products`, title: `Products`, hitComp: `PostHit` },
 ]
 
-const Header = ({ type }) => {
+const Header = ({ type, categories }) => {
   const ref = useRef()
   const [showSearch, setShowSearch] = useState()
 
@@ -50,27 +50,13 @@ const Header = ({ type }) => {
               </div>
               <div className="d-none d-lg-inline-block">
                 <div className="full-header-menu text-center">
-                  <Nav.Item>
-                    <Link to="/">Downlighting</Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Link to="/">Task Lighting</Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Link to="/">Trulux</Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Link to="/">Spektrum Smart</Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Link to="/">Linear</Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Link to="/">Architectural</Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Link to="/">Power Supplies</Link>
-                  </Nav.Item>
+                  {categories.map(cat => (
+                    <Nav.Item key={cat.node.id}>
+                      <Link to={slugify(cat.node.title.toLowerCase())}>
+                        {cat.node.shortname}
+                      </Link>
+                    </Nav.Item>
+                  ))}
                 </div>
               </div>
               <div
@@ -102,7 +88,7 @@ const Header = ({ type }) => {
                   </div>
                 </div>
                 <div className="ml-4 d-inline-block">
-                  <SideBarMenu />
+                  <SideBarMenu categories={categories} />
                 </div>
               </div>
             </div>
