@@ -78,10 +78,6 @@ export const HitsWrapper = styled.div`
   > * + * {
     padding-top: 1em !important;
   }
-  li + li {
-    margin-top: 0.7em;
-    padding-top: 0.7em;
-  }
   * {
     margin-top: 0;
     padding: 0;
