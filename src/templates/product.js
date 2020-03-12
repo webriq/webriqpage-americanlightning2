@@ -343,12 +343,17 @@ class ProductPageSplashTemplate extends React.Component {
 						</div>
 						<div className="row justify-content-between">
 							<div className="col-lg-6">
-								<p>{product.description}</p>
-								<div
-									dangerouslySetInnerHTML={{
-										__html: marked(product.productDetails),
-									}}
-								/>
+								{product.description.legth !== 0 ? (
+									<p>{product.description}</p>
+								) : null}
+
+								{product.productDetails.length !== 0 ? (
+									<div
+										dangerouslySetInnerHTML={{
+											__html: marked(product.productDetails),
+										}}
+									/>
+								) : null}
 							</div>
 
 							<div className="col-lg-6">
