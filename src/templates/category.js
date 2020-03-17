@@ -4,16 +4,255 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 import { Accordion, Card, Button } from "react-bootstrap/"
+import _ from "lodash"
 //carousel
 import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
 class CategoryPageTemplate extends React.Component {
+	constructor() {
+		super()
+
+		this.state = {
+			orderTitle: "",
+			allDownload: "",
+			accessoriesItem: "",
+		}
+		this.handleChange = this.handleChange.bind(this)
+		this.handleReset = this.handleReset.bind(this)
+	}
+	handleChange(e) {
+		// console.log(e.target.type)
+		const { name, value, type, checked } = e.target
+		// console.log(name, value)
+
+		this.setState({
+			[name]: type === "checkbox" ? checked : value,
+		})
+	}
+
+	handleReset(e) {
+		e.preventDefault()
+		this.setState({
+			orderTitle: "",
+			allDownload: "",
+			accessoriesItem: "",
+		})
+	}
+
 	render() {
+		const { orderTitle, allDownload, accessoriesItem } = this.state
 		const siteTitle = this.props.data.site.siteMetadata.title
 		const siteDescription = this.props.data.site.siteMetadata.description
 		const allproduct = this.props.data.allSanityProduct.edges.map(t => t.node)
+		const filterProduct = []
+
+		if (
+			orderTitle.length !== 0 &&
+			allDownload.length !== 0 &&
+			accessoriesItem.length !== 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.orderingInfo.length !== 0 &&
+					prod.orderingInfo.filter(order => order.title === orderTitle) &&
+					prod.alldownload.length !== 0 &&
+					prod.alldownload.filter(order => order.title === allDownload) &&
+					prod.accessories.length !== 0 &&
+					prod.accessories.filter(
+						accessory =>
+							accessory.itemNumber === accessoriesItem &&
+							filterProduct.push(prod)
+					)
+			)
+		}
+
+		if (
+			orderTitle.length === 0 &&
+			allDownload.length !== 0 &&
+			accessoriesItem.length !== 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.alldownload.length !== 0 &&
+					prod.alldownload.filter(order => order.title === allDownload) &&
+					prod.accessories.length !== 0 &&
+					prod.accessories.filter(
+						accessory =>
+							accessory.itemNumber === accessoriesItem &&
+							filterProduct.push(prod)
+					)
+			)
+		}
+
+		if (
+			orderTitle.length !== 0 &&
+			allDownload.length === 0 &&
+			accessoriesItem.length !== 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.orderingInfo.length !== 0 &&
+					prod.orderingInfo.filter(order => order.title === orderTitle) &&
+					prod.accessories.length !== 0 &&
+					prod.accessories.filter(
+						accessory =>
+							accessory.itemNumber === accessoriesItem &&
+							filterProduct.push(prod)
+					)
+			)
+		}
+
+		if (
+			orderTitle.length !== 0 &&
+			allDownload.length !== 0 &&
+			accessoriesItem.length === 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.alldownload.length !== 0 &&
+					prod.alldownload.filter(order => order.title === allDownload) &&
+					prod.orderingInfo.length !== 0 &&
+					prod.orderingInfo.filter(
+						order => order.title === orderTitle && filterProduct.push(prod)
+					)
+			)
+		}
+
+		if (
+			orderTitle.length !== 0 &&
+			allDownload.length === 0 &&
+			accessoriesItem.length === 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.orderingInfo.length !== 0 &&
+					prod.orderingInfo.filter(
+						order => order.title === orderTitle && filterProduct.push(prod)
+					)
+			)
+		}
+
+		if (
+			orderTitle.length === 0 &&
+			allDownload.length !== 0 &&
+			accessoriesItem.length === 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.alldownload.length !== 0 &&
+					prod.alldownload.filter(
+						order => order.title === allDownload && filterProduct.push(prod)
+					)
+			)
+		}
+		// accessories itemNumber
+		if (
+			orderTitle.length === 0 &&
+			allDownload.length === 0 &&
+			accessoriesItem.length !== 0
+		) {
+			allproduct.map(
+				prod =>
+					prod.accessories.length !== 0 &&
+					prod.accessories.filter(
+						accessory =>
+							accessory.itemNumber === accessoriesItem &&
+							filterProduct.push(prod)
+					)
+			)
+		}
+
+		const products = filterProduct.length !== 0 ? filterProduct : allproduct
+
+		console.log("products", products)
+
+		console.log("filterProduct", filterProduct)
 		const ctgry = this.props.data.sanityCategory
 
+		// Order Info
+		const orderingInfoTitle = []
+		const orderingInfoData = []
+		// Get all Order Info Data
+		const orderingInfo = products.filter(
+			data => data.orderingInfo.length > 0 && data
+		)
+		// Initialize Quick Specs Series Name
+		orderingInfo.map(data =>
+			data.orderingInfo.map(list => orderingInfoTitle.push(list.title))
+		)
+		const noDupsOrderTitle = _.uniqBy(orderingInfoTitle)
+
+		products.map(
+			product =>
+				product.orderingInfo.length > 0 &&
+				product.orderingInfo.filter(data =>
+					orderingInfoTitle.includes(data.title)
+						? orderingInfoData.push(product)
+						: null
+				)
+		)
+
+		// All Dowloads
+
+		const allDownloadTitle = []
+		const allDownloadData = []
+
+		products.map(data =>
+			data.alldownload.map(download => allDownloadTitle.push(download.title))
+		)
+
+		products.map(
+			product =>
+				product.alldownload.length > 0 &&
+				product.alldownload.filter(data =>
+					allDownloadTitle.includes(data.title)
+						? allDownloadData.push(product)
+						: null
+				)
+		)
+
+		const noDupsAllDownloadTitle = _.uniqBy(allDownloadTitle)
+		const noDupsProducts = _.uniqBy(products)
+
+		// All Accessories
+		// accessories itemNumber
+		const allAccessories = []
+		const allAccessoriesData = []
+
+		products.map(data =>
+			data.accessories.map(accessory =>
+				allAccessories.push(accessory.itemNumber)
+			)
+		)
+
+		products.map(
+			product =>
+				product.accessories.length > 0 &&
+				product.accessories.filter(data =>
+					allAccessories.includes(data.itemNumber)
+						? allAccessoriesData.push(product)
+						: null
+				)
+		)
+
+		const noDupsallAccessories = _.uniqBy(allAccessories)
+		console.log("allAccessories", allAccessories)
+		console.log("allAccessoriesData", allAccessoriesData)
+		// console.log("noDupsAllDownloadTitle", noDupsAllDownloadTitle)
+		// console.log("allDownloadTitle", allDownloadTitle)
+		// console.log("allDownloadData", allDownloadData)
+
+		// console.log("All Products", allproduct)
+		// console.log("orderingInfo", orderingInfo)
+		// console.log("orderingInfoTitle", orderingInfoTitle)
+		// console.log("remove dups", noDupsOrderTitle)
+		// // Filter All Quick Specs Data by Quick Specs Series Name
+
+		// console.log("orderingInfoData", orderingInfoData)
+		// console.log("state orderTitle", this.state)
+		// console.log(_.groupBy(orderingInfoTitle))
+		// console.log("products", products)
+		console.log("states", this.state)
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO title={ctgry.title} description={siteDescription} />
@@ -28,12 +267,21 @@ class CategoryPageTemplate extends React.Component {
 								<div className="category-sidebar">
 									<div className="sticky-top">
 										<div>
-											<span className="small text-uppercase font-weight-bold text-muted d-block">
-												Category
-											</span>
-											<h3 className="text-transform-capitalize">
+											<span className="text-uppercase font-weight-bold">
 												{ctgry.title}
-											</h3>
+											</span>{" "}
+											|{" "}
+											<button
+												style={{
+													background: "transparent",
+													outline: "none",
+													padding: "0",
+													border: "none",
+												}}
+												onClick={this.handleReset}
+											>
+												<span className="text-primary">Reset</span>
+											</button>
 										</div>
 										<div id="menu-top" className="pt-4" />
 										<div className="category-accordion-wrapper">
@@ -46,14 +294,25 @@ class CategoryPageTemplate extends React.Component {
 															eventKey="1"
 															className="accordion-label"
 														>
-															Product Type
+															Order Info
 														</Accordion.Toggle>
 													</Card.Header>
 													<Accordion.Collapse eventKey="1">
 														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
+															<select
+																className="d-block"
+																name="orderTitle"
+																onChange={this.handleChange}
+															>
+																<option value="">Select Order Info</option>
+																{orderingInfoTitle.length !== 0
+																	? noDupsOrderTitle.map(title => (
+																			<option key={title} value={title}>
+																				{title}
+																			</option>
+																	  ))
+																	: null}
+															</select>
 														</Card.Body>
 													</Accordion.Collapse>
 												</Card>
@@ -65,14 +324,25 @@ class CategoryPageTemplate extends React.Component {
 															eventKey="2"
 															className="accordion-label"
 														>
-															CCT / Color
+															All Download
 														</Accordion.Toggle>
 													</Card.Header>
 													<Accordion.Collapse eventKey="2">
 														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
+															<select
+																className="d-block"
+																name="allDownload"
+																onChange={this.handleChange}
+															>
+																<option value="">Select All Download</option>
+																{noDupsAllDownloadTitle.length !== 0
+																	? noDupsAllDownloadTitle.map(dwnld => (
+																			<option key={dwnld} value={dwnld}>
+																				{dwnld}
+																			</option>
+																	  ))
+																	: null}
+															</select>
 														</Card.Body>
 													</Accordion.Collapse>
 												</Card>
@@ -84,109 +354,25 @@ class CategoryPageTemplate extends React.Component {
 															eventKey="3"
 															className="accordion-label"
 														>
-															Lumens / Foot
+															All Accessories
 														</Accordion.Toggle>
 													</Card.Header>
 													<Accordion.Collapse eventKey="3">
 														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="4"
-															className="accordion-label"
-														>
-															Wattage / Foot
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="4">
-														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="5"
-															className="accordion-label"
-														>
-															Max Run Length
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="5">
-														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="6"
-															className="accordion-label"
-														>
-															Cutting Increments
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="6">
-														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="7"
-															className="accordion-label"
-														>
-															Input Voltage
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="7">
-														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="8"
-															className="accordion-label"
-														>
-															Environment / IP Rating
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="8">
-														<Card.Body>
-															<span className="subcategory">Option 1</span>
-															<span className="subcategory">Option 2</span>
-															<span className="subcategory">Option 3</span>
+															<select
+																className="d-block"
+																name="accessoriesItem"
+																onChange={this.handleChange}
+															>
+																<option value="">Select All Accessories</option>
+																{noDupsallAccessories.length !== 0
+																	? noDupsallAccessories.map(dwnld => (
+																			<option key={dwnld} value={dwnld}>
+																				{dwnld}
+																			</option>
+																	  ))
+																	: null}
+															</select>
 														</Card.Body>
 													</Accordion.Collapse>
 												</Card>
@@ -198,10 +384,10 @@ class CategoryPageTemplate extends React.Component {
 							<div className="col-md-9">
 								<div id="single-color-tape-light">
 									<div className="row no-gutters">
-										{allproduct.map(prod => (
+										{noDupsProducts.map(prod => (
 											<div className="col-6 col-md-3" key={prod.id}>
 												<div className="product-item">
-													<Link to={prod.slug.current}>
+													<Link to={`/${prod.slug.current}`}>
 														<div className="product-image">
 															<div className="v-center">
 																<img
@@ -223,14 +409,16 @@ class CategoryPageTemplate extends React.Component {
 														<div>
 															<Link
 																className="text-body"
-																to={prod.slug.current}
+																to={`/${prod.slug.current}`}
 															>
 																<h6 className="font-weight-bold">
 																	{prod.title}
 																</h6>
 															</Link>
 															<p className="small text-muted mb-0">
-																{prod.description}
+																{prod.description.length > 120
+																	? prod.description.substring(0, 120) + "..."
+																	: prod.description.substring(0, 120)}
 															</p>
 														</div>
 													</div>
@@ -300,6 +488,45 @@ export const CategoryPageTemplateQuery = graphql`
 								}
 							}
 						}
+					}
+					alldownload {
+						title
+					}
+					quickSpecs {
+						_key
+						series
+						voltage
+						cct {
+							_key
+							cct
+							color {
+								asset {
+									fluid {
+										src
+									}
+								}
+							}
+						}
+						cri
+						wattage
+						lumens
+						maxRun
+						cuttable
+						ipRating
+						dimmable
+						rating
+						ratedLife
+					}
+					orderingInfo {
+						_key
+						title
+						body
+						limited
+					}
+					accessories {
+						_key
+						itemNumber
+						description
 					}
 					subcategory {
 						title

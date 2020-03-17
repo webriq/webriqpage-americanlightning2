@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Nav } from "react-bootstrap"
 import slugify from "slugify"
 export default props => {
-	console.log("categories props", props)
 	return (
 		<div className="navigation">
 			<Nav className="flex-column">
@@ -11,7 +10,7 @@ export default props => {
 					<h6 className="menu-title">Products</h6>
 					{props.categories.map(cats => (
 						<Nav.Item key={cats.node.id}>
-							<Link to={slugify(cats.node.title.toLowerCase())}>
+							<Link to={`/${slugify(cats.node.title.toLowerCase())}`}>
 								{cats.node.shortname}
 							</Link>
 						</Nav.Item>

@@ -52,7 +52,7 @@ const Header = ({ type, categories }) => {
                 <div className="full-header-menu text-center">
                   {categories.map(cat => (
                     <Nav.Item key={cat.node.id}>
-                      <Link to={slugify(cat.node.title.toLowerCase())}>
+                      <Link to={`/${slugify(cat.node.title.toLowerCase())}`}>
                         {cat.node.shortname}
                       </Link>
                     </Nav.Item>

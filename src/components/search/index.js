@@ -38,7 +38,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     "4BDPVBI4S1",
     "cb68652975474aa98f230b3147217bdb"
   )
-  useClickOutside(ref, () => setFocus(false))
+  // useClickOutside(ref, () => setFocus(false))
   return (
     <InstantSearch
       searchClient={searchClient}

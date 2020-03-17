@@ -148,7 +148,7 @@ exports.createPages = ({ graphql, actions }) => {
   const productPage = makeRequest(
     graphql,
     `query {
-      allSanityProduct {
+      allSanityProduct(filter: {category: {elemMatch: {title: {ne: ""}}}}) {
         edges {
           node {
             id

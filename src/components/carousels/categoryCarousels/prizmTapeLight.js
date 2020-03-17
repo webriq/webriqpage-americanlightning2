@@ -9,9 +9,6 @@ import Flip from "react-reveal/Flip"
 
 class PrizmTapeLight extends React.Component {
 	render() {
-		console.log(this.props)
-		console.log("test")
-
 		function makeSlide(tagline, name, pic, link, button) {
 			return (
 				<Fade wait={7000} key={tagline}>

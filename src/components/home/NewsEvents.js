@@ -43,7 +43,7 @@ class NewsEvents extends React.Component {
 													</div>
 													<div className="col-9 pl-0">
 														<Link
-															to={post.node.slug.current}
+															to={`/` + post.node.slug.current}
 															className="text-body"
 														>
 															<h5 className="font-weight-bold">
@@ -67,7 +67,7 @@ class NewsEvents extends React.Component {
 										</div>
 									</div>
 									<Link
-										to={post.node.slug.current}
+										to={`/` + post.node.slug.current}
 										className="btn btn-secondary btn-sm"
 									>
 										Continue Reading

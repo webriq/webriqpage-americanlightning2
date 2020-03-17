@@ -66,7 +66,7 @@ const footer = props => {
 							<ul className="list-unstyled footer-links">
 								{props.categories.map(cat => (
 									<li key={cat.node.title}>
-										<Link to={slugify(cat.node.title.toLowerCase())}>
+										<Link to={`/${slugify(cat.node.title.toLowerCase())}`}>
 											{cat.node.shortname}
 										</Link>
 									</li>

@@ -611,7 +611,7 @@ body {
     border: 1px solid $borderColor;
     margin-right: -1px;
     margin-bottom: -1px;
-    height: auto;
+    height: 100%;
     position: relative;
     background: #ffffff;
     transition: all 0.35s ease;
@@ -1074,7 +1074,18 @@ body {
         }
 
         .card-body {
-          padding: 0 0 15px 0;
+          padding: 0 !important;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          overflow: auto;
+          select {
+            border: none !important;
+            &:focus {
+              border: none !important;
+              box-shadow: none !important;
+              outline: none !important;
+            }
+          }
         }
 
         .subcategory {
