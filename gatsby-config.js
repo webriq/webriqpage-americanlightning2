@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: "4BDPVBI4S1",
-        apiKey: "ff9518ae29fc2931763173d9db8d1edf",
+        appId: "289N66N94S",
+        apiKey: "4be67740186aa2b48aa0d61d1a5c1850",
         queries,
         chunkSize: 10000, // default: 1000
       },

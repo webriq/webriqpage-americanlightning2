@@ -35,10 +35,10 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
   const searchClient = algoliasearch(
-    "4BDPVBI4S1",
-    "cb68652975474aa98f230b3147217bdb"
+    "289N66N94S",
+    "916fa8522e8c9e300803305e413d52a9"
   )
-  // useClickOutside(ref, () => setFocus(false))
+  useClickOutside(ref, () => setFocus(false))
   return (
     <InstantSearch
       searchClient={searchClient}
