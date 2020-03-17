@@ -45,19 +45,21 @@ const footer = props => {
 									<Link to="/">Home</Link>
 								</li>
 								<li>
-									<Link to="/">About Us</Link>
+									<Link to="/about-us">About Us</Link>
 								</li>
 								<li>
 									<Link to="/">Mobile Light Lab</Link>
 								</li>
 								<li>
-									<Link to="/">Catalogs &amp; Materials</Link>
+									<Link to="/literature-and-media">
+										Catalogs &amp; Materials
+									</Link>
 								</li>
 								<li>
 									<Link to="/where-to-buy">Where to Buy</Link>
 								</li>
 								<li>
-									<Link to="/">Customer Support</Link>
+									<Link to="/support">Customer Support</Link>
 								</li>
 							</ul>
 						</div>

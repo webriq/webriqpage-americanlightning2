@@ -2,7 +2,9 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SecondPage = () => (
+import AboutImage from "../images/about-american-lighting.jpg"
+
+const AboutPage = () => (
 	<Layout>
 		<SEO
 			title="About Us"
@@ -10,57 +12,67 @@ const SecondPage = () => (
 		/>
 		<div class="page-headline">
 			<div class="container">
-				<div class="section-heading text-center">
-					<h6 class="font-weight-bold text-uppercase text-white-50 flair">
-						About Us
-					</h6>
-					<h1>
-						<strong>Lorem ipsum dolor sit amet</strong>
-					</h1>
+				<div class="section-heading">
+					<h1>About Us</h1>
 				</div>
 			</div>
 		</div>
 		<div class="page-content">
 			<div class="container">
-				<div class="row justify-content-between align-items-center">
-					<div class="col-md-5 order-2 order-md-1">
+				<div class="row justify-content-between">
+					<div class="col-md-6 order-2 order-md-1">
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Founded in 1989, American Lighting, Inc. manufactures a wide range
+							of lighting solutions for your residential, commercial and
+							specialty lighting needs. We pride ourselves in being a lighting
+							solutions provider by offering our customers a broad line of
+							innovative and high quality lighting products. Continued
+							innovation is a core strategic initiative at American Lighting,
+							and we are committed to developing new products by utilizing the
+							latest lighting technologies and designs. We pledge to deliver
+							superior customer service by employing and training a team of
+							highly experienced lighting professionals.
 						</p>
 						<p>
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur.
+							American Lighting's knowledgeable and dedicated sales team is here
+							to provide you with product information as well as answer any
+							questions you may have.
+						</p>
+						<p className="pt-3">
+							<span className="font-weight-bold">Jason Elrod</span>
+							<br />
+							Vice President of Sales & Marketing
 						</p>
 					</div>
 					<div class="col-md-6 order-1 order-md-2 text-center pb-5 pb-md-0">
-						<img
-							class="img-fluid"
-							src="https://source.unsplash.com/user/neotronimz/600x400"
-							alt="peaceful"
-						/>
+						<img class="img-fluid" src={AboutImage} alt="American Lighting" />
 					</div>
 				</div>
 				<div class="row justify-content-between align-items-center pt-5">
-					<div class="col-md-6 text-center pb-5 pb-md-0">
-						<img
-							class="img-fluid"
-							src="https://source.unsplash.com/user/joshhild/600x400"
-							alt="relaxing"
-						/>
-					</div>
-					<div class="col-md-5">
+					<div class="col-md-12">
+						<h6 className="text-uppercase text-primary">
+							Residential, Commercial Lighting & OEM
+						</h6>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							<span className="font-weight-bold">Jason Elrod</span> - Vice
+							President of Sales & Marketing
 						</p>
+						<h6 className="text-uppercase text-primary pt-3">
+							Lighting Showrooms
+						</h6>
 						<p>
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur.
+							<span className="font-weight-bold">Jennifer Kirkpatrick</span> -
+							Sales Manager
+						</p>
+						<h6 className="text-uppercase text-primary pt-3">
+							Seasonal & Decorative Lighting
+						</h6>
+						<p>
+							<span className="font-weight-bold">Judith Jochems</span> - Sales
+							Manager
+							<br />
+							<span className="font-weight-bold">Marissa Jaramillo</span> -
+							Account Manager
 						</p>
 					</div>
 				</div>
@@ -69,4 +81,4 @@ const SecondPage = () => (
 	</Layout>
 )
 
-export default SecondPage
+export default AboutPage
