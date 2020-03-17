@@ -54,6 +54,9 @@ const footer = props => {
 									<Link to="/">Catalogs &amp; Materials</Link>
 								</li>
 								<li>
+									<Link to="/literature-and-media/">Literature & Media</Link>
+								</li>
+								<li>
 									<Link to="/where-to-buy">Where to Buy</Link>
 								</li>
 								<li>
@@ -76,9 +79,6 @@ const footer = props => {
 						<div className="col-md-3 col-lg-2">
 							<h5 className="text-uppercase section-heading">Resources</h5>
 							<ul className="list-unstyled footer-links">
-								<li>
-									<Link to="/">Product Guide</Link>
-								</li>
 								<li>
 									<Link to="/">Quick Ship List</Link>
 								</li>
