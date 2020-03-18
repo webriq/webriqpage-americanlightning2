@@ -6,10 +6,7 @@ import AboutImage from "../images/about-american-lighting.jpg"
 
 const AboutPage = () => (
 	<Layout>
-		<SEO
-			title="About Us"
-			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-		/>
+		<SEO title="About Us" description="" />
 		<div class="page-headline">
 			<div class="container">
 				<div class="section-heading">
