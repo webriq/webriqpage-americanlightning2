@@ -1,390 +1,620 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
-import { Accordion, Card, Button } from "react-bootstrap/"
-import _ from "lodash"
+import { Accordion, Card, Button, Form } from "react-bootstrap"
 //carousel
 import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
-class CategoryPageTemplate extends React.Component {
-	constructor() {
-		super()
+import CheckBox from "../components/checkbox"
 
-		this.state = {
-			orderTitle: "",
-			allDownload: "",
-			accessoriesItem: "",
-		}
-		this.handleChange = this.handleChange.bind(this)
-		this.handleReset = this.handleReset.bind(this)
-	}
-	handleChange(e) {
-		// console.log(e.target.type)
-		const { name, value, type, checked } = e.target
-		// console.log(name, value)
+const CategoryPageTemplate = ({ data, location }) => {
+	const { title, description } = data.site.siteMetadata
+	const ctgry = data.sanityCategory
 
-		this.setState({
-			[name]: type === "checkbox" ? checked : value,
-		})
-	}
+	const allproducts = data.allSanityProduct.edges.map(t => t.node)
 
-	handleReset(e) {
-		e.preventDefault()
-		this.setState({
-			orderTitle: "",
-			allDownload: "",
-			accessoriesItem: "",
-		})
-	}
+	const [quickSpecsName, setQuickSpecsName] = useState(null)
 
-	render() {
-		const { orderTitle, allDownload, accessoriesItem } = this.state
-		const siteTitle = this.props.data.site.siteMetadata.title
-		const siteDescription = this.props.data.site.siteMetadata.description
-		const allproduct = this.props.data.allSanityProduct.edges.map(t => t.node)
-		const filterProduct = []
+	const initialQuickSpecsData = []
+	allproducts.map(product => initialQuickSpecsData.push(product))
 
-		if (
-			orderTitle.length !== 0 &&
-			allDownload.length !== 0 &&
-			accessoriesItem.length !== 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.orderingInfo.length !== 0 &&
-					prod.orderingInfo.filter(order => order.title === orderTitle) &&
-					prod.alldownload.length !== 0 &&
-					prod.alldownload.filter(order => order.title === allDownload) &&
-					prod.accessories.length !== 0 &&
-					prod.accessories.filter(
-						accessory =>
-							accessory.itemNumber === accessoriesItem &&
-							filterProduct.push(prod)
-					)
-			)
-		}
+	const [quickSpecsData, setQuickSpecsData] = useState(initialQuickSpecsData)
 
-		if (
-			orderTitle.length === 0 &&
-			allDownload.length !== 0 &&
-			accessoriesItem.length !== 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.alldownload.length !== 0 &&
-					prod.alldownload.filter(order => order.title === allDownload) &&
-					prod.accessories.length !== 0 &&
-					prod.accessories.filter(
-						accessory =>
-							accessory.itemNumber === accessoriesItem &&
-							filterProduct.push(prod)
-					)
-			)
-		}
+	const handleSeries = name => {
+		const seriesData = []
 
-		if (
-			orderTitle.length !== 0 &&
-			allDownload.length === 0 &&
-			accessoriesItem.length !== 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.orderingInfo.length !== 0 &&
-					prod.orderingInfo.filter(order => order.title === orderTitle) &&
-					prod.accessories.length !== 0 &&
-					prod.accessories.filter(
-						accessory =>
-							accessory.itemNumber === accessoriesItem &&
-							filterProduct.push(prod)
-					)
-			)
-		}
-
-		if (
-			orderTitle.length !== 0 &&
-			allDownload.length !== 0 &&
-			accessoriesItem.length === 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.alldownload.length !== 0 &&
-					prod.alldownload.filter(order => order.title === allDownload) &&
-					prod.orderingInfo.length !== 0 &&
-					prod.orderingInfo.filter(
-						order => order.title === orderTitle && filterProduct.push(prod)
-					)
-			)
-		}
-
-		if (
-			orderTitle.length !== 0 &&
-			allDownload.length === 0 &&
-			accessoriesItem.length === 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.orderingInfo.length !== 0 &&
-					prod.orderingInfo.filter(
-						order => order.title === orderTitle && filterProduct.push(prod)
-					)
-			)
-		}
-
-		if (
-			orderTitle.length === 0 &&
-			allDownload.length !== 0 &&
-			accessoriesItem.length === 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.alldownload.length !== 0 &&
-					prod.alldownload.filter(
-						order => order.title === allDownload && filterProduct.push(prod)
-					)
-			)
-		}
-		// accessories itemNumber
-		if (
-			orderTitle.length === 0 &&
-			allDownload.length === 0 &&
-			accessoriesItem.length !== 0
-		) {
-			allproduct.map(
-				prod =>
-					prod.accessories.length !== 0 &&
-					prod.accessories.filter(
-						accessory =>
-							accessory.itemNumber === accessoriesItem &&
-							filterProduct.push(prod)
-					)
-			)
-		}
-
-		const products = filterProduct.length !== 0 ? filterProduct : allproduct
-
-		console.log("products", products)
-
-		console.log("filterProduct", filterProduct)
-		const ctgry = this.props.data.sanityCategory
-
-		// Order Info
-		const orderingInfoTitle = []
-		const orderingInfoData = []
-		// Get all Order Info Data
-		const orderingInfo = products.filter(
-			data => data.orderingInfo.length > 0 && data
-		)
-		// Initialize Quick Specs Series Name
-		orderingInfo.map(data =>
-			data.orderingInfo.map(list => orderingInfoTitle.push(list.title))
-		)
-		const noDupsOrderTitle = _.uniqBy(orderingInfoTitle)
-
-		products.map(
+		allproducts.map(
 			product =>
-				product.orderingInfo.length > 0 &&
-				product.orderingInfo.filter(data =>
-					orderingInfoTitle.includes(data.title)
-						? orderingInfoData.push(product)
-						: null
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.series === name ? seriesData.push(product) : null
 				)
 		)
+		setQuickSpecsData(seriesData)
+	}
 
-		// All Dowloads
-
-		const allDownloadTitle = []
-		const allDownloadData = []
-
-		products.map(data =>
-			data.alldownload.map(download => allDownloadTitle.push(download.title))
-		)
-
-		products.map(
+	const handleVoltage = name => {
+		const voltageData = []
+		allproducts.map(
 			product =>
-				product.alldownload.length > 0 &&
-				product.alldownload.filter(data =>
-					allDownloadTitle.includes(data.title)
-						? allDownloadData.push(product)
-						: null
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.voltage === name ? voltageData.push(product) : null
 				)
 		)
+		setQuickSpecsData(voltageData)
+	}
 
-		const noDupsAllDownloadTitle = _.uniqBy(allDownloadTitle)
-		const noDupsProducts = _.uniqBy(products)
-
-		// All Accessories
-		// accessories itemNumber
-		const allAccessories = []
-		const allAccessoriesData = []
-
-		products.map(data =>
-			data.accessories.map(accessory =>
-				allAccessories.push(accessory.itemNumber)
-			)
-		)
-
-		products.map(
+	const handleCRI = name => {
+		const criData = []
+		allproducts.map(
 			product =>
-				product.accessories.length > 0 &&
-				product.accessories.filter(data =>
-					allAccessories.includes(data.itemNumber)
-						? allAccessoriesData.push(product)
-						: null
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.cri === name ? criData.push(product) : null
 				)
 		)
+		setQuickSpecsData(criData)
+	}
 
-		const noDupsallAccessories = _.uniqBy(allAccessories)
-		console.log("allAccessories", allAccessories)
-		console.log("allAccessoriesData", allAccessoriesData)
-		// console.log("noDupsAllDownloadTitle", noDupsAllDownloadTitle)
-		// console.log("allDownloadTitle", allDownloadTitle)
-		// console.log("allDownloadData", allDownloadData)
+	const handleWattage = name => {
+		const wattageData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.wattage === name ? wattageData.push(product) : null
+				)
+		)
+		setQuickSpecsData(wattageData)
+	}
 
-		// console.log("All Products", allproduct)
-		// console.log("orderingInfo", orderingInfo)
-		// console.log("orderingInfoTitle", orderingInfoTitle)
-		// console.log("remove dups", noDupsOrderTitle)
-		// // Filter All Quick Specs Data by Quick Specs Series Name
+	const handleLumens = name => {
+		const lumensData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.lumens === name ? lumensData.push(product) : null
+				)
+		)
+		setQuickSpecsData(lumensData)
+	}
 
-		// console.log("orderingInfoData", orderingInfoData)
-		// console.log("state orderTitle", this.state)
-		// console.log(_.groupBy(orderingInfoTitle))
-		// console.log("products", products)
-		console.log("states", this.state)
-		return (
-			<Layout location={this.props.location} title={siteTitle}>
-				<SEO title={ctgry.title} description={siteDescription} />
-				<LazyLoadComponent>
-					<PrizmCarousel slider={ctgry.slider} />
-				</LazyLoadComponent>
-				<div className="py-10">
-					<div className="container">
-						<div className="row justify-content-between">
-							{/* sticky sidebar */}
-							<div className="col-md-3">
-								<div className="category-sidebar">
-									<div className="sticky-top">
-										<div>
-											<span className="text-uppercase font-weight-bold">
-												{ctgry.title}
-											</span>{" "}
-											|{" "}
-											<button
-												style={{
-													background: "transparent",
-													outline: "none",
-													padding: "0",
-													border: "none",
-												}}
-												onClick={this.handleReset}
-											>
-												<span className="text-primary">Reset</span>
-											</button>
-										</div>
-										<div id="menu-top" className="pt-4" />
-										<div className="category-accordion-wrapper">
-											<Accordion>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="1"
-															className="accordion-label"
-														>
-															Order Info
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="1">
-														<Card.Body>
-															<select
-																className="d-block"
-																name="orderTitle"
-																onChange={this.handleChange}
-															>
-																<option value="">Select Order Info</option>
-																{orderingInfoTitle.length !== 0
-																	? noDupsOrderTitle.map(title => (
-																			<option key={title} value={title}>
-																				{title}
-																			</option>
-																	  ))
-																	: null}
-															</select>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="2"
-															className="accordion-label"
-														>
-															All Download
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="2">
-														<Card.Body>
-															<select
-																className="d-block"
-																name="allDownload"
-																onChange={this.handleChange}
-															>
-																<option value="">Select All Download</option>
-																{noDupsAllDownloadTitle.length !== 0
-																	? noDupsAllDownloadTitle.map(dwnld => (
-																			<option key={dwnld} value={dwnld}>
-																				{dwnld}
-																			</option>
-																	  ))
-																	: null}
-															</select>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-												<Card>
-													<Card.Header>
-														<Accordion.Toggle
-															as={Button}
-															variant="link"
-															eventKey="3"
-															className="accordion-label"
-														>
-															All Accessories
-														</Accordion.Toggle>
-													</Card.Header>
-													<Accordion.Collapse eventKey="3">
-														<Card.Body>
-															<select
-																className="d-block"
-																name="accessoriesItem"
-																onChange={this.handleChange}
-															>
-																<option value="">Select All Accessories</option>
-																{noDupsallAccessories.length !== 0
-																	? noDupsallAccessories.map(dwnld => (
-																			<option key={dwnld} value={dwnld}>
-																				{dwnld}
-																			</option>
-																	  ))
-																	: null}
-															</select>
-														</Card.Body>
-													</Accordion.Collapse>
-												</Card>
-											</Accordion>
-										</div>
+	const handleMaxRun = name => {
+		const maxRunData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.maxRun === name ? maxRunData.push(product) : null
+				)
+		)
+		setQuickSpecsData(maxRunData)
+	}
+
+	const handleCutting = name => {
+		const cuttingData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.cuttable === name ? cuttingData.push(product) : null
+				)
+		)
+		setQuickSpecsData(cuttingData)
+	}
+
+	const handleIPRating = name => {
+		const ipRatingData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.ipRating === name ? ipRatingData.push(product) : null
+				)
+		)
+		setQuickSpecsData(ipRatingData)
+	}
+
+	const handleDimmable = name => {
+		const dimmableData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.dimmable === name ? dimmableData.push(product) : null
+				)
+		)
+		setQuickSpecsData(dimmableData)
+	}
+
+	const handleRating = name => {
+		const ratingData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.rating === name ? ratingData.push(product) : null
+				)
+		)
+		setQuickSpecsData(ratingData)
+	}
+
+	const handleRatedLife = name => {
+		const ratedLifeData = []
+		allproducts.map(
+			product =>
+				product.quickSpecs.length > 0 &&
+				product.quickSpecs.filter(data =>
+					data.ratedLife === name ? ratedLifeData.push(product) : null
+				)
+		)
+		setQuickSpecsData(ratedLifeData)
+	}
+
+	console.log("Quick Specs Data", quickSpecsData)
+
+	const getQuickSpecsNames = data => {
+		switch (data) {
+			case "series":
+				const seriesData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => seriesData.push(list.series))
+					)
+				return [...new Set(seriesData)].filter(data => {
+					return data
+				})
+
+			case "voltage":
+				const voltageData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => voltageData.push(list.voltage))
+					)
+				return [...new Set(voltageData)].filter(data => {
+					return data
+				})
+
+			case "cri":
+				const criData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data => data.quickSpecs.map(list => criData.push(list.cri)))
+				return [...new Set(criData)].filter(data => {
+					return data
+				})
+
+			case "wattage":
+				const wattageData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => wattageData.push(list.wattage))
+					)
+				return [...new Set(wattageData)].filter(data => {
+					return data
+				})
+
+			case "lumens":
+				const lumensData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => lumensData.push(list.lumens))
+					)
+				return [...new Set(lumensData)].filter(data => {
+					return data
+				})
+
+			case "maxRun":
+				const maxRunData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => maxRunData.push(list.maxRun))
+					)
+				return [...new Set(maxRunData)].filter(data => {
+					return data
+				})
+
+			case "cuttable":
+				const cuttableData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => cuttableData.push(list.cuttable))
+					)
+				return [...new Set(cuttableData)].filter(data => {
+					return data
+				})
+
+			case "ipRating":
+				const ipRatingData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => ipRatingData.push(list.ipRating))
+					)
+				return [...new Set(ipRatingData)].filter(data => {
+					return data
+				})
+
+			case "dimmable":
+				const dimmableData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => dimmableData.push(list.dimmable))
+					)
+				return [...new Set(dimmableData)].filter(data => {
+					return data
+				})
+
+			case "rating":
+				const ratingData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => ratingData.push(list.rating))
+					)
+				return [...new Set(ratingData)].filter(data => {
+					return data
+				})
+
+			case "ratedLife":
+				const ratedLifeData = []
+				allproducts
+					.filter(data => data.quickSpecs.length > 0 && data)
+					.map(data =>
+						data.quickSpecs.map(list => ratedLifeData.push(list.ratedLife))
+					)
+				return [...new Set(ratedLifeData)].filter(data => {
+					return data
+				})
+
+			default:
+				break
+		}
+	}
+
+	// Get all Voltage Values
+	const series = getQuickSpecsNames("series")
+	const voltage = getQuickSpecsNames("voltage")
+	const cri = getQuickSpecsNames("cri")
+	const wattage = getQuickSpecsNames("wattage")
+	const lumens = getQuickSpecsNames("lumens")
+	const maxRun = getQuickSpecsNames("maxRun")
+	const cuttable = getQuickSpecsNames("cuttable")
+	const ipRating = getQuickSpecsNames("ipRating")
+	const dimmable = getQuickSpecsNames("dimmable")
+	const rating = getQuickSpecsNames("rating")
+	const ratedLife = getQuickSpecsNames("ratedLife")
+
+	const handleAllData = () => {
+		console.log("Ariel")
+		const allData = []
+		allproducts.map(product => allData.push(product))
+
+		setQuickSpecsData(allData)
+	}
+
+	return (
+		<Layout location={location} title={title}>
+			<SEO title={ctgry.title} description={description} />
+			<LazyLoadComponent>
+				<PrizmCarousel slider={ctgry.slider} />
+			</LazyLoadComponent>
+			<div className="py-10">
+				<div className="container">
+					<div className="row justify-content-between">
+						{/* sticky sidebar */}
+						<div className="col-md-3">
+							<div className="category-sidebar">
+								<div className="sticky-top">
+									<div>
+										<span className="small text-uppercase font-weight-bold text-muted d-block">
+											Category
+										</span>
+										<h3 className="text-transform-capitalize">{ctgry.title}</h3>
+										<span
+											className="subcategory"
+											onClick={() => handleAllData()}
+											style={{ cursor: "pointer", fontSize: "12px" }}
+										>
+											Clear Filter
+										</span>
+									</div>
+									<div id="menu-top" className="pt-4" />
+									<div className="category-accordion-wrapper">
+										<Accordion>
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="1"
+														className="accordion-label"
+													>
+														Series
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="1">
+													<Card.Body>
+														{series &&
+															series.map(value => (
+																<CheckBox
+																	value={value}
+																	key={value}
+																	handleData={handleSeries}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="2"
+														className="accordion-label"
+													>
+														Input Voltage
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="2">
+													<Card.Body>
+														{voltage &&
+															voltage.map(voltage => (
+																<CheckBox
+																	value={voltage}
+																	key={voltage}
+																	handleData={handleVoltage}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="3"
+														className="accordion-label"
+													>
+														CRI
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="3">
+													<Card.Body>
+														{cri &&
+															cri.map(cri => (
+																<CheckBox
+																	value={cri}
+																	key={voltage}
+																	handleData={handleCRI}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="4"
+														className="accordion-label"
+													>
+														Wattage / Foot
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="4">
+													<Card.Body>
+														{wattage &&
+															wattage.map(wattage => (
+																<CheckBox
+																	value={wattage}
+																	key={wattage}
+																	handleData={handleWattage}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="5"
+														className="accordion-label"
+													>
+														Lumens
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="5">
+													<Card.Body>
+														{lumens &&
+															lumens.map(lumen => (
+																<CheckBox
+																	value={lumen}
+																	key={lumen}
+																	handleData={handleLumens}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="6"
+														className="accordion-label"
+													>
+														Max Run
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="6">
+													<Card.Body>
+														{maxRun &&
+															maxRun.map(maxRun => (
+																<CheckBox
+																	value={maxRun}
+																	key={maxRun}
+																	handleData={handleMaxRun}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="7"
+														className="accordion-label"
+													>
+														Cutting Increments
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="7">
+													<Card.Body>
+														{cuttable &&
+															cuttable.map(cutting => (
+																<CheckBox
+																	value={cuttable}
+																	key={cuttable}
+																	handleData={handleCutting}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="8"
+														className="accordion-label"
+													>
+														IP Rating
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="8">
+													<Card.Body>
+														{ipRating &&
+															ipRating.map((ipRating, i) => (
+																<CheckBox
+																	value={ipRating}
+																	key={ipRating + i}
+																	handleData={handleIPRating}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="9"
+														className="accordion-label"
+													>
+														Dimmable
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="9">
+													<Card.Body>
+														{dimmable &&
+															dimmable.map(dimmable => (
+																<CheckBox
+																	value={dimmable}
+																	key={dimmable}
+																	handleData={handleDimmable}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="10"
+														className="accordion-label"
+													>
+														Rating
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="10">
+													<Card.Body>
+														{rating &&
+															rating.map(rating => (
+																<CheckBox
+																	value={rating}
+																	key={rating}
+																	handleData={handleRating}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+
+											<Card>
+												<Card.Header>
+													<Accordion.Toggle
+														as={Button}
+														variant="link"
+														eventKey="11"
+														className="accordion-label"
+													>
+														Rated Life
+													</Accordion.Toggle>
+												</Card.Header>
+												<Accordion.Collapse eventKey="11">
+													<Card.Body>
+														{ratedLife &&
+															ratedLife.map(ratedLife => (
+																<CheckBox
+																	value={ratedLife}
+																	key={ratedLife}
+																	handleData={handleRatedLife}
+																/>
+															))}
+													</Card.Body>
+												</Accordion.Collapse>
+											</Card>
+										</Accordion>
 									</div>
 								</div>
 							</div>
-							<div className="col-md-9">
-								<div id="single-color-tape-light">
-									<div className="row no-gutters">
-										{noDupsProducts.map(prod => (
+						</div>
+						<div className="col-md-9">
+							<div id="single-color-tape-light">
+								<div className="row no-gutters">
+									{quickSpecsData &&
+										quickSpecsData.map(prod => (
 											<div className="col-6 col-md-3" key={prod.id}>
 												<div className="product-item">
 													<Link to={`/${prod.slug.current}`}>
@@ -416,24 +646,21 @@ class CategoryPageTemplate extends React.Component {
 																</h6>
 															</Link>
 															<p className="small text-muted mb-0">
-																{prod.description.length > 120
-																	? prod.description.substring(0, 120) + "..."
-																	: prod.description.substring(0, 120)}
+																{prod.description}
 															</p>
 														</div>
 													</div>
 												</div>
 											</div>
 										))}
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</Layout>
-		)
-	}
+			</div>
+		</Layout>
+	)
 }
 
 export default CategoryPageTemplate
@@ -480,6 +707,19 @@ export const CategoryPageTemplateQuery = graphql`
 					slug {
 						current
 					}
+					quickSpecs {
+						series
+						voltage
+						cri
+						wattage
+						lumens
+						maxRun
+						cuttable
+						ipRating
+						dimmable
+						rating
+						ratedLife
+					}
 					productImage {
 						image {
 							asset {
@@ -491,42 +731,6 @@ export const CategoryPageTemplateQuery = graphql`
 					}
 					alldownload {
 						title
-					}
-					quickSpecs {
-						_key
-						series
-						voltage
-						cct {
-							_key
-							cct
-							color {
-								asset {
-									fluid {
-										src
-									}
-								}
-							}
-						}
-						cri
-						wattage
-						lumens
-						maxRun
-						cuttable
-						ipRating
-						dimmable
-						rating
-						ratedLife
-					}
-					orderingInfo {
-						_key
-						title
-						body
-						limited
-					}
-					accessories {
-						_key
-						itemNumber
-						description
 					}
 					subcategory {
 						title
