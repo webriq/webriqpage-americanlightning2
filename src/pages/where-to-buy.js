@@ -114,7 +114,7 @@ class WhereToBuyPage extends React.Component {
 																		{store.storeName}
 																	</h6>
 																	<p className="small text-muted">
-																		{store.streetAddress}
+																		{store.streetAddress || "N/A"}
 																		<br />
 																		{city.name},{" "}
 																		<span className="text-uppercase">
@@ -122,7 +122,29 @@ class WhereToBuyPage extends React.Component {
 																		</span>{" "}
 																		{store.zipcode}
 																		<br />
-																		PH: {store.phoneNumber}
+																		PH:{" "}
+																		{(
+																			<a
+																				href={`tel:${store.phoneNumber}`}
+																				target="_blank"
+																				rel="noopener noreferrer"
+																			>
+																				{store.phoneNumber}
+																			</a>
+																		) || "N/A"}
+																		<br />
+																		Website:{" "}
+																		{store.website ? (
+																			<a
+																				href={store.website}
+																				target="_blank"
+																				rel="noopener noreferrer"
+																			>
+																				{store.website}
+																			</a>
+																		) : (
+																			"N/A"
+																		)}
 																	</p>
 																</div>
 															))) ||
@@ -163,6 +185,7 @@ export const wheretobuyQuery = graphql`
 							streetAddress
 							storeName
 							phoneNumber
+							website
 						}
 					}
 				}
