@@ -38,33 +38,59 @@ const footer = props => {
 			<div className="footer">
 				<div className="container">
 					<div className="row justify-content-between">
-						<div className="col-md-3 col-lg-2">
-							<h5 className="text-uppercase section-heading">Quick Links</h5>
-							<ul className="list-unstyled footer-links">
-								<li>
-									<Link to="/">Home</Link>
-								</li>
-								<li>
-									<Link to="/about-us">About Us</Link>
-								</li>
-								<li>
-									<Link to="/">Mobile Light Lab</Link>
-								</li>
-								<li>
-									<Link to="/literature-and-media">
-										Catalogs &amp; Materials
-									</Link>
-								</li>
-								<li>
-									<Link to="/literature-and-media/">Literature & Media</Link>
-								</li>
-								<li>
-									<Link to="/where-to-buy">Where to Buy</Link>
-								</li>
-								<li>
-									<Link to="/support">Customer Support</Link>
-								</li>
-							</ul>
+						<div className="col-md-6 col-lg-6">
+							<h5 className="text-uppercase section-heading">Resources</h5>
+							<div className="row">
+								<div className="col-md-6">
+									<ul className="list-unstyled footer-links">
+										<li>
+											<Link to="/">Home</Link>
+										</li>
+										<li>
+											<Link to="/about-us">About Us</Link>
+										</li>
+										<li>
+											<Link to="/">Mobile Light Lab</Link>
+										</li>
+
+										<li>
+											<Link to="/literature-and-media/">
+												Literature & Media
+											</Link>
+										</li>
+										<li>
+											<Link to="/where-to-buy">Where to Buy</Link>
+										</li>
+										<li>
+											<Link to="/support">Customer Support</Link>
+										</li>
+									</ul>
+								</div>
+								<div className="col-md-6">
+									<ul className="list-unstyled footer-links">
+										{/*<li>
+											<Link to="/literature-and-media">
+												Catalogs &amp; Materials
+											</Link>
+										</li>*/}
+										<li>
+											<Link to="/">Company</Link>
+										</li>
+										<li>
+											<Link to="/">Warranties</Link>
+										</li>
+										<li>
+											<Link to="/">Rep Login</Link>
+										</li>
+										<li>
+											<Link to="/">Quick Ship List</Link>
+										</li>
+										<li>
+											<Link to="/">Technical Library</Link>
+										</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 						<div className="col-md-3 col-lg-2">
 							<h5 className="text-uppercase section-heading">Products</h5>
@@ -78,17 +104,7 @@ const footer = props => {
 								))}
 							</ul>
 						</div>
-						<div className="col-md-3 col-lg-2">
-							<h5 className="text-uppercase section-heading">Resources</h5>
-							<ul className="list-unstyled footer-links">
-								<li>
-									<Link to="/">Quick Ship List</Link>
-								</li>
-								<li>
-									<Link to="/">Technical Library</Link>
-								</li>
-							</ul>
-						</div>
+
 						<div className="col-md-3 col-lg-4">
 							<h5 className="text-uppercase section-heading d-inline-block">
 								Connect

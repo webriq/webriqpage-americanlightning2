@@ -39,6 +39,7 @@ class WebriqForm extends React.Component {
 				data-form-id={form_id} // replace with your formID
 				name={form_name}
 				className={form_classname}
+				data-thank-you-url="/thank-you"
 			>
 				{children}
 			</WebriQForm>
