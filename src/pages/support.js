@@ -30,35 +30,39 @@ const SupportPage = () => (
 					>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Name:</label>
-							<input type="name" name="Name" required />
+							<input className="w-100" type="name" name="Name" required />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Email:</label>
-							<input type="email" name="Email" required />
+							<input type="email" className="w-100" name="Email" required />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Number:</label>
-							<input type="phone" name="number" required />
+							<input type="phone" className="w-100" name="number" required />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Company:</label>
-							<input type="name" name="Company" required />
+							<input className="w-100" type="name" name="Company" required />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Street Address</label>
-							<input type="name" name="Street Address" />
+							<input className="w-100" type="name" name="Street Address" />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">City</label>
-							<input type="name" name="City" />
+							<input className="w-100" type="name" name="City" />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Postal Zip</label>
-							<input type="name" name="Postal Zip" />
+							<input className="w-100" type="name" name="Postal Zip" />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">State / Province / Region</label>
-							<input type="name" name="State / Province / Region" />
+							<input
+								className="w-100"
+								type="name"
+								name="State / Province / Region"
+							/>
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Country:</label>
@@ -448,15 +452,15 @@ const SupportPage = () => (
 					>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Name:</label>
-							<input type="name" name="Name" required />
+							<input className="w-100" type="name" name="Name" required />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Email:</label>
-							<input type="email" name="Email" required />
+							<input type="email" className="w-100" name="Email" required />
 						</div>
 						<div className="form-wrap mb-4">
 							<label className="d-block mb-0">Number:</label>
-							<input type="phone" name="number" required />
+							<input type="phone" className="w-100" name="number" required />
 						</div>
 
 						<div className="form-wrap mb-4">
