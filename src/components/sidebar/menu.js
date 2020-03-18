@@ -19,19 +19,19 @@ export default props => {
 				<div className="mt-5">
 					<h6 className="menu-title">Resources</h6>
 					<Nav.Item>
-						<Link to="/literature-and-media/">Literature & Media</Link>
+						<Link to="/literature-and-media">Literature & Media</Link>
 					</Nav.Item>
 					<Nav.Item>
-						<Link to="/where-to-buy/">Where to Buy</Link>
+						<Link to="/where-to-buy">Where to Buy</Link>
 					</Nav.Item>
 					<Nav.Item>
-						<Link to="/">Customer Support</Link>
+						<Link to="/support">Customer Support</Link>
 					</Nav.Item>
 					<Nav.Item>
 						<Link to="/contact">Contact Us</Link>
 					</Nav.Item>
 					<Nav.Item>
-						<Link to="/">Company</Link>
+						<Link to="/about-us">Company</Link>
 					</Nav.Item>
 					<Nav.Item>
 						<Link to="/">Warranties</Link>

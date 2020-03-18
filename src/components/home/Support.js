@@ -58,10 +58,16 @@ class Support extends React.Component {
 											Credit Application
 										</h6>
 										<p>
-											<a href="/">Click here to download</a> this form to apply
-											for a credit line with American Lighting. This form is
-											only processed for an established account upon request or
-											with an order.
+											<a
+												target="_blank"
+												rel="noopener noreferrer"
+												href="https://res.cloudinary.com/dzr4guriw/image/upload/v1584430105/forms/_form_al-creditapplication_rev1605_j265pg.pdf"
+											>
+												Click here to download
+											</a>{" "}
+											this form to apply for a credit line with American
+											Lighting. This form is only processed for an established
+											account upon request or with an order.
 										</p>
 									</li>
 									<li className="pb-3">
@@ -69,8 +75,15 @@ class Support extends React.Component {
 											Credit Card Authorization
 										</h6>
 										<p>
-											<a href="/">Click here to download</a> this form to
-											approve use of your credit card by American Lighting.
+											<a
+												target="_blank"
+												rel="noopener noreferrer"
+												href="https://res.cloudinary.com/dzr4guriw/image/upload/v1584430481/forms/_form_al-cc-authorization_rev1605_mmfxig.pdf"
+											>
+												Click here to download
+											</a>{" "}
+											this form to approve use of your credit card by American
+											Lighting.
 										</p>
 									</li>
 									<li className="pb-3">
