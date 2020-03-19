@@ -18,7 +18,7 @@ const SupportPage = () => (
 		<div className="container py-5">
 			<div className="row">
 				<div className="col-md-6">
-					<h2 className="section-heading">CONTACT US</h2>
+					<h4 className="text-dark">CONTACT US</h4>
 					<p>
 						Like to know more about American Lighting products? Fill out this
 						quick form and a member of our sales team will contact you shortly.
@@ -28,43 +28,43 @@ const SupportPage = () => (
 						form_id="5e71ceaceca8060a7cbdd0d5"
 						name="Customer Support"
 					>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<label className="d-block mb-0">Name:</label>
 							<input className="w-100" type="name" name="Name" required />
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<label className="d-block mb-0">Email:</label>
 							<input type="email" className="w-100" name="Email" required />
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<label className="d-block mb-0">Number:</label>
 							<input type="phone" className="w-100" name="number" required />
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<label className="d-block mb-0">Company:</label>
 							<input className="w-100" type="name" name="Company" required />
 						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">Street Address</label>
+						<div className="form-wrap mb-3">
+							<label className="d-block mb-0">Street Address:</label>
 							<input className="w-100" type="name" name="Street Address" />
 						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">City</label>
+						<div className="form-wrap mb-3">
+							<label className="d-block mb-0">City:</label>
 							<input className="w-100" type="name" name="City" />
 						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">Postal Zip</label>
+						<div className="form-wrap mb-3">
+							<label className="d-block mb-0">Postal Zip:</label>
 							<input className="w-100" type="name" name="Postal Zip" />
 						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">State / Province / Region</label>
+						<div className="form-wrap mb-3">
+							<label className="d-block mb-0">State / Province / Region:</label>
 							<input
 								className="w-100"
 								type="name"
 								name="State / Province / Region"
 							/>
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<label className="d-block mb-0">Country:</label>
 							<select id="country" name="country">
 								<option value="" selected="selected" />
@@ -365,7 +365,7 @@ const SupportPage = () => (
 								<option value="Zimbabwe">Zimbabwe</option>
 							</select>
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<p className="mb-0">Please tell us how we can assist you</p>
 							<div className="d-block">
 								<input
@@ -422,7 +422,7 @@ const SupportPage = () => (
 								</label>
 							</div>
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<label className="d-block mb-0">
 								Please enter any other comments or questions in the box below.
 							</label>
@@ -433,10 +433,10 @@ const SupportPage = () => (
 								name="Please enter any other comments or questions in the box below."
 							/>
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<div className="webriq-recaptcha" />
 						</div>
-						<div className="form-wrap mb-4">
+						<div className="form-wrap mb-3">
 							<button type="submit" className="btn btn-secondary btn-sm">
 								Submit
 							</button>
@@ -444,195 +444,23 @@ const SupportPage = () => (
 					</WebriqForm>
 				</div>
 				<div className="col-md-6">
-					<h2 className="mb-5 section-heading">HOW ARE WE DOING?</h2>
-
-					<WebriqForm
-						form_id="5e71d590bb2ea12c741e822f"
-						name="How are you doing?"
+					<iframe
+						title="Embedded Wufoo Form"
+						id="wufooFormzl6nu8f13tynt9"
+						class="wufoo-form-container"
+						allowtransparency="true"
+						frameborder="0"
+						scrolling="no"
+						style={{ width: "100%", height: "100%", border: "none" }}
+						src="https://soyy.wufoo.com/embed/zl6nu8f13tynt9/def/embedKey=zl6nu8f13tynt9704100&amp;entsource=&amp;referrer="
 					>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">Name:</label>
-							<input className="w-100" type="name" name="Name" required />
-						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">Email:</label>
-							<input type="email" className="w-100" name="Email" required />
-						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">Number:</label>
-							<input type="phone" className="w-100" name="number" required />
-						</div>
-
-						<div className="form-wrap mb-4">
-							<p className="mb-0">Please rate your overall experience:</p>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Please rate your overall experience:"
-									value="1 - Negative"
-									required
-								/>
-								<label className="mb-0 ml-1">1 - Negative</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Please rate your overall experience:"
-									value="2 - Below average"
-									required
-								/>
-								<label className="mb-0 ml-1">2 - Below average</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Please rate your overall experience:"
-									value="3 - Average"
-									required
-								/>
-								<label className="mb-0 ml-1">3 - Average</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Please rate your overall experience:"
-									value="4 - Good"
-									required
-								/>
-								<label className="mb-0 ml-1">4 - Good</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Please rate your overall experience:"
-									value="5 - Exceptional"
-									required
-								/>
-								<label className="mb-0 ml-1">5 - Exceptional</label>
-							</div>
-						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">
-								Which American Lighting representative were you working with?
-							</label>
-							<input
-								type="name"
-								name="Which American Lighting representative were you working with?"
-							/>
-						</div>
-						<div className="form-wrap mb-4">
-							<p className="mb-0">Were they polite and helpful?</p>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Were they polite and helpful?"
-									value="No"
-									required
-								/>
-								<label className="mb-0 ml-1">No</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Were they polite and helpful?"
-									value="Yes"
-									required
-								/>
-								<label className="mb-0 ml-1">Yes</label>
-							</div>
-						</div>
-						<div className="form-wrap mb-4">
-							<p className="mb-0">
-								If placed on hold, did you have a reasonable hold time?
-							</p>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="If placed on hold, did you have a reasonable hold time?"
-									value="No, hold time was excessive"
-									required
-								/>
-								<label className="mb-0 ml-1">No, hold time was excessive</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="If placed on hold, did you have a reasonable hold time?"
-									value="Yes, hold time was reasonable"
-									required
-								/>
-								<label className="mb-0 ml-1">
-									Yes, hold time was reasonable
-								</label>
-							</div>
-						</div>
-						<div className="form-wrap mb-4">
-							<p className="mb-0">
-								Was your issue resolved or your questions completely answered?
-							</p>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Was your issue resolved or your questions completely answered?"
-									value="No"
-									required
-								/>
-								<label className="mb-0 ml-1">No</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="Was your issue resolved or your questions completely answered?"
-									value="Yes"
-									required
-								/>
-								<label className="mb-0 ml-1">Yes</label>
-							</div>
-						</div>
-						<div className="form-wrap mb-4">
-							<p className="mb-0">
-								If your issue was unresolved, would you like someone from
-								American Lighting to contact you?
-							</p>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="If your issue was unresolved, would you like someone from American Lighting to contact you?"
-									value="No"
-									required
-								/>
-								<label className="mb-0 ml-1">No</label>
-							</div>
-							<div className="d-block">
-								<input
-									type="radio"
-									name="If your issue was unresolved, would you like someone from American Lighting to contact you?"
-									value="Yes"
-									required
-								/>
-								<label className="mb-0 ml-1">Yes</label>
-							</div>
-						</div>
-						<div className="form-wrap mb-4">
-							<label className="d-block mb-0">
-								Please write additional comments here:
-							</label>
-							<textarea
-								type="message"
-								rows="4"
-								cols="50"
-								name="Please write additional comments here:"
-							/>
-						</div>
-						<div className="form-wrap mb-4">
-							<div className="webriq-recaptcha" />
-						</div>
-						<div className="form-wrap mb-4">
-							<button type="submit" className="btn btn-secondary btn-sm">
-								Submit
-							</button>
-						</div>
-					</WebriqForm>
+						<a
+							href="https://soyy.wufoo.com/forms/zl6nu8f13tynt9/"
+							title="html form"
+						>
+							Fill out my Wufoo form!
+						</a>
+					</iframe>
 				</div>
 			</div>
 		</div>

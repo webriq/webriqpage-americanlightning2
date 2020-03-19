@@ -19,6 +19,9 @@ export default props => {
 				<div className="mt-5">
 					<h6 className="menu-title">Resources</h6>
 					<Nav.Item>
+						<Link to="/mobile-light-lab/">Mobile Light Lab</Link>
+					</Nav.Item>
+					<Nav.Item>
 						<Link to="/literature-and-media">Literature & Media</Link>
 					</Nav.Item>
 					<Nav.Item>

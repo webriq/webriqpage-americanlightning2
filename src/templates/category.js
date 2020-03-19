@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
-import { Accordion, Card, Button, Form } from "react-bootstrap"
+import { Accordion, Card, Button } from "react-bootstrap"
 //carousel
 import PrizmCarousel from "../components/carousels/categoryCarousels/prizmTapeLight"
 
@@ -14,8 +14,6 @@ const CategoryPageTemplate = ({ data, location }) => {
 	const ctgry = data.sanityCategory
 
 	const allproducts = data.allSanityProduct.edges.map(t => t.node)
-
-	const [quickSpecsName, setQuickSpecsName] = useState(null)
 
 	const initialQuickSpecsData = []
 	allproducts.map(product => initialQuickSpecsData.push(product))
@@ -646,7 +644,9 @@ const CategoryPageTemplate = ({ data, location }) => {
 																</h6>
 															</Link>
 															<p className="small text-muted mb-0">
-																{prod.description}
+																{prod.description.length > 120
+																	? prod.description.substring(0, 120) + "..."
+																	: prod.description.substring(0, 120)}
 															</p>
 														</div>
 													</div>

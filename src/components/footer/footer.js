@@ -50,7 +50,7 @@ const footer = props => {
 											<Link to="/about-us">About Us</Link>
 										</li>
 										<li>
-											<Link to="/">Mobile Light Lab</Link>
+											<Link to="/mobile-light-lab/">Mobile Light Lab</Link>
 										</li>
 
 										<li>
