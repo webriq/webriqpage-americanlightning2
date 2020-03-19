@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 class Support extends React.Component {
@@ -91,10 +92,12 @@ class Support extends React.Component {
 											RGA Request / Price Dispute / Freight Credit
 										</h6>
 										<p>
-											<a href="/">Click here</a> to use our RGA/Price
-											Dispute/Freight Credit form. Please use this form for any
-											pricing issues, freight charges or product that you need
-											to return for credit or replacement.
+											<Link to="/rga-request--price-dispute--freight-credit-form/">
+												Click here
+											</Link>{" "}
+											to use our RGA/Price Dispute/Freight Credit form. Please
+											use this form for any pricing issues, freight charges or
+											product that you need to return for credit or replacement.
 										</p>
 									</li>
 								</ul>
