@@ -320,13 +320,18 @@ const CategoryPageTemplate = ({ data, location }) => {
 											Category
 										</span>
 										<h3 className="text-transform-capitalize">{ctgry.title}</h3>
-										<span
+										<button
 											className="subcategory"
 											onClick={() => handleAllData()}
-											style={{ cursor: "pointer", fontSize: "12px" }}
+											style={{
+												cursor: "pointer",
+												fontSize: "12px",
+												background: "transparent",
+												border: "none",
+											}}
 										>
 											Clear Filter
-										</span>
+										</button>
 									</div>
 									<div id="menu-top" className="pt-4" />
 									<div className="category-accordion-wrapper">
