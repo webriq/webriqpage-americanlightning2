@@ -15,7 +15,7 @@ const SupportPage = () => (
 			</div>
 		</div>
 		<Support />
-		<div className="container py-5">
+		<div className="container py-5" id="supportpage">
 			<div className="row">
 				<div className="col-md-6">
 					<h4 className="text-dark">CONTACT US</h4>
@@ -373,7 +373,7 @@ const SupportPage = () => (
 									name="Please tell us how we can assist you"
 									value="Technical/product support"
 								/>
-								<label className="mb-0 ml-1">Technical/product support</label>
+								<label className="mb-0 ml-2">Technical/product support</label>
 							</div>
 							<div className="d-block">
 								<input
@@ -381,7 +381,7 @@ const SupportPage = () => (
 									name="Please tell us how we can assist you"
 									value="Customer service"
 								/>
-								<label className="mb-0 ml-1">Customer service</label>
+								<label className="mb-0 ml-2">Customer service</label>
 							</div>
 							<div className="d-block">
 								<input
@@ -389,7 +389,7 @@ const SupportPage = () => (
 									name="Please tell us how we can assist you"
 									value="Accounts payable or receivable"
 								/>
-								<label className="mb-0 ml-1">
+								<label className="mb-0 ml-2">
 									Accounts payable or receivable
 								</label>
 							</div>
@@ -399,7 +399,7 @@ const SupportPage = () => (
 									name="Please tell us how we can assist you"
 									value="I would like a sales representative to contact me"
 								/>
-								<label className="mb-0 ml-1">
+								<label className="mb-0 ml-2">
 									I would like a sales representative to contact me
 								</label>
 							</div>
@@ -409,7 +409,7 @@ const SupportPage = () => (
 									name="Please tell us how we can assist you"
 									value="Warranty information"
 								/>
-								<label className="mb-0 ml-1">Warranty information</label>
+								<label className="mb-0 ml-2">Warranty information</label>
 							</div>
 							<div className="d-block">
 								<input
@@ -417,7 +417,7 @@ const SupportPage = () => (
 									name="Please tell us how we can assist you"
 									value="Interested in becoming a distributor"
 								/>
-								<label className="mb-0 ml-1">
+								<label className="mb-0 ml-2">
 									Interested in becoming a distributor
 								</label>
 							</div>
