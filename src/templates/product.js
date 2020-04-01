@@ -8,7 +8,7 @@ import "swiper/css/swiper.css"
 import { Accordion, useAccordionToggle, Card } from "react-bootstrap/"
 import marked from "marked"
 import RelatedItems from "../components/RelatedItems"
-//images
+// images
 import SenikLogo from "../images/senik-logo.svg"
 
 function CustomToggle({ children, eventKey }) {
@@ -377,14 +377,20 @@ class ProductPageSplashTemplate extends React.Component {
 																className="text-center d-inline-block pr-4"
 																key={cct._key}
 															>
-																<img
-																	src={cct.color.asset.fluid.src}
-																	alt={cct.cct}
-																	className="img-fluid"
-																	style={{ maxWidth: 33 }}
-																/>
+																{cct.color &&
+																cct.color.asset &&
+																cct.color.asset.fluid &&
+																cct.color.asset.fluid.src ? (
+																	<img
+																		src={cct.color.asset.fluid.src}
+																		alt={cct.cct}
+																		className="img-fluid"
+																		style={{ maxWidth: 33 }}
+																	/>
+																) : null}
+
 																<span className="d-block font-weight-bold">
-																	{cct.cct}
+																	{cct.cct ? cct.cct : null}
 																</span>
 															</div>
 													  ))
@@ -405,6 +411,11 @@ class ProductPageSplashTemplate extends React.Component {
 	}
 }
 
+// class ProductPageSplashTemplate extends React.Component {
+// 	render() {
+// 		return <h1>test</h1>
+// 	}
+// }
 export default ProductPageSplashTemplate
 
 export const ProductPageSplashTemplateQuery = graphql`
