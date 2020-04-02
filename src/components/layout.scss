@@ -34,6 +34,10 @@ body {
         transform-origin: center left;
         transition: all 0.35s ease-in-out;
       }
+      .header-logo-text {
+        width: 715px;
+        margin-left: 15px;
+      }
       .header-cta {
         margin-top: -3px;
       }
@@ -1144,16 +1148,17 @@ body {
     }
   }
   .svg-map {
-    fill: #d3d3d3;
     stroke: #ffffff;
     stroke-width: 1px;
-    path {
-      outline: none !important;
-      cursor: pointer;
-    }
+  }
+  .svg-map__location {
+    fill: #d6d6d6 !important;
+  }
+  .svg-map__location:hover {
+    opacity: 0.75;
   }
   .svg-map__location[aria-checked="true"] {
-    fill: $primaryColor;
+    fill: $primaryColor !important;
   }
 
   /*** Literature and Media ***/
