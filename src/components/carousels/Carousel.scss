@@ -82,9 +82,13 @@
     background: transparent;
     border: none;
   }
-  .carousel-arrow-left,
-  .carousel-arrow-right {
-    background: rgba(255, 255, 255, 0.15);
+  .carousel-arrows {
+    /*hide*/
+    display: none;
+    /* .carousel-arrow-left,
+    .carousel-arrow-right {
+      background: rgba(255, 255, 255, 0.15);
+    }*/
   }
   .hero-banner {
     position: relative;

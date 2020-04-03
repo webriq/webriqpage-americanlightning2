@@ -50,13 +50,34 @@ const Header = ({ type, categories }) => {
               </div>
               <div className="d-none d-lg-inline-block">
                 <div className="full-header-menu text-center">
-                  {categories.map(cat => (
+                  {/* {categories.map(cat => (
                     <Nav.Item key={cat.node.id}>
                       <Link to={`/${slugify(cat.node.title.toLowerCase())}`}>
                         {cat.node.shortname}
                       </Link>
                     </Nav.Item>
-                  ))}
+                  ))}*/}
+                  <Nav.Item>
+                    <Link to="/downlighting">Downlighting</Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Link to="/task-lighting">Task Lighting</Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Link to="/trulux-lighting">Trulux</Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Link to="/">Spektrum Smart</Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Link to="/accent-lighting">Linear Lighting</Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Link to="/architectural-lighting">Architectural</Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Link to="/">Power Supplies</Link>
+                  </Nav.Item>
                 </div>
               </div>
               <div

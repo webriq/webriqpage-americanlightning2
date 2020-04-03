@@ -2,13 +2,17 @@ import React from "react"
 import { Link } from "gatsby"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-class Support extends React.Component {
+class AmericanLightingUniversity extends React.Component {
 	render() {
 		return (
 			<LazyLoadComponent>
 				<div className="about-section py-10">
 					<div className="container">
-						<div className="row justify-content-around">
+						<h2 className="section-heading text-center">
+							American Lighting University
+						</h2>
+						<p className="text-center font-italic">Coming Soon.</p>
+						{/*<div className="row justify-content-around">
 							<div className="col-lg-4">
 								<h2 className="section-heading">Support</h2>
 								<ul
@@ -97,7 +101,7 @@ class Support extends React.Component {
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div>*/}
 					</div>
 				</div>
 			</LazyLoadComponent>
@@ -105,4 +109,4 @@ class Support extends React.Component {
 	}
 }
 
-export default Support
+export default AmericanLightingUniversity

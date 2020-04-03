@@ -6,7 +6,7 @@ import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 import HeroCarousel from "../components/carousels/homepageCarousel"
-import Support from "../components/home/Support"
+import AmericanLightingUniversity from "../components/home/AmericanLightingUniversity"
 import FeaturedProducts from "../components/home/FeaturedProducts"
 import NewsEvents from "../components/home/NewsEvents"
 
@@ -54,7 +54,7 @@ class IndexPage extends React.Component {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey={3}>
-                <div>Support</div>
+                <div>American Lighting University</div>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
             </Tab.Pane>
             <Tab.Pane eventKey={3}>
               <LazyLoadComponent>
-                <Support />
+                <AmericanLightingUniversity />
               </LazyLoadComponent>
             </Tab.Pane>
           </Tab.Content>

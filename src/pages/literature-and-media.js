@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
-import ProductCatalog from "../components/literature/productCatalog"
 import ModalVideo from "../components/literature/ModalVideo"
 
 class LiteratureAndMedia extends React.Component {
@@ -65,7 +64,6 @@ class LiteratureAndMedia extends React.Component {
 								<Tab.Pane eventKey={1}>
 									<LazyLoadComponent>
 										<h2 class="section-heading">Catalogs</h2>
-										<ProductCatalog />
 									</LazyLoadComponent>
 								</Tab.Pane>
 								<Tab.Pane eventKey={2}>

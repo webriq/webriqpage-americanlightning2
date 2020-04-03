@@ -479,6 +479,10 @@ body {
     padding-bottom: 25px;
     background: url("../images/houselines-right.png") bottom -300px right no-repeat,
       $lightColor;
+
+    h1 {
+      font-weight: 700;
+    }
   }
 
   .page-content {
@@ -871,6 +875,20 @@ body {
         &.active {
           color: $textBody !important;
           border-bottom: 5px solid $primaryColor;
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      display: block;
+      .nav-item {
+        .nav-link {
+          border-bottom: none !important;
+          &.active {
+            border-bottom: none;
+            background: #418fde;
+            color: #ffffff !important;
+          }
         }
       }
     }
