@@ -5,6 +5,41 @@ import { Tab, Nav } from "react-bootstrap"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 import ModalVideo from "../components/literature/ModalVideo"
+import ProductCatalog from "../components/literature/productCatalog"
+
+import AmericanLighting2020 from "../images/catalogs/2020 al cover_-u193120-fr.png"
+import AmericanLighting2019 from "../images/catalogs/american lighting 2019 cover-u184642-fr.png"
+import AmLightProdGuide2019 from "../images/catalogs/american lighting 2019 product guide cover_page_001.jpg"
+import Seasonal2019 from "../images/catalogs/_thumb_al_seasonalcat_2019_cover.jpg"
+import TruluxLighting from "../images/catalogs/_thumb_catalog_trulux.png"
+
+const catalogs = [
+	{
+		thumbnail: AmericanLighting2020,
+		title: "American Lighting 2020 Catalog",
+		url: "/",
+	},
+	{
+		thumbnail: AmericanLighting2019,
+		title: "American Lighting 2020 Catalog",
+		url: "/",
+	},
+	{
+		thumbnail: AmLightProdGuide2019,
+		title: "American Lighting Product Guide 2019",
+		url: "/",
+	},
+	{
+		thumbnail: Seasonal2019,
+		title: "Seasonal 2019 Catalog",
+		url: "/",
+	},
+	{
+		thumbnail: TruluxLighting,
+		title: "Trulux Lighting Systems",
+		url: "/",
+	},
+]
 
 class LiteratureAndMedia extends React.Component {
 	constructor(props, context) {
@@ -63,7 +98,8 @@ class LiteratureAndMedia extends React.Component {
 							<Tab.Content>
 								<Tab.Pane eventKey={1}>
 									<LazyLoadComponent>
-										<h2 class="section-heading">Catalogs</h2>
+										<h2 class="section-heading">Catalogs & Materials</h2>
+										<ProductCatalog catalogs={catalogs} />
 									</LazyLoadComponent>
 								</Tab.Pane>
 								<Tab.Pane eventKey={2}>
