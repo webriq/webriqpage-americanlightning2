@@ -59,9 +59,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             </Results>
           </Index>
         ))}
-        <small>
-          <PoweredBy />
-        </small>
+        <PoweredBy />
       </HitsWrapper>
     </InstantSearch>
   )

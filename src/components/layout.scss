@@ -85,9 +85,10 @@ body {
             form {
               background: #ffffff;
               max-height: 80vh;
-              overflow: scroll;
             }
-
+            .ais-Hits {
+              padding-top: 0 !important;
+            }
             .form-group {
               margin: 0;
               padding: 15px;
