@@ -312,28 +312,42 @@ const CategoryPageTemplate = ({ data, location }) => {
 				<div className="container">
 					<div className="row justify-content-between">
 						{/* sticky sidebar */}
-						<div className="col-md-3">
-							<div className="category-sidebar">
-								<div className="sticky-top">
-									<div>
-										<span className="small text-uppercase font-weight-bold text-muted d-block">
-											Category
-										</span>
-										<h3 className="text-transform-capitalize">{ctgry.title}</h3>
-										<button
-											className="subcategory"
-											onClick={() => handleAllData()}
-											style={{
-												cursor: "pointer",
-												fontSize: "12px",
-												background: "transparent",
-												border: "none",
-											}}
-										>
-											Clear Filter
-										</button>
+						<div className="col-md-4 col-lg-3">
+							<div>
+								{/*<div className="sticky-top">*/}
+								<div className="category-sidebar">
+									<div
+										style={{
+											borderBottom: "1px solid #e1e1e1",
+											paddingBottom: "5px",
+										}}
+									>
+										<div className="d-flex">
+											<div>
+												<h6 className="text-uppercase d-inline-block">
+													{ctgry.title}
+												</h6>
+											</div>
+											<div className="px-2">|</div>
+											<div>
+												<button
+													className="subcategory"
+													onClick={() => handleAllData()}
+													style={{
+														cursor: "pointer",
+														fontSize: "16px",
+														background: "transparent",
+														border: "none",
+														color: "#ff0000",
+														padding: "0",
+														display: "inline-block",
+													}}
+												>
+													Reset
+												</button>
+											</div>
+										</div>
 									</div>
-									<div id="menu-top" className="pt-4" />
 									<div className="category-accordion-wrapper">
 										<Accordion>
 											<Card>
@@ -613,12 +627,12 @@ const CategoryPageTemplate = ({ data, location }) => {
 								</div>
 							</div>
 						</div>
-						<div className="col-md-9">
+						<div className="col-md-8 col-lg-9">
 							<div id="single-color-tape-light">
 								<div className="row no-gutters">
 									{quickSpecsData &&
 										quickSpecsData.map(prod => (
-											<div className="col-6 col-md-3" key={prod.id}>
+											<div className="col-6 col-lg-3" key={prod.id}>
 												<div className="product-item">
 													<Link to={`/${prod.slug.current}`}>
 														<div className="product-image">
