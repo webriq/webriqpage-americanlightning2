@@ -29,7 +29,7 @@ const Blogs = ({ data }) => (
 								<div class="row">
 									<div class="col-md-4">
 										<Link to={blog.node.slug.current}>
-											<div
+											{/*<div
 												class="blog-image h-100"
 												style={{
 													backgroundImage: `url(${
@@ -41,7 +41,7 @@ const Blogs = ({ data }) => (
 													backgroundPosition: "center center",
 													backgroundRepeat: "no-repeat",
 												}}
-											/>
+											/>*/}
 										</Link>
 									</div>
 									<div class="col-md-8">
