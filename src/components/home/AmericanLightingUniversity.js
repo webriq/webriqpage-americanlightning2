@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { LazyLoadComponent } from "react-lazy-load-image-component"
 
 class AmericanLightingUniversity extends React.Component {

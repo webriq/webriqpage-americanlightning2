@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Nav } from "react-bootstrap"
-import slugify from "slugify"
+// import slugify from "slugify"
 export default props => {
 	return (
 		<div className="navigation">

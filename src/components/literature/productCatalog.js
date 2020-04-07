@@ -2,8 +2,6 @@ import React from "react"
 import "swiper/css/swiper.css"
 // import { Tab, Nav } from "react-bootstrap"
 
-import { Accordion, Card, Button } from "react-bootstrap/"
-
 class ProductCatalogs extends React.Component {
 	render() {
 		return (

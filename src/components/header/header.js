@@ -8,7 +8,7 @@ import LogoText from "../../images/logo-text-only.svg"
 import Search from "../../images/search.svg"
 import SearchBar from "../search"
 import useOutsideClick from "./clickOutside"
-import slugify from "slugify"
+// import slugify from "slugify"
 const searchIndices = [
   { name: `products`, title: `Products`, hitComp: `PostHit` },
 ]
