@@ -36,7 +36,7 @@ class BlogTemplate extends React.Component {
 							<div class="col-md-9">
 								<div
 									dangerouslySetInnerHTML={{
-										__html: marked(post.body),
+										__html: marked((post && post.body) || ""),
 									}}
 								/>
 							</div>
