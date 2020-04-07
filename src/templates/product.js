@@ -68,7 +68,7 @@ function ProductAccordion(props) {
 								</div>
 								<div className="col-8">
 									{specs[0].cct.length !== 0
-										? specs[0].cct.map(cct => (
+										? specs[0].cct.map((cct) => (
 												<li className="d-inline" key={cct._key}>
 													<span>/ </span>
 													{cct.cct}{" "}
@@ -173,7 +173,7 @@ function ProductAccordion(props) {
 								</div>
 							</div>
 
-							{accessories.map(accs => (
+							{accessories.map((accs) => (
 								<div className="row" key={accs._key}>
 									<div className="col-4">
 										<strong>{accs.itemNumber}</strong>
@@ -193,7 +193,7 @@ function ProductAccordion(props) {
 					</Card.Header>
 					<Accordion.Collapse eventKey="order">
 						<Card.Body>
-							{order.map(ord => (
+							{order.map((ord) => (
 								<div className="row" key={ord._key}>
 									<div className="col-md-12">
 										<span className="font-weight-bold text-uppercase text-muted">
@@ -202,7 +202,9 @@ function ProductAccordion(props) {
 									</div>
 									<div
 										className="col-md-12"
-										dangerouslySetInnerHTML={{ __html: marked(ord.body) }}
+										dangerouslySetInnerHTML={{
+											__html: marked((ord && ord.body) || ""),
+										}}
 									/>
 								</div>
 							))}
@@ -217,13 +219,13 @@ function ProductAccordion(props) {
 					</Card.Header>
 					<Accordion.Collapse eventKey="alldownload">
 						<Card.Body>
-							{alldownload.map(dwnld => (
+							{alldownload.map((dwnld) => (
 								<div className="row" key={dwnld._key}>
 									<div className="col-md-12">
 										<span className="font-weight-bold text-uppercase text-muted">
 											{dwnld.title}
 										</span>
-										{dwnld.pdfinfo.map(info => (
+										{dwnld.pdfinfo.map((info) => (
 											<div className="row" key={info._key}>
 												<div className="col-12">
 													{info.file ? (
@@ -254,7 +256,7 @@ function ProductAccordion(props) {
 					</Card.Header>
 					<Accordion.Collapse eventKey="videos">
 						<Card.Body>
-							{video.map(vid => (
+							{video.map((vid) => (
 								<div className="row" key={vid._key}>
 									<div className="col-md-12">
 										<span className="font-weight-bold text-uppercase text-muted">
@@ -280,7 +282,7 @@ function ProductAccordion(props) {
 class ProductPageSplashTemplate extends React.Component {
 	render() {
 		const siteDescription = "description"
-		const products = this.props.data.allSanityProduct.edges.map(t => t.node)
+		const products = this.props.data.allSanityProduct.edges.map((t) => t.node)
 		const carousel = {
 			slidesPerView: 1,
 			spaceBetween: 0,
@@ -315,7 +317,7 @@ class ProductPageSplashTemplate extends React.Component {
 							<div className="col-9">
 								<LazyLoadComponent>
 									<Swiper {...carousel}>
-										{product.productImage.map(prdctImg => (
+										{product.productImage.map((prdctImg) => (
 											<div
 												className="product-carousel-slide"
 												key={prdctImg._key}
@@ -347,7 +349,7 @@ class ProductPageSplashTemplate extends React.Component {
 								{product.productDetails ? (
 									<div
 										dangerouslySetInnerHTML={{
-											__html: marked(product.productDetails),
+											__html: marked((product && product.productDetails) || ""),
 										}}
 									/>
 								) : null}
@@ -372,7 +374,7 @@ class ProductPageSplashTemplate extends React.Component {
 													CCT & Color Options
 												</h6>
 												{product.quickSpecs[0].cct.length !== 0
-													? product.quickSpecs[0].cct.map(cct => (
+													? product.quickSpecs[0].cct.map((cct) => (
 															<div
 																className="text-center d-inline-block pr-4"
 																key={cct._key}
