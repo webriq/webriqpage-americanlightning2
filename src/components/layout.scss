@@ -61,16 +61,15 @@ body {
         }
         .search-field {
           position: relative;
+
           .search-form-wrapper {
             position: absolute;
             right: -15px;
             top: 65px;
-            width: 300px;
             border: 1px solid $borderColor;
             box-shadow: 0 0.5rem 1rem rgba(8, 28, 39, 0.15);
-            height: 80vh;
-            overflow: hidden;
-
+            /* height: 80vh;
+            overflow: hidden;*/
             &:before {
               content: "";
               position: absolute;
@@ -140,6 +139,14 @@ body {
               .form-control {
                 height: 35px;
               }
+            }
+
+            /*adjust width of search-form-wrapper for responsiveness*/
+            @media (max-width: 767px) {
+              width: 200px;
+            }
+            @media (min-width: 768px) {
+              width: 300px;
             }
           }
         }
@@ -219,6 +226,10 @@ body {
       .bm-burger-button,
       .header-search {
         filter: none !important;
+      }
+      /*do not show "Search" text when search icon is hovered*/
+      .search-icon:hover:before {
+        opacity: 0 !important;
       }
     }
   }
