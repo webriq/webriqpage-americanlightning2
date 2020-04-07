@@ -50,7 +50,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
       <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
         {indices.map(({ name, title, hitComp }) => (
           <Index key={name} indexName={name}>
-            <header>
+            <header className="text-muted font-weight-bold small text-uppercase pt-2">
               {/* <h3>{title}</h3>*/}
               <Stats />
             </header>

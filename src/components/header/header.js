@@ -98,7 +98,7 @@ const Header = ({ type, categories }) => {
                         <div className="search-form-wrapper">
                           <form ref={ref}>
                             <div className="form-group">
-                              <div className="fixed-search text-left py-5">
+                              <div className="fixed-search text-left">
                                 <SearchBar collapse indices={searchIndices} />
                               </div>
                             </div>
