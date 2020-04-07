@@ -68,6 +68,8 @@ body {
             width: 300px;
             border: 1px solid $borderColor;
             box-shadow: 0 0.5rem 1rem rgba(8, 28, 39, 0.15);
+            height: 80vh;
+            overflow: hidden;
 
             &:before {
               content: "";
@@ -84,7 +86,6 @@ body {
 
             form {
               background: #ffffff;
-              max-height: 80vh;
             }
             .ais-Hits {
               padding-top: 0 !important;
