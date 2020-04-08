@@ -24,7 +24,7 @@ class ProductCatalogs extends React.Component {
 							<div className="catalog-item">
 								<a href={catalog.url} target="_blank" rel="noopener noreferrer">
 									<img src={catalog.thumbnail} className="img-fluid" alt="" />
-									<p className="text-uppercase mt-2 small text-body">
+									<p className="text-uppercase mt-3 small text-body">
 										{catalog.title}
 									</p>
 								</a>
