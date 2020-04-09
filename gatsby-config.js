@@ -111,7 +111,7 @@ module.exports = {
         // if you have a private dataset
         token: `sk5ybFcDE6crpliGhhwmhnst3tWfBwdJrNfceMnd13XQ2MouanIVMuItjdetOv3MpQJw710mDgL11Qah5FxCMzMfdzD4l39Lz5tZRB6OkHZGHVyPexn9MZLWVShA0eMDu005fMO949BpSo2jYEDHIk2ryR9wGfK2ErxnC1PVChDm204na2bx`,
         watchMode: true,
-        overlayDrafts: true,
+        overlayDrafts: false,
       },
     },
     // {
