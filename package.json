@@ -76,6 +76,6 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "engines": {
-    "npm": "10.x"
+    "node": "10.x"
   }
 }
